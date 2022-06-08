@@ -9,15 +9,38 @@ div.card {
     width: 400px;
     align-items: center;
     margin: 0 30px;
-    padding: 20px;
 }
 
 hr {             
     background-color: var(--acid);
     opacity: 0.1;
     position: absolute;
-    margin-top: 190px;
+    margin-top: 170px;
     width: 100%;
     height: 175px;
     z-index: 1;
+}
+
+/*Generator Display*/
+div.continue-button-container {
+    margin-top: 50px;
+    text-align: center;
+}
+
+button.continue-button {
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 24px;
+    border: none;
+    background-image: linear-gradient(50deg, var(--acid), var(--green));
+    cursor: pointer;
+    box-shadow: 0.5px 0.5px 2px black;
+    transition-duration: 0.5s;
+    color: black;
+}
+
+button.continue-button:hover {
+    background-image: linear-gradient(-150deg, var(--acid), var(--green));
+    color: white;
 }
