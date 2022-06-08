@@ -1,0 +1,15 @@
+h1.title {
+    color: var(--green);
+    font-size: 48px;
+    text-align: center;
+    width: 100%;
+}
+
+h1.rolling-text, h1.rolling-text-odd {
+    font-size: 32px;
+    white-space: nowrap;
+}
+
+h1.rolling-text-odd {
+    color: var(--steel);
+}
