@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+
+:root{
+  /*Light Mode*/
+  --sapphire : #05668d;
+  --steel : #427aa1;
+  --alice : #ebf2fa;
+  --green : #679436;
+  --acid : #a5be00;
+}
+
+body {
+    font-family: "Source Sans Pro", sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+h1.title {
+    color: var(--green);
+    font-size: 48px;
+    text-align: center;
+    width: 100%;
+}
+
+h1.rolling-text, h1.rolling-text-odd {
+    font-size: 32px;
+    white-space: nowrap;
+}
+
+h1.rolling-text-odd {
+    color: var(--steel);
+}
+
+div.card {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    align-items: center;
+    margin: 0 30px;
+    padding: 20px;
+}
+
