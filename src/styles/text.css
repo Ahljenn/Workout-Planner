@@ -1,6 +1,6 @@
 /*App component*/
 h1.title {
-    color: var(--green);
+    color: var(--acid);
     font-size: 48px;
     text-align: center;
     text-shadow: 0.5px 0.5px 2px black;

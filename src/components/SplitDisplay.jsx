@@ -11,7 +11,7 @@ export default function SplitDisplay() {
             return(
             <div className="card">
                 <h1 className={index % 2 === 0 ? "rolling-text" : "rolling-text-odd"}>
-                {split.name}
+                  {split.name}
                 </h1>
                 <p className="card-info">
                 {split.info}

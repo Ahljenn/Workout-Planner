@@ -9,3 +9,7 @@
   --green : #679436;
   --acid : #a5be00;
 }
+
+body {
+    overflow: scroll;
+}

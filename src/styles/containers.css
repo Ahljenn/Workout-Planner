@@ -18,13 +18,24 @@ hr {
     margin-top: 170px;
     width: 100%;
     height: 175px;
-    z-index: 1;
+    z-index: -1;
 }
 
 /*Generator Display*/
 div.continue-button-container {
     margin-top: 50px;
     text-align: center;
+}
+
+div.main-display-container {
+    margin-top: 30px;
+
+}
+
+hr.display-hr {
+    background-color: var(--steel);
+    height: 375px;
+    margin-top: 0px;
 }
 
 button.continue-button {
@@ -37,10 +48,12 @@ button.continue-button {
     cursor: pointer;
     box-shadow: 0.5px 0.5px 2px black;
     transition-duration: 0.5s;
-    color: black;
+    color: white;
+    margin-top: 300px;
 }
 
+
 button.continue-button:hover {
-    background-image: linear-gradient(-150deg, var(--acid), var(--green));
-    color: white;
+    background-image: linear-gradient(-200deg, var(--acid), var(--green));
+    text-shadow: 3px 3px var(--steel);
 }
