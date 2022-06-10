@@ -1,31 +1,6 @@
 import React, { useState } from 'react'
 import { splitsInfo } from '../data/workout-data';
 
-function JimWendler(){
-
-    const [weightState, setWeightState] = useState(0);
-    const [repState, setRepState] = useState(0);
-
-    return(
-        <>
-            <div className="input-container">
-                <input
-                type="number"
-                placeholder="Weight (lbs)"
-                onChange={(e) => {
-                    setWeightState(e.target.value);
-                }}/>
-
-                <input
-                type="number"
-                placeholder="Reps"
-                onChange={(e) => {
-                    setRepState(e.target.value);
-                }}/>
-            </div>
-        </>
-    );
-}
 
 //Scrolling right feature, let user pick which day (chest, leg, shoulder, back, more specific)
 //Ask user for split
@@ -42,8 +17,15 @@ export default function GeneratorDisplay() {
         return (
             <>
                 <div className="main-display-container">
-                    <hr className="display-hr"/>
-                {
+
+                <div className="workouts-container">
+                    {/* Put this into an array of objects then map through it */}
+                    <img src="https://cdn3.iconfinder.com/data/icons/workouts/500/back-512.png"/>
+                    <img src="https://library.kissclipart.com/20180916/wbw/kissclipart-exercise-clipart-exercise-fitness-centre-weight-tr-70bd23ec73d5f38a.png"/>
+                    <img src="https://cdn3.iconfinder.com/data/icons/legs-and-glutes-building-exercise-and-muscle-build/325/leg-building-exercises-004-512.png"/>
+                </div>
+
+                {/* {
                     splitsInfo.map((split, index) => {
                         return(
                         <div className="split-selection-container">
@@ -52,7 +34,10 @@ export default function GeneratorDisplay() {
                         </div>
                         )
                     })
-                }
+                } */}
+
+
+
                 </div>
                 <div className="continue-button-container">
                         <button className="continue-button"
@@ -60,7 +45,6 @@ export default function GeneratorDisplay() {
                             See Less
                         </button>
                 </div>
-                <JimWendler />
             </>
         );
     } else {
@@ -72,7 +56,6 @@ export default function GeneratorDisplay() {
                         See More
                     </button>
                 </div>
-                <JimWendler />
             </>
 
         );
