@@ -1,6 +1,35 @@
 import React, { useState } from 'react'
 import { splitsInfo } from '../data/workout-data';
 
+function JimWendler(){
+
+    const [weightState, setWeightState] = useState(0);
+    const [repState, setRepState] = useState(0);
+
+    return(
+        <>
+            <div className="input-container">
+                <input
+                type="number"
+                placeholder="Weight (lbs)"
+                onChange={(e) => {
+                    setWeightState(e.target.value);
+                }}/>
+
+                <input
+                type="number"
+                placeholder="Reps"
+                onChange={(e) => {
+                    setRepState(e.target.value);
+                }}/>
+            </div>
+        </>
+    );
+}
+
+//Scrolling right feature, let user pick which day (chest, leg, shoulder, back, more specific)
+//Ask user for split
+
 export default function GeneratorDisplay() {
 
     const [displayState, setDisplayState] = useState(true);
@@ -30,17 +59,22 @@ export default function GeneratorDisplay() {
                         onClick={handleButtonClick}>
                             See Less
                         </button>
-                    </div>
+                </div>
+                <JimWendler />
             </>
-            );
+        );
     } else {
         return (
-            <div className="continue-button-container">
-                <button className="continue-button"
-                onClick={handleButtonClick}>
-                    See More
-                </button>
-            </div>
+            <>
+                <div className="continue-button-container">
+                    <button className="continue-button-more"
+                    onClick={handleButtonClick}>
+                        See More
+                    </button>
+                </div>
+                <JimWendler />
+            </>
+
         );
     }
 }

@@ -38,7 +38,7 @@ hr.display-hr {
     margin-top: 0px;
 }
 
-button.continue-button {
+button.continue-button, button.continue-button-more {
     padding: 10px 20px 10px 20px;
     border-radius: 10px;
     font-weight: 700;
@@ -52,6 +52,9 @@ button.continue-button {
     margin-top: 300px;
 }
 
+button.continue-button-more {
+    margin-top: 0px;
+}
 
 button.continue-button:hover {
     background-image: linear-gradient(-200deg, var(--acid), var(--green));
