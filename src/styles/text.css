@@ -34,3 +34,8 @@ h2.select-text {
     color: var(--acid);
     font-size: 28px;
 }
+
+/*Jim Wendler*/
+p.rep-text {
+    color: var(--acid);
+}
