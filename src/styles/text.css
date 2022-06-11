@@ -3,7 +3,6 @@ h1.title {
     color: var(--acid);
     font-size: 48px;
     text-align: center;
-    text-shadow: 0.5px 0.5px 2px black;
     width: 100%;
 }
 
@@ -25,13 +24,13 @@ label.split-selection-text {
 }
 
 h2.group-text {
-    color: var(--acid);
+    color: var(--green);
     font-size: 32px;
     font-style: oblique;
 }
 
 h2.select-text {
     text-align: center;
-    color: var(--green);
+    color: var(--acid);
     font-size: 28px;
 }

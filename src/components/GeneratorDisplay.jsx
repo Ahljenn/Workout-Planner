@@ -55,7 +55,15 @@ export default function GeneratorDisplay() {
     if (displayState) {
         return (
             <>
-            <h2 className="select-text">Select a workout group</h2>
+            <div className="continue-container">
+                <h2 className="select-text">Select a workout group</h2>
+                <div>
+                    <button
+                    className="not-selected"
+                    
+                    >Generate</button>
+                </div>
+            </div>
             <ScrollMenu
                 LeftArrow={<div style={{ fontSize: "30px" }}>{" < "}</div>}
                 RightArrow={<div style={{ fontSize: "30px" }}>{" > "}</div>}
