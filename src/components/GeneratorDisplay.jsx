@@ -1,9 +1,42 @@
-import React, { useState } from 'react'
-import { splitsInfo } from '../data/workout-data';
+import React, { useState, useContext } from 'react'
+import * as data from '../data/workout-data';
 
+import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
 
 //Scrolling right feature, let user pick which day (chest, leg, shoulder, back, more specific)
 //Ask user for split
+// https://www.npmjs.com/package/react-horizontal-scrolling-menu
+
+
+function Card(props){
+    //https://codesandbox.io/s/vdr0d?file=/src/index.tsx:193-223
+    const visibility = useContext(VisibilityContext);
+    const visible = visibility.isItemVisible(props.itemId);
+    
+    return (
+      <div
+        role="button"
+        style={{
+          userSelect: "none"
+        }}
+        tabIndex={0}
+        className="display-card"
+      >
+        
+        <div>
+          <div>{props.title}</div>
+          {/* <div style={{ backgroundColor: visible ? "transparent" : "gray" }}>
+            visible: {JSON.stringify(visible)}
+          </div> */}
+        </div>
+
+        <div className="group-card">
+            test
+        </div>
+      </div>
+    );
+  }
+
 
 export default function GeneratorDisplay() {
 
@@ -16,29 +49,20 @@ export default function GeneratorDisplay() {
     if (displayState) {
         return (
             <>
-                <div className="main-display-container">
+            <ScrollMenu
+                LeftArrow={<div style={{ fontSize: "30px" }}>{" < "}</div>}
+                RightArrow={<div style={{ fontSize: "30px" }}>{" > "}</div>}
+            >
+            {data.workoutGroups.map((group, index) => (
+                <Card
+                 title={group.name}
+                 itemId={index}
+                 key={index}
+                />
+            ))}
+            </ScrollMenu>
+        
 
-                <div className="workouts-container">
-                    {/* Put this into an array of objects then map through it */}
-                    <img src="https://cdn3.iconfinder.com/data/icons/workouts/500/back-512.png"/>
-                    <img src="https://library.kissclipart.com/20180916/wbw/kissclipart-exercise-clipart-exercise-fitness-centre-weight-tr-70bd23ec73d5f38a.png"/>
-                    <img src="https://cdn3.iconfinder.com/data/icons/legs-and-glutes-building-exercise-and-muscle-build/325/leg-building-exercises-004-512.png"/>
-                </div>
-
-                {/* {
-                    splitsInfo.map((split, index) => {
-                        return(
-                        <div className="split-selection-container">
-                            <input type="radio" name="wk-split" id={index}/>
-                            <label for={index} className="split-selection-text">{split.name}</label>
-                        </div>
-                        )
-                    })
-                } */}
-
-
-
-                </div>
                 <div className="continue-button-container">
                         <button className="continue-button"
                         onClick={handleButtonClick}>
@@ -51,7 +75,7 @@ export default function GeneratorDisplay() {
         return (
             <>
                 <div className="continue-button-container">
-                    <button className="continue-button-more"
+                    <button className="continue-button"
                     onClick={handleButtonClick}>
                         See More
                     </button>
