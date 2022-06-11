@@ -60,8 +60,8 @@ export default function GeneratorDisplay() {
                 <div>
                     <button
                     className="not-selected"
-                    
-                    >Generate</button>
+                    >
+                    <i class="fas fa-bolt"></i> Generate</button>
                 </div>
             </div>
             <ScrollMenu
@@ -82,7 +82,7 @@ export default function GeneratorDisplay() {
                 <div className="continue-button-container">
                         <button className="continue-button"
                         onClick={handleButtonClick}>
-                            See Less
+                            <i class="fas fa-eye"></i> See Less
                         </button>
                 </div>
             </>
@@ -93,7 +93,7 @@ export default function GeneratorDisplay() {
                 <div className="continue-button-container">
                     <button className="continue-button"
                     onClick={handleButtonClick}>
-                        See More
+                        <i class="far fa-eye"></i> See More
                     </button>
                 </div>
             </>
