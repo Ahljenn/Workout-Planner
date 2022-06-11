@@ -15,7 +15,7 @@ export default function JimWendler() {
     }
 
     useEffect(() => {
-        
+
         let orm = Math.round((Number(weightState) * Number(repState) * 0.0333) + Number(weightState));
         for(let i = 0; i < 10; ++i){
             temp.push(orm * (100 - 3 * i)/ 100);
@@ -25,7 +25,6 @@ export default function JimWendler() {
 
     return(
         <div className="calculator-container">
-            {/* <h1>DEBUG OUTPUT:    {weightState} {repState}</h1> */}
             <h2>One rep max calculator</h2>
             <div className="calculator-interaction">
                 <div className="input-container">
@@ -35,7 +34,8 @@ export default function JimWendler() {
                         value={weightState}
                         placeholder="Weight (in lbs)"
                         onChange={(e) => {
-                            setWeightState(e.target.value);
+                            if(e.target.value <= 3000) setWeightState(e.target.value);
+                            else setWeightState(3000);
                         }}
                         />
                     </div>
@@ -46,13 +46,16 @@ export default function JimWendler() {
                         value={repState}
                         placeholder="Reps (amount)"
                         onChange={(e) => {
-                            setRepState(e.target.value);
+                            if(e.target.value <= 300) setRepState(e.target.value);
+                            else setRepState(300);
                         }}/>
                     </div>
                 </div>
 
                 <div className="reset-container">
-                    <button className="reset-button" onClick={resetFields}>Reset</button>
+                    <button className="reset-button" onClick={resetFields}>
+                    <i class="fas fa-sync"></i> Reset
+                    </button>
                 </div>
             </div>
 
