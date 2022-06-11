@@ -42,7 +42,7 @@ export default function JimWendler() {
                         return(
                             <div className ="output-container">
                                 <p className="rep-text">
-                                    {100 - 3 * index} % of 1RM: {index+1} rep(s): <b>{out} lbs</b>
+                                    {100 - 3 * index} % of 1RM: {index+1} rep(s): <b className="weight">{out} lbs</b>
                                 </p>
                             </div>)
                     }

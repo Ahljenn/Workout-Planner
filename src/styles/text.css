@@ -18,7 +18,6 @@ h1.rolling-text-odd {
 }
 
 /*Generator Display*/
-
 label.split-selection-text {
     font-size: 20px;
 }
@@ -37,5 +36,9 @@ h2.select-text {
 
 /*Jim Wendler*/
 p.rep-text {
-    color: var(--acid);
+    color: var(--green);
+}
+
+b.weight {
+    color: var(--steel);
 }

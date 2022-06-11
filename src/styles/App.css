@@ -1,5 +1,7 @@
 @import url('text.css');
 @import url('containers.css');
+@import url('interactions.css');
+
 
 :root{
   /*Light Mode*/
