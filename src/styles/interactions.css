@@ -55,4 +55,3 @@ input[type=number] {
 input[type=number]:focus {
     border: 3px solid var(--acid);
 }
-

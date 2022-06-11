@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
 export default function JimWendler() {
+    //Component to handle the 5/3/1 one rep max calculator
+        
     const [weightState, setWeightState] = useState("");
     const [repState, setRepState] = useState("");
     const [estimate, setEstimate] = useState([]);
@@ -13,7 +15,8 @@ export default function JimWendler() {
     }
 
     useEffect(() => {
-        let orm = Math.round((weightState * repState * 0.0333) + weightState);
+        
+        let orm = Math.round((Number(weightState) * Number(repState) * 0.0333) + Number(weightState));
         for(let i = 0; i < 10; ++i){
             temp.push(orm * (100 - 3 * i)/ 100);
         }
@@ -21,9 +24,8 @@ export default function JimWendler() {
     }, [weightState, repState])
 
     return(
-        // https://stackoverflow.com/questions/52409837/how-can-i-use-a-placeholder-with-a-number-input-in-react
         <div className="calculator-container">
-            <h1>DEBUG OUTPUT:    {weightState} {repState}</h1>
+            {/* <h1>DEBUG OUTPUT:    {weightState} {repState}</h1> */}
             <h2>One rep max calculator</h2>
             <div className="calculator-interaction">
                 <div className="input-container">
@@ -33,7 +35,7 @@ export default function JimWendler() {
                         value={weightState}
                         placeholder="Weight (in lbs)"
                         onChange={(e) => {
-                            setWeightState(Number(e.target.value));
+                            setWeightState(e.target.value);
                         }}
                         />
                     </div>
@@ -44,7 +46,7 @@ export default function JimWendler() {
                         value={repState}
                         placeholder="Reps (amount)"
                         onChange={(e) => {
-                            setRepState(Number(e.target.value));
+                            setRepState(e.target.value);
                         }}/>
                     </div>
                 </div>
@@ -60,7 +62,7 @@ export default function JimWendler() {
                         return(
                             <div className ="output-container">
                                 <p className="rep-text">
-                                    {100 - 3 * index} % of 1RM: {index+1} rep(s): <b className="weight">{out} lbs</b>
+                                    {100 - 3 * index} % of 1 rep max: {index+1} rep(s): <b className="weight">{out} lbs</b>
                                 </p>
                             </div>)
                     }
