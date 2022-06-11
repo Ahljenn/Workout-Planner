@@ -14,14 +14,19 @@ function Card(props){
     const visible = visibility.isItemVisible(props.itemId);
     const groupName = props.title;
     const groupImg = props.img;
+
+
+    const [cardStyle, setStyle] = useState("display-card");
+
     return (
       <div
+        onClick={() => {setStyle(cardStyle == "display-card" ? "display-card-selected" : "display-card")}}
         role="button"
         style={{
           userSelect: "none"
         }}
         tabIndex={0}
-        className="display-card"
+        className={cardStyle}
       >
         
         <div>
@@ -50,6 +55,7 @@ export default function GeneratorDisplay() {
     if (displayState) {
         return (
             <>
+            <h2 className="select-text">Select a workout group</h2>
             <ScrollMenu
                 LeftArrow={<div style={{ fontSize: "30px" }}>{" < "}</div>}
                 RightArrow={<div style={{ fontSize: "30px" }}>{" > "}</div>}

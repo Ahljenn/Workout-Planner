@@ -29,3 +29,9 @@ h2.group-text {
     font-size: 32px;
     font-style: oblique;
 }
+
+h2.select-text {
+    text-align: center;
+    color: var(--green);
+    font-size: 28px;
+}

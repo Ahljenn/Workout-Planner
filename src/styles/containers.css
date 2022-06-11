@@ -61,23 +61,32 @@ img {
     width: 50%;
 }
 
-div.display-card {
+div.display-card, div.display-card-selected {
     border: 10px solid var(--sapphire);
     display: inline-block;
     margin: 0 10px;
+    cursor: pointer;
     text-align: center;
+}
+
+div.display-card-selected {
+    border-color: var(--acid);
 }
 
 div.group-card {
     background-color: var(--steel);
-    opacity: 0.7;
+    opacity: 0.6;
     height: 300px;
 }
 
 div.display-card, div.group-card {
-    width: 400px;
+    width: 200px;
 }
 
 img.inner-card-img{
     margin-top: 30px;
+}
+
+div.react-horizontal-scrolling-menu--scroll-container {
+    justify-content: center;
 }

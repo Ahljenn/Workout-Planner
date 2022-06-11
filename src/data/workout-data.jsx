@@ -29,5 +29,13 @@ export const workoutGroups = [
   {
     "name" : "Leg",
     "img" : "https://cdn2.iconfinder.com/data/icons/warm-up-cool-down-exercise-02/684/leg_stretch_exercise_workout_warm_up-512.png"
+  },
+  {
+    "name" : "Arms",
+    "img" : "https://cdn3.iconfinder.com/data/icons/workouts/500/bicep-512.png"
+  },
+  {
+    "name" : "Cardio",
+    "img" : "https://cdn2.iconfinder.com/data/icons/fitness-health-and-diet/32/health_fitness_3-512.png"
   }
 ];
