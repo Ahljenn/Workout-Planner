@@ -75,14 +75,19 @@ img.inner-card-img{
 }
 
 /* JIm Wendler */
+div.calculator-estimate-container {
+    background-color: var(--alice);
+    margin: 40px 0px 40px 0px;
+    width: 100%;
+    text-align: center;
+}
+
+
 div.calculator-container {
-    margin-top: 30px;
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
-    margin-bottom: 100px;
-    gap: 20px;
 }
 
 div.input-container {
@@ -90,3 +95,9 @@ div.input-container {
     flex-direction: column;
 }
 
+div.calculator-interaction {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}

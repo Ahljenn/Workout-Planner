@@ -12,7 +12,6 @@ button {
     border: none;
     background-image: linear-gradient(50deg, var(--acid), var(--green));
     cursor: pointer;
-    box-shadow: 0.5px 0.5px 2px black;
     transition-duration: 0.5s;
     color: white;
     margin-top: 10px;
@@ -28,11 +27,22 @@ button.not-selected {
 }
 
 button.not-selected:hover {
-    background-image: linear-gradient(-200deg, var(--sapphire), var(--steel));
+    background-image: linear-gradient(-100deg, var(--sapphire), var(--steel));
     cursor: not-allowed;
 }
 
 /* Jim Wendler */
+button.reset-button {
+    padding: 8px 15px 8px 15px;
+    background-image: linear-gradient(50deg, var(--sapphire), var(--steel));
+    margin-top: 0px;
+    font-size: 18px;
+}
+
+button.reset-button:hover {
+    background-image: linear-gradient(-100deg, var(--sapphire), var(--steel));
+}
+
 input[type=number] {
     box-sizing: border-box;
     width: 300px;
@@ -40,13 +50,9 @@ input[type=number] {
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
-  }
-  
-  input[type=number]:focus {
+}
+
+input[type=number]:focus {
     border: 3px solid var(--acid);
-  }
-  
-  select {
-    background-color: (--acid);
-    font-family: "Roboto", sans-serif;
-  }
+}
+
