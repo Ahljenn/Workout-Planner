@@ -12,7 +12,8 @@ function Card(props){
     //https://codesandbox.io/s/vdr0d?file=/src/index.tsx:193-223
     const visibility = useContext(VisibilityContext);
     const visible = visibility.isItemVisible(props.itemId);
-    
+    const groupName = props.title;
+    const groupImg = props.img;
     return (
       <div
         role="button"
@@ -24,14 +25,14 @@ function Card(props){
       >
         
         <div>
-          <div>{props.title}</div>
+          <h2 className="group-text">{groupName}</h2>
           {/* <div style={{ backgroundColor: visible ? "transparent" : "gray" }}>
             visible: {JSON.stringify(visible)}
           </div> */}
         </div>
 
         <div className="group-card">
-            test
+            <img className="inner-card-img" src={groupImg}/>
         </div>
       </div>
     );
@@ -58,6 +59,7 @@ export default function GeneratorDisplay() {
                  title={group.name}
                  itemId={index}
                  key={index}
+                 img={group.img}
                 />
             ))}
             </ScrollMenu>
