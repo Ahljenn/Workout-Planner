@@ -12,7 +12,8 @@ function Card(props){
 
     const groupName = props.title;
     const groupImg = props.img;
-    const updateButton = props.update;
+    const updateButton = props.updateCount;
+    const count = props.count;
 
     const [cardStyle, setStyle] = useState("display-card");
     
@@ -22,10 +23,10 @@ function Card(props){
         onClick={() => { 
             if(cardStyle === "display-card"){
                 setStyle("display-card-selected");
-                updateButton(true);
+                updateButton(count + 1);
             } else {
                 setStyle("display-card");
-                updateButton(false);
+                updateButton(count - 1);
             }
         }}
         role="button"
@@ -51,7 +52,7 @@ function Card(props){
 export default function GeneratorDisplay() {
 
     const [displayState, setDisplayState] = useState(true);
-    const [generatableState, setGeneratableState] = useState(false);
+    const [groupsSelected, setGroupCount] = useState(0);
 
     function handleButtonClick() {
         setDisplayState(!displayState);
@@ -64,7 +65,8 @@ export default function GeneratorDisplay() {
                 <h2 className="select-text">Select a workout group</h2>
                 <div>
                     <button
-                    className={generatableState ? "selected" : "not-selected"}
+                    className={
+                        groupsSelected > 0 ? "selected" : "not-selected"}
                     >
                     <i class="fas fa-bolt"></i> Generate</button>
                 </div>
@@ -79,7 +81,8 @@ export default function GeneratorDisplay() {
                  itemId={index}
                  key={index}
                  img={group.img}
-                 update={setGeneratableState}
+                 updateCount={setGroupCount}
+                 count={groupsSelected}
                 />
             ))}
             </ScrollMenu>
