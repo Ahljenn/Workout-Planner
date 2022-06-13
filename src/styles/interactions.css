@@ -21,14 +21,23 @@ button:hover {
     background-image: linear-gradient(-200deg, var(--acid), var(--green));
 }
 
+button.selected {
+    background-image: linear-gradient(50deg, var(--sapphire), var(--steel));
+    opacity: 1;
+    cursor: pointer;
+}
+button.selected:hover {
+    background-image: linear-gradient(-100deg, var(--sapphire), var(--steel));
+}
+
 button.not-selected {
     background-image: linear-gradient(50deg, var(--sapphire), var(--steel));
+    cursor: not-allowed;
     opacity: 0.5;
 }
 
 button.not-selected:hover {
     background-image: linear-gradient(-100deg, var(--sapphire), var(--steel));
-    cursor: not-allowed;
 }
 
 /* Jim Wendler */

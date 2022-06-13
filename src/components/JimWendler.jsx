@@ -34,8 +34,8 @@ export default function JimWendler() {
                         value={weightState}
                         placeholder="Weight (in lbs)"
                         onChange={(e) => {
-                            if(e.target.value <= 3000) setWeightState(e.target.value);
-                            else setWeightState(3000);
+                            if(e.target.value <= 10000) setWeightState(e.target.value);
+                            else setWeightState(10000);
                         }}
                         />
                     </div>
@@ -46,8 +46,8 @@ export default function JimWendler() {
                         value={repState}
                         placeholder="Reps (amount)"
                         onChange={(e) => {
-                            if(e.target.value <= 300) setRepState(e.target.value);
-                            else setRepState(300);
+                            if(e.target.value <= 1000) setRepState(e.target.value);
+                            else setRepState(1000);
                         }}/>
                     </div>
                 </div>

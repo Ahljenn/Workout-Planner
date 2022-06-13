@@ -1,26 +1,33 @@
-import React, { useState, useContext } from 'react'
+import React, { useState } from 'react'
 import * as data from '../data/workout-data';
 
-import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
+import { ScrollMenu } from "react-horizontal-scrolling-menu";
 
 //Scrolling right feature, let user pick which day (chest, leg, shoulder, back, more specific)
 //Ask user for split
 // https://www.npmjs.com/package/react-horizontal-scrolling-menu
 
-
 function Card(props){
     //https://codesandbox.io/s/vdr0d?file=/src/index.tsx:193-223
-    const visibility = useContext(VisibilityContext);
-    const visible = visibility.isItemVisible(props.itemId);
+
     const groupName = props.title;
     const groupImg = props.img;
-
+    const updateButton = props.update;
 
     const [cardStyle, setStyle] = useState("display-card");
+    
 
     return (
       <div
-        onClick={() => {setStyle(cardStyle == "display-card" ? "display-card-selected" : "display-card")}}
+        onClick={() => { 
+            if(cardStyle === "display-card"){
+                setStyle("display-card-selected");
+                updateButton(true);
+            } else {
+                setStyle("display-card");
+                updateButton(false);
+            }
+        }}
         role="button"
         style={{
           userSelect: "none"
@@ -31,13 +38,10 @@ function Card(props){
         
         <div>
           <h2 className="group-text">{groupName}</h2>
-          {/* <div style={{ backgroundColor: visible ? "transparent" : "gray" }}>
-            visible: {JSON.stringify(visible)}
-          </div> */}
         </div>
 
         <div className="group-card">
-            <img className="inner-card-img" src={groupImg}/>
+            <img className="inner-card-img" src={groupImg} alt={groupName}/>
         </div>
       </div>
     );
@@ -47,6 +51,7 @@ function Card(props){
 export default function GeneratorDisplay() {
 
     const [displayState, setDisplayState] = useState(true);
+    const [generatableState, setGeneratableState] = useState(false);
 
     function handleButtonClick() {
         setDisplayState(!displayState);
@@ -59,7 +64,7 @@ export default function GeneratorDisplay() {
                 <h2 className="select-text">Select a workout group</h2>
                 <div>
                     <button
-                    className="not-selected"
+                    className={generatableState ? "selected" : "not-selected"}
                     >
                     <i class="fas fa-bolt"></i> Generate</button>
                 </div>
@@ -74,6 +79,7 @@ export default function GeneratorDisplay() {
                  itemId={index}
                  key={index}
                  img={group.img}
+                 update={setGeneratableState}
                 />
             ))}
             </ScrollMenu>
