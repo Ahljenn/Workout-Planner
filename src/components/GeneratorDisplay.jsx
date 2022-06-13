@@ -29,9 +29,11 @@ function Card(props){
             } else {
                 setStyle("display-card");
                 updateButton(count - 1);
-                let index = groupData.indexOf(name);
-                if(index !== - 1) updateGroup(group => [group.splice(index, 1)])
-                console.log(index);
+                updateGroup(groupData.filter(item => item !== groupName))
+                // let index = groupData.indexOf(name);
+                // if(index !== - 1) 
+                //     updateGroup(group => [group.splice(index, 1)])
+                // console.log(index);
             }
         }}
         role="button"
