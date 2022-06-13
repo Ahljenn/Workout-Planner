@@ -6,17 +6,16 @@ export default function JimWendler() {
     const [weightState, setWeightState] = useState("");
     const [repState, setRepState] = useState("");
     const [estimate, setEstimate] = useState([]);
-    let temp = []; //Used to store the estimation calculations
 
     function resetFields(){
-        temp = [];
+        setEstimate([]);
         setWeightState("");
         setRepState("");
     }
 
     useEffect(() => {
-
         let orm = Math.round((Number(weightState) * Number(repState) * 0.0333) + Number(weightState));
+        let temp = []; //Used to store the estimation calculations
         for(let i = 0; i < 10; ++i){
             temp.push(orm * (100 - 3 * i)/ 100);
         }

@@ -15,8 +15,7 @@ function Card(props){
     const updateButton = props.updateCount;
     const updateGroup = props.updateGroup;
     const groupData = props.group;
-    const count = props.count;
-    const name = props.title;
+    const groupCount = props.count;
     const [cardStyle, setStyle] = useState("display-card");
     
     return (
@@ -24,16 +23,12 @@ function Card(props){
         onClick={() => { 
             if(cardStyle === "display-card"){
                 setStyle("display-card-selected");
-                updateButton(count + 1);
-                updateGroup(group => [...group, name]);
+                updateButton(groupCount + 1);
+                updateGroup(group => [...group, groupName]); //Add to the existing group array using spread 
             } else {
                 setStyle("display-card");
-                updateButton(count - 1);
-                updateGroup(groupData.filter(item => item !== groupName))
-                // let index = groupData.indexOf(name);
-                // if(index !== - 1) 
-                //     updateGroup(group => [group.splice(index, 1)])
-                // console.log(index);
+                updateButton(groupCount - 1);
+                updateGroup(groupData.filter(item => item !== groupName)) //Filter out the name that has been unselected
             }
         }}
         role="button"
