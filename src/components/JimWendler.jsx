@@ -54,7 +54,7 @@ export default function JimWendler() {
 
                 <div className="reset-container">
                     <button className="reset-button" onClick={resetFields}>
-                    <i class="fas fa-sync"></i> Reset
+                    <i className="fas fa-sync"></i> Reset
                     </button>
                 </div>
             </div>

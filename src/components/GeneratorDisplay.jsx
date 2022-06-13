@@ -13,20 +13,26 @@ function Card(props){
     const groupName = props.title;
     const groupImg = props.img;
     const updateButton = props.updateCount;
+    const updateGroup = props.updateGroup;
+    const groupData = props.group;
     const count = props.count;
-
+    const name = props.title;
     const [cardStyle, setStyle] = useState("display-card");
     
-
     return (
       <div
         onClick={() => { 
             if(cardStyle === "display-card"){
                 setStyle("display-card-selected");
                 updateButton(count + 1);
+                updateGroup(group => [...group, name]);
             } else {
                 setStyle("display-card");
                 updateButton(count - 1);
+                let index = groupData.indexOf(name);
+                if(index !== - 1)
+                    updateGroup(group => [, group.splice(index, 1)])
+                console.log(index);
             }
         }}
         role="button"
@@ -52,10 +58,20 @@ function Card(props){
 export default function GeneratorDisplay() {
 
     const [displayState, setDisplayState] = useState(true);
-    const [groupsSelected, setGroupCount] = useState(0);
+    const [groupCount, setGroupCount] = useState(0);
+    const [groupSelected, setGroupSelected] = useState([]);
 
     function handleButtonClick() {
         setDisplayState(!displayState);
+        setGroupCount(0);
+    }
+
+    function handleGenerateClick(){
+        if(groupCount > 0){
+            console.log(groupSelected)
+        } else {
+            console.error("No group was selected")
+        }
     }
 
     if (displayState) {
@@ -65,10 +81,9 @@ export default function GeneratorDisplay() {
                 <h2 className="select-text">Select a workout group</h2>
                 <div>
                     <button
-                    className={
-                        groupsSelected > 0 ? "selected" : "not-selected"}
-                    >
-                    <i class="fas fa-bolt"></i> Generate</button>
+                    className={groupCount > 0 ? "selected" : "not-selected"}
+                    onClick={handleGenerateClick}>
+                    <i className="fas fa-bolt"></i> Generate</button>
                 </div>
             </div>
             <ScrollMenu
@@ -79,10 +94,11 @@ export default function GeneratorDisplay() {
                 <Card
                  title={group.name}
                  itemId={index}
-                 key={index}
                  img={group.img}
                  updateCount={setGroupCount}
-                 count={groupsSelected}
+                 count={groupCount}
+                 updateGroup={setGroupSelected}
+                 group={groupSelected}
                 />
             ))}
             </ScrollMenu>
@@ -91,7 +107,7 @@ export default function GeneratorDisplay() {
                 <div className="continue-button-container">
                         <button className="continue-button"
                         onClick={handleButtonClick}>
-                            <i class="fas fa-eye"></i> See Less
+                            <i className="fas fa-eye"></i> See Less
                         </button>
                 </div>
             </>
@@ -102,7 +118,7 @@ export default function GeneratorDisplay() {
                 <div className="continue-button-container">
                     <button className="continue-button"
                     onClick={handleButtonClick}>
-                        <i class="far fa-eye"></i> See More
+                        <i className="far fa-eye"></i> See More
                     </button>
                 </div>
             </>
