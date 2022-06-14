@@ -62,8 +62,9 @@ div.display-card-selected {
 }
 
 div.group-card {
-    background-color: var(--steel);
-    opacity: 0.6;
+    /* background-color: var(--steel);
+    opacity: 0.6; */
+    background-color: var(--alice);
     height: 300px;
 }
 
