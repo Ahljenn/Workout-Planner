@@ -99,7 +99,6 @@ export default function GeneratorDisplay() {
             ))}
             </ScrollMenu>
         
-
                 <div className="continue-button-container">
                         <button className="continue-button"
                         onClick={handleButtonClick}>

@@ -37,9 +37,9 @@ img {
     width: 50%;
 }
 
-div.react-horizontal-scrolling-menu--scroll-container {
+/* div.react-horizontal-scrolling-menu--scroll-container {
     justify-content: center;
-}
+} */
 
 div.continue-container {
     display: flex;
@@ -54,6 +54,7 @@ div.display-card, div.display-card-selected {
     margin: 0 10px;
     cursor: pointer;
     text-align: center;
+    transition-duration: 0.5s;
 }
 
 div.display-card-selected {
@@ -74,7 +75,7 @@ img.inner-card-img{
     margin-top: 30px;
 }
 
-/* JIm Wendler */
+/* Jim Wendler */
 div.calculator-estimate-container {
     background-color: var(--alice);
     margin: 40px 0px 40px 0px;
