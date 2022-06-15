@@ -108,7 +108,17 @@ export default function GeneratorDisplay() {
         );
     } else if (displayState === "generated") {
         return (<>
+        {/* Add another component here*/}
         {groupSelected}
+        {groupCount}
+
+
+        
+        <button onClick={ ()=> {
+            handleVisibilityToggle("selecting")
+            setGroupSelected([]);
+            setGroupCount(0);
+        }}>Reselect</button>
         </>)
     } else {
         return (
