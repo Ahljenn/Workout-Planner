@@ -53,24 +53,24 @@ function Card(props){
 
 export default function GeneratorDisplay() {
 
-    const [displayState, setDisplayState] = useState(true);
+    const [displayState, setDisplayState] = useState("selecting");
     const [groupCount, setGroupCount] = useState(0);
     const [groupSelected, setGroupSelected] = useState([]);
 
-    function handleButtonClick() {
-        setDisplayState(!displayState);
+    function handleVisibilityToggle() {
+        setDisplayState(displayState === "selecting" ? "selected" : "selecting");
         setGroupCount(0);
     }
 
     function handleGenerateClick(){
         if(groupCount > 0){
-            console.log(groupSelected)
+            setDisplayState("generated");
         } else {
             console.error("No group was selected")
         }
     }
 
-    if (displayState) {
+    if (displayState === "selecting") {
         return (
             <>
             <div className="continue-container">
@@ -98,21 +98,24 @@ export default function GeneratorDisplay() {
                 />
             ))}
             </ScrollMenu>
-        
                 <div className="continue-button-container">
                         <button className="continue-button"
-                        onClick={handleButtonClick}>
+                        onClick={handleVisibilityToggle}>
                             <i className="fas fa-eye"></i> See Less
                         </button>
                 </div>
             </>
         );
+    } else if (displayState === "generated") {
+        return (<>
+        {groupSelected}
+        </>)
     } else {
         return (
             <>
                 <div className="continue-button-container">
                     <button className="continue-button"
-                    onClick={handleButtonClick}>
+                    onClick={handleVisibilityToggle}>
                         <i className="far fa-eye"></i> See More
                     </button>
                 </div>

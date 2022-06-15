@@ -36,10 +36,10 @@ export const workoutGroups = [
   },
   {
     "name" : "Cardio",
-    "img" : "https://cdn2.iconfinder.com/data/icons/fitness-health-and-diet/32/health_fitness_3-512.png"
+    "img" : "https://icon-library.com/images/cardio-icon/cardio-icon-13.jpg"
   },
   {
     "name" : "Random",
-    "img" : "https://cdn-icons-png.flaticon.com/512/3580/3580329.png"
+    "img" : "https://cdn2.iconfinder.com/data/icons/arrows-set-2/512/14-512.png"
   }
 ];
