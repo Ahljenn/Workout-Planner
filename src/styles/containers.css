@@ -37,9 +37,16 @@ img {
     width: 50%;
 }
 
-/* div.react-horizontal-scrolling-menu--scroll-container {
+div.minute-container {
+    display: flex;
+    gap: 5px;
     justify-content: center;
-} */
+}
+
+div.minute-text-container {
+    width: 100px;
+    white-space: nowrap;
+}
 
 div.continue-container {
     display: flex;
@@ -102,4 +109,11 @@ div.calculator-interaction {
     flex-direction: row;
     align-items: center;
     gap: 20px;
+}
+
+/* Generator */
+div.generated-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

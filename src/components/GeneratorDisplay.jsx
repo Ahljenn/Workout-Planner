@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import * as data from '../data/workout-data';
-
+import Generator from './Generator';
 import { ScrollMenu } from "react-horizontal-scrolling-menu";
 
 //Scrolling right feature, let user pick which day (chest, leg, shoulder, back, more specific)
@@ -56,6 +56,7 @@ export default function GeneratorDisplay() {
     const [displayState, setDisplayState] = useState("selecting");
     const [groupCount, setGroupCount] = useState(0);
     const [groupSelected, setGroupSelected] = useState([]);
+    const [minutes, setMinutes] = useState(60);
 
     function handleVisibilityToggle() {
         setDisplayState(displayState === "selecting" ? "selected" : "selecting");
@@ -70,61 +71,71 @@ export default function GeneratorDisplay() {
         }
     }
 
-    if (displayState === "selecting") {
+    if (displayState === "selecting") { //While using is selecting groups
         return (
             <>
-            <div className="continue-container">
-                <h2 className="select-text">Select a workout group</h2>
-                <div>
-                    <button
-                    className={groupCount > 0 ? "selected" : "not-selected"}
-                    onClick={handleGenerateClick}>
-                    <i className="fas fa-bolt"></i> Generate</button>
+                <div className="continue-container">
+                    <h2 className="select-text">Select a workout group</h2>
+                    <div>
+                        <button
+                        className={groupCount > 0 ? "selected" : "not-selected"}
+                        onClick={handleGenerateClick}>
+                        <i className="fas fa-bolt"></i> Generate</button>
+                    </div>
                 </div>
-            </div>
-            <ScrollMenu
-                // LeftArrow={<div style={{ fontSize: "30px" }}>{" < "}</div>}
-                // RightArrow={<div style={{ fontSize: "30px" }}>{" > "}</div>}
-            >
-            {data.workoutGroups.map((group, index) => (
-                <Card
-                 title={group.name}
-                 itemId={index}
-                 img={group.img}
-                 updateCount={setGroupCount}
-                 count={groupCount}
-                 updateGroup={setGroupSelected}
-                 group={groupSelected}
-                />
-            ))}
-            </ScrollMenu>
-                <div className="continue-button-container">
-                        <button className="continue-button"
+                <ScrollMenu
+                    // LeftArrow={<div style={{ fontSize: "30px" }}>{" < "}</div>}
+                    // RightArrow={<div style={{ fontSize: "30px" }}>{" > "}</div>}
+                >
+                {data.workoutGroups.map((group, index) => (
+                    <Card
+                    title={group.name}
+                    itemId={index}
+                    img={group.img}
+                    updateCount={setGroupCount}
+                    count={groupCount}
+                    updateGroup={setGroupSelected}
+                    group={groupSelected}
+                    />
+                ))}
+                </ScrollMenu>
+
+                <div className="minute-container">
+                    <input 
+                        onChange={(e) => {setMinutes(e.target.value)}}
+                    type="range" 
+                    value={minutes}
+                    min="20" 
+                    max="240"
+                    />
+                    <div className="minute-text-container"><p className="minute-text">{minutes} minutes</p></div>
+                </div>
+
+                <div className="visibility-button-container">
+                        <button className="visibility-button"
                         onClick={handleVisibilityToggle}>
                             <i className="fas fa-eye"></i> See Less
                         </button>
                 </div>
             </>
         );
-    } else if (displayState === "generated") {
-        return (<>
-        {/* Add another component here*/}
-        {groupSelected}
-        {groupCount}
+    } else if (displayState === "generated") { //After user has selected all groups, and generates
+        return (
+            <div className="generated-container">
+                <Generator workouts={groupSelected} count={groupCount} />
 
-
-        
-        <button onClick={ ()=> {
-            handleVisibilityToggle("selecting")
-            setGroupSelected([]);
-            setGroupCount(0);
-        }}>Reselect</button>
-        </>)
-    } else {
+                <button onClick={ ()=> {
+                    handleVisibilityToggle("selecting")
+                    setGroupSelected([]);
+                    setGroupCount(0);
+                }}>Reselect</button>
+            </div>
+        );
+    } else { //If user toggles see more/see less
         return (
             <>
-                <div className="continue-button-container">
-                    <button className="continue-button"
+                <div className="visibility-button-container">
+                    <button className="visibility-button"
                     onClick={handleVisibilityToggle}>
                         <i className="far fa-eye"></i> See More
                     </button>

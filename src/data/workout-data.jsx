@@ -43,3 +43,4 @@ export const workoutGroups = [
     "img" : "https://cdn2.iconfinder.com/data/icons/arrows-set-2/512/14-512.png"
   }
 ];
+
