@@ -107,8 +107,15 @@ export default function GeneratorDisplay() {
                     value={minutes}
                     min="20" 
                     max="240"
+                    step="10"
+                    className="input-minute"
                     />
-                    <div className="minute-text-container"><p className="minute-text">{minutes} minutes</p></div>
+                    <div className="minute-text-container">
+                        <p className="minute-text">
+                            {minutes >= 60 ? Math.floor(minutes / 60) : minutes}
+                            {minutes >= 60 ? ` hours and ${minutes % 60} minute(s)` : " minutes"}
+                        </p>
+                    </div>
                 </div>
 
                 <div className="visibility-button-container">
@@ -122,7 +129,7 @@ export default function GeneratorDisplay() {
     } else if (displayState === "generated") { //After user has selected all groups, and generates
         return (
             <div className="generated-container">
-                <Generator workouts={groupSelected} count={groupCount} />
+                <Generator workouts={groupSelected} count={groupCount} minute={minutes}/>
 
                 <button onClick={ ()=> {
                     handleVisibilityToggle("selecting")

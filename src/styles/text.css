@@ -38,6 +38,7 @@ p.minute-text {
     color: var(--steel);
     font-size: 24px;
     font-weight: 700;
+    font-style: italic;
 }
 
 /*Jim Wendler*/
