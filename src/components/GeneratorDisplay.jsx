@@ -85,8 +85,6 @@ export default function GeneratorDisplay() {
                     </div>
                 </div>
                 <ScrollMenu
-                    // LeftArrow={<div style={{ fontSize: "30px" }}>{" < "}</div>}
-                    // RightArrow={<div style={{ fontSize: "30px" }}>{" > "}</div>}
                 >
                 {data.workoutGroups.map((group, index) => (
                     <Card

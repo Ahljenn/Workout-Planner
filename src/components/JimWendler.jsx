@@ -2,42 +2,20 @@ import React, { useState, useEffect } from 'react'
 import { ScrollMenu } from "react-horizontal-scrolling-menu";
 
 function Card(props){
-
-    const groupName = props.title;
-    const groupImg = props.img;
-    const updateButton = props.updateCount;
-    const updateGroup = props.updateGroup;
-    const groupData = props.group;
-    const groupCount = props.count;
-    const [cardStyle, setStyle] = useState("display-card");
     
+    let index = props.i;
+    let out = props.output;
+
     return (
-      <div
-        onClick={() => { 
-            if(cardStyle === "display-card"){
-                setStyle("display-card-selected");
-                updateButton(groupCount + 1);
-                updateGroup(group => [...group, groupName]); //Add to the existing group array using spread 
-            } else {
-                setStyle("display-card");
-                updateButton(groupCount - 1);
-                updateGroup(groupData.filter(item => item !== groupName)) //Filter out the name that has been unselected
-            }
-        }}
-        role="button"
-        style={{
-          userSelect: "none"
-        }}
-        tabIndex={0}
-        className={cardStyle}
-      >
-        
+        <div className="display-card-calc">
         <div>
-          <h2 className="group-text">{groupName}</h2>
+          <h2 className="group-text-calc">{index == 0 ? `${index + 1} Repitition` : `${index + 1} Repititions`}</h2>
         </div>
 
-        <div className="group-card">
-            <img className="inner-card-img" src={groupImg} alt={groupName}/>
+        <div className="group-card-calc">
+            <p className="rep-text">
+                {100 - 3 * index} % of 1 rep max: {index+1} rep(s): <b className="weight">{out} lbs</b>
+            </p>
         </div>
       </div>
     );
@@ -66,8 +44,9 @@ export default function JimWendler() {
     }, [weightState, repState])
 
     return(
+        <>
         <div className="calculator-container">
-            <h2>One rep max calculator</h2>
+            <h2 className="calc-title-text">One rep max calculator</h2>
             <div className="calculator-interaction">
                 <div className="input-container">
                     <div>
@@ -100,19 +79,19 @@ export default function JimWendler() {
                     </button>
                 </div>
             </div>
-
-            <div className="calculator-estimate-container">
+        </div>
+        <ScrollMenu>
                 {estimate.map((out, index) => {
                     if( repState > 0 && weightState > 0){
                         return(
-                            <div className ="output-container">
-                                <p className="rep-text">
-                                    {100 - 3 * index} % of 1 rep max: {index+1} rep(s): <b className="weight">{out} lbs</b>
-                                </p>
-                            </div>)
+                            <Card
+                            i={index}
+                            output={out}
+                            />
+                            )
                     }
                 })} 
-            </div>
-        </div>
+            </ScrollMenu>
+        </>
     );
 }

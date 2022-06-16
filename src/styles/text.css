@@ -54,9 +54,20 @@ p.minute-text {
 p.rep-text {
     color: var(--green);
     animation: 2.5s ease-out 0s 1 estimateAnimation;
-    font-size: 22px;
+    font-size: 24px;
+}
+
+h2.calc-title-text{
+    font-size: 32px;
+    color: var(--green);
 }
 
 b.weight {
     color: var(--steel);
+    font-size: 28px;
+}
+
+h2.group-text-calc {
+    color: var(--steel);
+    font-size: 28px;
 }

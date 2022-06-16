@@ -103,7 +103,6 @@ div.calculator-estimate-container {
     margin: 40px 0px 40px 0px;
     width: 100%;
     text-align: center;
-    animation: 5.5s ease-out 0s 1 fadeIn;
 }
 
 div.calculator-container {
@@ -112,6 +111,7 @@ div.calculator-container {
     width: 100%;
     align-items: center;
     background-color: var(--alice);
+    padding-bottom: 40px;
     margin-top: 20px;
 }
 
@@ -126,6 +126,22 @@ div.calculator-interaction {
     flex-direction: row;
     align-items: center;
     gap: 20px;
+}
+
+div.display-card-calc {
+    border: 10px solid var(--green);
+    display: inline-block;
+    margin: 0 10px;
+    text-align: center;
+    animation: 1.5s ease-out 0s 1 fadeIn;
+}
+
+div.group-card-calc {
+    /* background-color: var(--steel);
+    opacity: 0.6; */
+    background-color: var(--alice);
+    height: 150px;
+    width: 320px;
 }
 
 /* Generator */
