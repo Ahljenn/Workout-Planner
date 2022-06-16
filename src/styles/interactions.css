@@ -28,7 +28,7 @@ button.selected {
     cursor: pointer;
 }
 button.selected:hover {
-    background-image: linear-gradient(-120deg, var(--acid), var(--green));
+    background-image: linear-gradient(-220deg, var(--acid), var(--green));
     /* background-image: linear-gradient(-100deg, var(--sapphire), var(--steel)); */
 }
 
@@ -69,7 +69,7 @@ input[type="range"] {
  /***** Chrome, Safari, Opera and Edge Chromium styles *****/
  /* slider track */
  input[type="range"]::-webkit-slider-runnable-track {
-    background-color: var(--acid);
+    background-image: linear-gradient(-100deg, var(--acid), var(--green));
     border-radius: 0.5rem;
     height: 0.5rem;  
  }

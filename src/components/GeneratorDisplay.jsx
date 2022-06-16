@@ -102,7 +102,7 @@ export default function GeneratorDisplay() {
 
                 <div className="minute-container">
                     <input 
-                        onChange={(e) => {setMinutes(e.target.value)}}
+                    onChange={(e) => {setMinutes(e.target.value)}}
                     type="range" 
                     value={minutes}
                     min="20" 
@@ -131,7 +131,9 @@ export default function GeneratorDisplay() {
             <div className="generated-container">
                 <Generator workouts={groupSelected} count={groupCount} minute={minutes}/>
 
-                <button onClick={ ()=> {
+                <button 
+                className="visibility-button"
+                onClick={ ()=> {
                     handleVisibilityToggle("selecting")
                     setGroupSelected([]);
                     setGroupCount(0);
@@ -148,7 +150,6 @@ export default function GeneratorDisplay() {
                     </button>
                 </div>
             </>
-
         );
     }
 }
