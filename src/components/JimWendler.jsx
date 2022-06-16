@@ -1,4 +1,47 @@
 import React, { useState, useEffect } from 'react'
+import { ScrollMenu } from "react-horizontal-scrolling-menu";
+
+function Card(props){
+
+    const groupName = props.title;
+    const groupImg = props.img;
+    const updateButton = props.updateCount;
+    const updateGroup = props.updateGroup;
+    const groupData = props.group;
+    const groupCount = props.count;
+    const [cardStyle, setStyle] = useState("display-card");
+    
+    return (
+      <div
+        onClick={() => { 
+            if(cardStyle === "display-card"){
+                setStyle("display-card-selected");
+                updateButton(groupCount + 1);
+                updateGroup(group => [...group, groupName]); //Add to the existing group array using spread 
+            } else {
+                setStyle("display-card");
+                updateButton(groupCount - 1);
+                updateGroup(groupData.filter(item => item !== groupName)) //Filter out the name that has been unselected
+            }
+        }}
+        role="button"
+        style={{
+          userSelect: "none"
+        }}
+        tabIndex={0}
+        className={cardStyle}
+      >
+        
+        <div>
+          <h2 className="group-text">{groupName}</h2>
+        </div>
+
+        <div className="group-card">
+            <img className="inner-card-img" src={groupImg} alt={groupName}/>
+        </div>
+      </div>
+    );
+  }
 
 export default function JimWendler() {
     //Component to handle the 5/3/1 one rep max calculator

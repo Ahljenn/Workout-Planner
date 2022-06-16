@@ -54,6 +54,7 @@ p.minute-text {
 p.rep-text {
     color: var(--green);
     animation: 2.5s ease-out 0s 1 estimateAnimation;
+    font-size: 22px;
 }
 
 b.weight {

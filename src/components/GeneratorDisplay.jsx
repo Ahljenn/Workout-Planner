@@ -60,6 +60,7 @@ export default function GeneratorDisplay() {
 
     function handleVisibilityToggle() {
         setDisplayState(displayState === "selecting" ? "selected" : "selecting");
+        setGroupSelected([]);
         setGroupCount(0);
     }
 

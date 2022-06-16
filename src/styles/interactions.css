@@ -94,10 +94,8 @@ input.input-minute {
 
 /* Jim Wendler */
 button.reset-button {
-    padding: 8px 15px 8px 15px;
     background-image: linear-gradient(50deg, var(--sapphire), var(--steel));
     margin-top: 0px;
-    font-size: 18px;
 }
 
 button.reset-button:hover {
@@ -106,11 +104,16 @@ button.reset-button:hover {
 
 input[type=number] {
     box-sizing: border-box;
-    width: 300px;
-    border: 3px solid #ccc;
+    width: 400px;
+    border: 5px solid #ccc;
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;
+    height: 50px;
+    font-size: 24px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
 }
 
 input[type=number]:focus {
