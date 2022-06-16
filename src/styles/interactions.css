@@ -107,6 +107,7 @@ input[type=number] {
     width: 400px;
     font-weight: 700;
     border: 5px solid #ccc;
+    color: var(--green);
     -webkit-transition: 0.5s;
     transition: 0.5s;
     outline: none;

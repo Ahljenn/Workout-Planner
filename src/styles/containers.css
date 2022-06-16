@@ -111,8 +111,11 @@ div.calculator-container {
     width: 100%;
     align-items: center;
     background-color: var(--alice);
+    border-top: solid 12px var(--acid);
+    border-bottom: solid 12px var(--acid);
     padding-bottom: 40px;
     margin-top: 20px;
+    margin-bottom: 15px;
 }
 
 div.input-container {
@@ -129,7 +132,7 @@ div.calculator-interaction {
 }
 
 div.display-card-calc {
-    border: 10px solid var(--green);
+    border: 10px solid var(--steel);
     display: inline-block;
     margin: 0 10px;
     text-align: center;
