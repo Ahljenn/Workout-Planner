@@ -113,7 +113,7 @@ export default function GeneratorDisplay() {
                     <div className="minute-text-container">
                         <p className="minute-text">
                             {minutes >= 60 ? Math.floor(minutes / 60) : minutes}
-                            {minutes >= 60 ? ` hours and ${minutes % 60} minute(s)` : " minutes"}
+                            {minutes >= 60 ? ` hours and ${minutes % 60} minutes` : " minutes"}
                         </p>
                     </div>
                 </div>

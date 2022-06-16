@@ -87,11 +87,21 @@ img.inner-card-img{
 }
 
 /* Jim Wendler */
+@keyframes fadeIn{
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
 div.calculator-estimate-container {
     background-color: var(--alice);
     margin: 40px 0px 40px 0px;
     width: 100%;
     text-align: center;
+    animation: 5.5s ease-out 0s 1 fadeIn;
 }
 
 
