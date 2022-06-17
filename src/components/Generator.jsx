@@ -12,11 +12,15 @@ function durstenfeldShuffle(arr) {
     }
 }
 
+function inRange (val, left, right) {
+    return val >= left && val <= right;
+}
+
 function builder(data, time, count) {
+
     durstenfeldShuffle(data);    //Shuffle the data
 
-    //Remove elements depending on the count
-    /*
+    /* Remove elements depending on the count
     10-30 minutes: 3 workouts
     30-40 minutes: 4 workouts
     40-60 minutes: 5 workouts
@@ -27,28 +31,24 @@ function builder(data, time, count) {
     180-240 minutes: 12 workouts, added reps x2
     */
 
-    function inRange (val, left, right) {
-        return val >= left && val <= right;
-    }
-
     if (inRange(time, 20, 30)) {
-        data.splice(0, data.length - 3);
+        data.splice(0, data.length - 3 - count + 1);
     } else if (inRange(time, 31, 40)) {
-        data.splice(0, data.length - 4);
+        data.splice(0, data.length - 4 - count + 1);
     } else if (inRange(time, 41, 60)) {
-        data.splice(0, data.length - 5);
+        data.splice(0, data.length - 5 - count + 1);
     } else if (inRange(time, 61, 90)) {
-        data.splice(0, data.length - 6);
+        data.splice(0, data.length - 7 - count + 1);
     } else if (inRange(time, 91, 120)) {
-        data.splice(0, data.length - 9);
+        data.splice(0, data.length - 9 - count + 1);
     } else if (inRange(time, 121, 160)) {
-        data.splice(0, data.length - 12);
+        data.splice(0, data.length - 12 - count + 1);
     } else if (inRange(time, 161, 180)) {
-        data.splice(0, data.length - 12);
+        data.splice(0, data.length - 12 - count + 1);
     } else if (inRange(time, 181, 240)) {
-        data.splice(0, data.length - 12);
+        data.splice(0, data.length - 12 - count + 1);
     } 
-
+    
     return data;
 }
 
