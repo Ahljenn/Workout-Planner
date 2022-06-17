@@ -1,6 +1,10 @@
 import React, { useState } from 'react'
 import * as data from '../data/workout-data';
 
+const ranges = {
+
+};
+
 function durstenfeldShuffle(arr) {
     for(let i = 0; i < arr.length; ++i){
         let j = Math.floor(Math.random() * (i+1));
@@ -8,11 +12,42 @@ function durstenfeldShuffle(arr) {
     }
 }
 
-function builder(data, count = 0) {
-    //Shuffle the data
-    durstenfeldShuffle(data);
+function builder(data, time, count) {
+    durstenfeldShuffle(data);    //Shuffle the data
 
     //Remove elements depending on the count
+    /*
+    10-30 minutes: 3 workouts
+    30-40 minutes: 4 workouts
+    40-60 minutes: 5 workouts
+    60-90 minutes: 6-7 workouts
+    120 minutes: 8-10 workouts
+    120-160 minutes: 12 workouts
+    160-180 minutes: 12 workouts, added reps
+    180-240 minutes: 12 workouts, added reps x2
+    */
+
+    function inRange (val, left, right) {
+        return val >= left && val <= right;
+    }
+
+    if (inRange(time, 20, 30)) {
+        data.splice(0, data.length - 3);
+    } else if (inRange(time, 31, 40)) {
+        data.splice(0, data.length - 4);
+    } else if (inRange(time, 41, 60)) {
+        data.splice(0, data.length - 5);
+    } else if (inRange(time, 61, 90)) {
+        data.splice(0, data.length - 6);
+    } else if (inRange(time, 91, 120)) {
+        data.splice(0, data.length - 9);
+    } else if (inRange(time, 121, 160)) {
+        data.splice(0, data.length - 12);
+    } else if (inRange(time, 161, 180)) {
+        data.splice(0, data.length - 12);
+    } else if (inRange(time, 181, 240)) {
+        data.splice(0, data.length - 12);
+    } 
 
     return data;
 }
@@ -23,15 +58,19 @@ export default function Generator(props) {
     let tempData = [];
 
     props.groups.forEach((item, index) => {
-        Object.entries(data.workouts[item.toLowerCase()]).forEach((wkoutObj) => {
-        // console.log(wkoutObj[0]);
-        wkoutObj[1].forEach((wkoutItem) => {
-            tempData.push(`${wkoutItem} - ${wkoutObj[0]}`);
-            }) 
-        })
+        if (item !== "Random"){
+            Object.entries(data.workouts[item.toLowerCase()]).forEach((wkoutObj) => {
+                // console.log(wkoutObj[0]);
+                wkoutObj[1].forEach((wkoutItem) => {
+                    tempData.push(`${wkoutItem} - ${wkoutObj[0]}`);
+                    }) 
+                })
+        } else {
+            //Add logic for random later
+        }
     });
 
-    builder(tempData);
+    builder(tempData, props.minute, props.count);
 
     return (
         <>
