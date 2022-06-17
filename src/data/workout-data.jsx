@@ -19,12 +19,12 @@ export const splitsInfo = [
 
 export const workoutGroups = [
   {
-    "name" : "Legs",
-    "img" : "https://cdn2.iconfinder.com/data/icons/warm-up-cool-down-exercise-02/684/leg_stretch_exercise_workout_warm_up-512.png"
-  },
-  {
     "name" : "Chest",
     "img" : "https://library.kissclipart.com/20180916/wbw/kissclipart-exercise-clipart-exercise-fitness-centre-weight-tr-70bd23ec73d5f38a.png"
+  },
+  {
+    "name" : "Legs",
+    "img" : "https://cdn2.iconfinder.com/data/icons/warm-up-cool-down-exercise-02/684/leg_stretch_exercise_workout_warm_up-512.png"
   },
   {
     "name" : "Back",
@@ -114,7 +114,7 @@ const back = {
   ]
 };
 
-const shoulder = {
+const shoulders = {
   weighted : [
   "Barbell overhead press", 
   "Dumbell overhead press", 
@@ -132,7 +132,7 @@ const shoulder = {
 
 //Ab work out logic is different
 const abs = {
-  nonWeighted: [
+  nonWeighted : [
   "Track holds",
   "Flutter kicks",
   "Leg raise",
@@ -148,3 +148,11 @@ const abs = {
   "Planks"
   ]
 };
+
+export const workouts = {
+  chest : chest, 
+  legs : legs, 
+  back : back, 
+  shoulders : shoulders, 
+  abs : abs
+}

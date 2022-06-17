@@ -128,7 +128,7 @@ export default function GeneratorDisplay() {
     } else if (displayState === "generated") { //After user has selected all groups, and generates
         return (
             <div className="generated-container">
-                <Generator workouts={groupSelected} count={groupCount} minute={minutes}/>
+                <Generator groups={groupSelected} count={groupCount} minute={minutes}/>
 
                 <button 
                 className="visibility-button"
