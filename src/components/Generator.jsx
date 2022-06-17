@@ -9,21 +9,22 @@ function builder(name, count){
 export default function Generator(props) {
 
     const [workout, setWorkout] = useState([]);
-    let temp = [];
+    let tempData = [];
 
     props.groups.forEach((item, index) => {
         Object.entries(data.workouts[item.toLowerCase()]).forEach((wkoutObj) => {
+        console.log(wkoutObj[0]);
         wkoutObj[1].forEach((wkoutItem) => {
-            temp.push(wkoutItem);
+            tempData.push(`${wkoutItem} - ${wkoutObj[0]}`);
             }) 
         })
     })
-    
-    console.log(temp);
+
+    console.log(tempData);
     return (
         <>
             {
-            temp.map((item) => {
+            tempData.map((item) => {
                 return <p>{item}</p>
             })
             }

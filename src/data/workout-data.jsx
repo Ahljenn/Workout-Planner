@@ -114,6 +114,33 @@ const back = {
   ]
 };
 
+const arms = {
+  weighted: [
+    "Dumbell curls",
+    "Twisted dumbell curls",
+    "Dumbell hammer curls",
+    "Dumbell isolated curls",
+    "Dumbell seated curls",
+    "Dumbell seated incline curls",
+    "Barbell curls",
+    "Barbell reverse curls",
+    "Cable curls",
+    "Single arm isolated cable curls",
+    "Reverse cable curls",
+    "Machine bicep curls",
+    "Preacher curls",
+
+    "Cable tricep pulldowns",
+    "Single arm isolated cable pulldowns",
+    "Tricep kickbacks",
+    "Single arm isolated tricep kickbacks",
+    "Dumbell tricep press",
+    "Flat dumbell tricep press",
+    "Skullcrushers",
+    "Machine tricep extensions"
+  ]
+}
+
 const shoulders = {
   weighted : [
   "Barbell overhead press", 
@@ -149,10 +176,23 @@ const abs = {
   ]
 };
 
+const cardio = {
+  nonWeighted : [
+    "Stairs",
+    "Jog",
+    "HIIT Sprints",
+    "Bike", 
+    "Swimming", 
+    "Run"
+  ]
+}
+
 export const workouts = {
   chest : chest, 
   legs : legs, 
   back : back, 
+  arms : arms,
   shoulders : shoulders, 
-  abs : abs
+  abdominals : abs,
+  cardio : cardio
 }
