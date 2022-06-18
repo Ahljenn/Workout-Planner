@@ -1,10 +1,6 @@
 import React, { useState } from 'react'
 import * as data from '../data/workout-data';
 
-const ranges = {
-
-};
-
 function durstenfeldShuffle(arr) {
     for(let i = 0; i < arr.length; ++i){
         let j = Math.floor(Math.random() * (i+1));
@@ -51,12 +47,15 @@ function builder(data, time, count) {
 
     //Build reps
     data.forEach((item, index) => {
-        let weighted = item.split("-")[1][1];
-        data[index] = item.split("-")[0]; 
+        let weighted = item.split("/")[1][1];
+        data[index] = {title: item.split("/")[0]}; 
         if (weighted === 'w'){
-            data[index] += " 12 reps x 4 sets";
+            data[index] = {...data[index], reps: "12 reps x 4 sets"};
         }
     });
+
+
+
     return data;
 }
 
@@ -70,7 +69,7 @@ export default function Generator(props) {
             Object.entries(data.workouts[item.toLowerCase()]).forEach((wkoutObj) => {
                 // console.log(wkoutObj[0]);
                 wkoutObj[1].forEach((wkoutItem) => {
-                    tempData.push(`${wkoutItem} - ${wkoutObj[0]}`);
+                    tempData.push(`${wkoutItem} / ${wkoutObj[0]}`);
                     }) 
                 })
         } else {
@@ -79,12 +78,15 @@ export default function Generator(props) {
     });
 
     builder(tempData, props.minute, props.count);
-
+    console.log(tempData);
     return (
         <>
             {
             tempData.map((item) => {
-                return <p>{item}</p>
+                return <div>
+                <p>{item.title}</p>
+                <p>{item.reps}</p>
+                </div>
             })
             }
         </>
