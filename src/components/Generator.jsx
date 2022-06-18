@@ -36,7 +36,7 @@ function builder(data, time, count) {
     } else if (inRange(time, 31, 40)) {
         data.splice(0, data.length - 4 - count + 1);
     } else if (inRange(time, 41, 60)) {
-        data.splice(0, data.length - 5 - count + 1);
+        data.splice(0, data.length - 6 - count + 1);
     } else if (inRange(time, 61, 90)) {
         data.splice(0, data.length - 7 - count + 1);
     } else if (inRange(time, 91, 120)) {
@@ -48,7 +48,15 @@ function builder(data, time, count) {
     } else if (inRange(time, 181, 240)) {
         data.splice(0, data.length - 12 - count + 1);
     } 
-    
+
+    //Build reps
+    data.forEach((item, index) => {
+        let weighted = item.split("-")[1][1];
+        data[index] = item.split("-")[0]; 
+        if (weighted === 'w'){
+            data[index] += " 12 reps x 4 sets";
+        }
+    });
     return data;
 }
 

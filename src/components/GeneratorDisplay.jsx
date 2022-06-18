@@ -76,14 +76,18 @@ export default function GeneratorDisplay() {
         return (
             <>
                 <div className="continue-container">
-                    <h2 className="select-text">Select a workout group</h2>
+
+                    <h2 className="select-text">Select a workout group </h2>
+
                     <div>
                         <button
+                        title="Adding 3 or more workouts may not generate a complete workout if there is not enough time allocated"
                         className={groupCount > 0 ? "selected" : "not-selected"}
                         onClick={handleGenerateClick}>
                         <i className="fas fa-bolt"></i> Generate</button>
                     </div>
                 </div>
+                
                 <ScrollMenu
                 >
                 {data.workoutGroups.map((group, index) => (

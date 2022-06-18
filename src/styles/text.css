@@ -18,6 +18,11 @@ h1.rolling-text-odd {
 }
 
 /*Generator Display*/
+svg.fa-info-circle {
+    color: var(--green);
+    font-size: 28px;
+}
+
 label.split-selection-text {
     font-size: 20px;
 }

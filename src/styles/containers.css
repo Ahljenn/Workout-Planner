@@ -22,9 +22,14 @@ hr {
 }
 
 /*Generator Display*/
+div.generate-container {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+}
+
 div.main-display-container {
     margin-top: 30px;
-
 }
 
 hr.display-hr {
