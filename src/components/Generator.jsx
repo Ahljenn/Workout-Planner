@@ -70,7 +70,7 @@ function builder(data, time, count) {
         } else if (type === 'c') { //Cardio
             const minutes = [10, 15, 20, 30]; //Should add up to provided user minutes
             let randMin = minutes[Math.floor(Math.random() * minutes.length)];
-            data[index] = {...data[index], reps: `${randMin} minutes`};
+            data[index] = {...data[index], minutes: `${randMin} minutes`};
         }
     });
     return data;
@@ -115,6 +115,7 @@ export default function Generator(props) {
                                 {item.title}
                             </h2>
                             <p className="set-text">{item.reps}</p>
+                            <p className="set-text-minutes">{item.minutes}</p>
                         </div>
                     )
                 })

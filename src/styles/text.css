@@ -60,10 +60,14 @@ h2.today {
     animation: 1.5s ease-out 0s 1 fadeInAnimation;
 }
 
-p.set-text {
+p.set-text, p.set-text-minutes {
     color: var(--steel);
     margin-top: 0px;
     font-size: 18px;
+}
+
+p.set-text-minutes {
+    margin-top: -20px;
 }
 
 p.date {
