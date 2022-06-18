@@ -20,35 +20,35 @@ export const splitsInfo = [
 export const workoutGroups = [
   {
     "name" : "Chest",
-    "img" : "https://library.kissclipart.com/20180916/wbw/kissclipart-exercise-clipart-exercise-fitness-centre-weight-tr-70bd23ec73d5f38a.png"
+    "img" : "https://raw.githubusercontent.com/Ahljenn/Workout-Planner/main/public/imgs/chest.png?token=GHSAT0AAAAAABTPFFAJYMXUIUBO3SJLGFYYYVOFDUQ"
   },
   {
     "name" : "Legs",
-    "img" : "https://cdn2.iconfinder.com/data/icons/warm-up-cool-down-exercise-02/684/leg_stretch_exercise_workout_warm_up-512.png"
+    "img" : "https://raw.githubusercontent.com/Ahljenn/Workout-Planner/main/public/imgs/legs.png?token=GHSAT0AAAAAABTPFFAJMFX3REYJZZ4JEHBUYVOFELA"
   },
   {
     "name" : "Back",
-    "img" : "https://cdn3.iconfinder.com/data/icons/workouts/500/back-512.png"
+    "img" : "https://raw.githubusercontent.com/Ahljenn/Workout-Planner/main/public/imgs/back.png?token=GHSAT0AAAAAABTPFFAILUDUWVKYXXI6XXQ6YVOFEWQ"
   },
   {
     "name" : "Arms",
-    "img" : "https://cdn3.iconfinder.com/data/icons/workouts/500/bicep-512.png"
+    "img" : "https://raw.githubusercontent.com/Ahljenn/Workout-Planner/main/public/imgs/arms.png?token=GHSAT0AAAAAABTPFFAJK23M2A65TNWO6APAYVOFE4Q"
   },
   {
     "name" : "Shoulders",
-    "img" : "https://cdn-icons-png.flaticon.com/512/2324/2324729.png"
+    "img" : "https://raw.githubusercontent.com/Ahljenn/Workout-Planner/main/public/imgs/shoulder.png?token=GHSAT0AAAAAABTPFFAIOB43GWQ2RWHWQ4JWYVOFFCQ"
   },
   {
     "name" : "Abdominals",
-    "img" : "https://www.pngmart.com/files/21/6-Pack-Abs-PNG-Pic.png"
+    "img" : "https://raw.githubusercontent.com/Ahljenn/Workout-Planner/main/public/imgs/abs.png?token=GHSAT0AAAAAABTPFFAIWW3F5F6CGPO72O66YVOFDJA"
   },
   {
     "name" : "Cardio",
-    "img" : "https://icon-library.com/images/cardio-icon/cardio-icon-13.jpg"
+    "img" : "https://raw.githubusercontent.com/Ahljenn/Workout-Planner/main/public/imgs/cardio.png?token=GHSAT0AAAAAABTPFFAJCYX37PPKKC373JB6YVOFFJQ"
   },
   {
     "name" : "Random",
-    "img" : "https://cdn2.iconfinder.com/data/icons/arrows-set-2/512/14-512.png"
+    "img" : "https://raw.githubusercontent.com/Ahljenn/Workout-Planner/main/public/imgs/random.png?token=GHSAT0AAAAAABTPFFAJIUBTYAMTGBZPQCNKYVOFFMQ"
   }
 ];
 
