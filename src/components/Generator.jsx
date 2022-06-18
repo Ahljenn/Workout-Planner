@@ -85,8 +85,10 @@ export default function Generator(props) {
             tempData.map((item) => {
                 return(
                     <div className="set-container">
-                    <h2 className="set-title-text">{item.title}</h2>
-                    <p className="set-text">{item.reps}</p>
+                        <h2 className={item.reps === undefined ? "set-title-text-none" : "set-title-text"}>
+                            {item.title}
+                        </h2>
+                        <p className="set-text">{item.reps}</p>
                     </div>
                 )
             })

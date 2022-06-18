@@ -69,17 +69,39 @@ div.set-container {
 }
 
 /*Card*/
+@keyframes animateMovement {
+
+    0%,
+    100% {
+        transform: rotate3d(1, 1, 0, 30deg);
+    }
+
+    25% {
+        transform: rotate3d(-1, 1, 0, -30deg);
+    }
+
+    50% {
+        transform: rotate3d(-1, -1, 0, 20deg);
+    }
+
+    75% {
+        transform: rotate3d(-1, 1, 0, -30deg);
+    }
+}
+
 div.display-card, div.display-card-selected {
     border: 10px solid var(--sapphire);
     display: inline-block;
     margin: 0 10px;
     cursor: pointer;
     text-align: center;
-    transition-duration: 0.5s;
+    transition-duration: 2.5s;
 }
 
 div.display-card-selected {
     border-color: var(--acid);
+    transition-duration: 1.5s;
+    animation: animateMovement 5s infinite;
 }
 
 div.group-card {

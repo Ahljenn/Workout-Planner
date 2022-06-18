@@ -45,20 +45,27 @@ p.minute-text {
     font-style: italic;
 }
 
-h2.set-title-text {
+h2.set-title-text, h2.set-title-text-none {
     font-size: 20px;
     margin-bottom: 0px;
     color: var(--acid);
+    animation: 1.5s ease-out 0s 1 fadeInAnimation;
 }
+
+h2.set-title-text-none {
+    color: var(--green);
+}
+
 
 p.set-text {
     color: var(--steel);
     margin-top: 0px;
     font-size: 18px;
+    animation: 1.5s ease-out 0s 1 fadeInAnimation;
 }
 
 /*Jim Wendler*/
-@keyframes estimateAnimation{
+@keyframes fadeInAnimation{
     0% {
       opacity: 0;
     }
@@ -69,7 +76,7 @@ p.set-text {
 
 p.rep-text {
     color: var(--green);
-    animation: 2.5s ease-out 0s 1 estimateAnimation;
+    animation: 2.5s ease-out 0s 1 fadeInAnimation;
     font-size: 24px;
 }
 
