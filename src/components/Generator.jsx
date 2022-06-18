@@ -51,13 +51,22 @@ function builder(data, time, count) {
 
     //Build reps and sets
     data.forEach((item, index) => {
-        let weighted = item.split("/")[1][1]; //Get string if it is weighted or not - single char
+        let type = item.split("/")[1][1]; //Get string if it is weighted or not - single char
         data[index] = {title: item.split("/")[0]}; //Get name of workout
-        if (weighted === 'w'){
+        if (type === 'w'){ //Weighted
             const reps = [8, 10, 12, 14];
             let randReps = reps[Math.floor(Math.random() * reps.length)];
             let randSets = Math.floor(Math.random() * (5 - 2) + 2);
             data[index] = {...data[index], reps: `${randReps} reps x ${randSets} sets`}; //Add object to same index with title
+        } else if (type === 'n') { //Nonweighted
+            const reps = [10, 30, 60];
+            let randReps = reps[Math.floor(Math.random() * reps.length)];
+            let randSets = Math.floor(Math.random() * (4 - 2) + 2);
+            data[index] = {...data[index], reps: `${randReps} reps x ${randSets} sets`};
+        } else if (type === 'c') { //Cardio
+            const minutes = [10, 15, 20, 30]; //Should add up to provided user minutes
+            let randMin = minutes[Math.floor(Math.random() * minutes.length)];
+            data[index] = {...data[index], reps: `${randMin} minutes`};
         }
     });
 
