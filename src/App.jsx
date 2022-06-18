@@ -2,14 +2,12 @@ import './styles/App.css';
 import SplitDisplay from './components/SplitDisplay';
 import GeneratorDisplay from './components/GeneratorDisplay';
 import JimWendler from './components/JimWendler';
+import Header from './components/Header';
 
 export default function App() {
   return (
     <>
-     <hr/>
-      <header>
-        <h1 className="title">Workout Planner</h1>
-      </header>
+      <Header />
       <SplitDisplay />
       <GeneratorDisplay />
       <JimWendler />

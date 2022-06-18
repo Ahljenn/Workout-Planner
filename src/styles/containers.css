@@ -1,14 +1,20 @@
+/*Header*/
 header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    width: 100%;
 }
 
-div.card {
+div.nav-container {
     display: flex;
-    flex-direction: column;
-    width: 400px;
-    align-items: center;
-    margin: 0 30px;
+    justify-content: flex-end;
+    margin-right: 100px;
+    gap: 20px;
+}
+
+header > div {
+    width: 50%;
 }
 
 hr {             
@@ -21,7 +27,7 @@ hr {
     z-index: -1;
 }
 
-/*Generator Display*/
+/*Generator Display + Generator*/
 span.generated-button-container {
     display: flex;
     flex-direction: row;
@@ -68,18 +74,31 @@ div.continue-container {
     align-items: center;
 }
 
+div.generated-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 div.set-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: var(--alice);
+    /* background-color: var(--alice);
     border-left: 10px solid var(--steel);
-    border-right: 10px solid var(--steel);
-    width: 50%;
+    border-right: 10px solid var(--steel); */
     animation: 1.5s ease-out 0s 1 fadeInAnimation;
 }
 
 /*Card*/
+div.card {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    align-items: center;
+    margin: 0 30px;
+}
+
 @keyframes animateMovement {
 
     0%,
@@ -189,11 +208,4 @@ div.group-card-calc {
     background-color: var(--alice);
     height: 150px;
     width: 320px;
-}
-
-/* Generator */
-div.generated-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }

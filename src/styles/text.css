@@ -16,14 +16,7 @@ h1.rolling-text-odd {
     color: var(--steel);
 }
 
-/*Generator Display*/
-h2.today {
-    font-size: 28px;
-    color: var(--steel);
-    font-weight: 700;
-    font-style: italic;
-    margin-bottom: 0;
-}
+/*Generator Display + Generator*/
 
 svg.fa-info-circle {
     color: var(--green);
@@ -63,6 +56,15 @@ h2.set-title-text-none {
     color: var(--green);
 }
 
+h2.today {
+    font-size: 28px;
+    color: var(--steel);
+    font-weight: 700;
+    font-style: italic;
+    margin-bottom: 0;
+    text-align: center;
+    animation: 1.5s ease-out 0s 1 fadeInAnimation;
+}
 
 p.set-text {
     color: var(--steel);

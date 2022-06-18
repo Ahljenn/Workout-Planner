@@ -139,6 +139,7 @@ export default function GeneratorDisplay() {
                     onClick={ ()=> {
                         handleVisibilityToggle("selecting")
                         setGroupSelected([]);
+                        setMinutes(60);
                         setGroupCount(0);
                     }}><i class="fas fa-undo"></i> Reselect</button>
 

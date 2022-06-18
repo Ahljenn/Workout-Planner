@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import * as data from '../data/workout-data';
 
 function durstenfeldShuffle(arr) {
@@ -14,7 +14,7 @@ function inRange (val, left, right) {
 
 function builder(data, time, count) {
 
-    durstenfeldShuffle(data);    //Shuffle the data
+    durstenfeldShuffle(data); //Shuffle the data
 
     /* Remove elements depending on the count
     10-30 minutes: 3 workouts
@@ -54,16 +54,15 @@ function builder(data, time, count) {
         }
     });
 
-
-
     return data;
 }
 
 export default function Generator(props) {
 
-    const [workout, setWorkout] = useState([]);
     let tempData = [];
 
+    //Go through each workout, accessing them based on their key, then push them to temp data
+    //Info is pushed with their workout and if its weighted or nonweighted
     props.groups.forEach((item, index) => {
         if (item !== "Random"){
             Object.entries(data.workouts[item.toLowerCase()]).forEach((wkoutObj) => {
@@ -76,25 +75,26 @@ export default function Generator(props) {
             //Add logic for random later
         }
     });
-
     builder(tempData, props.minute, props.count);
-    console.log(tempData);
+
+    // console.log(tempData);
     return (
-        <>
-            <h2 className="today">[Today's workout]</h2>
-            {
-            tempData.map((item) => {
-                return(
-                    <div className="set-container">
-                
-                        <h2 className={item.reps === undefined ? "set-title-text-none" : "set-title-text"}>
-                            {item.title}
-                        </h2>
-                        <p className="set-text">{item.reps}</p>
-                    </div>
-                )
-            })
-            }
-        </>
+        <div className="main-generator-display">
+            <div className="todays-workout-container">
+                <h2 className="today">Today's workout</h2>
+                {
+                tempData.map((item) => {
+                    return(
+                        <div className="set-container">
+                            <h2 className={item.reps === undefined ? "set-title-text-none" : "set-title-text"}>
+                                {item.title}
+                            </h2>
+                            <p className="set-text">{item.reps}</p>
+                        </div>
+                    )
+                })
+                }
+            </div>
+        </div>
     )
 }
