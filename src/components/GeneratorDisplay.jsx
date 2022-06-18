@@ -87,7 +87,7 @@ export default function GeneratorDisplay() {
                         <i className="fas fa-bolt"></i> Generate</button>
                     </div>
                 </div>
-                
+
                 <ScrollMenu
                 >
                 {data.workoutGroups.map((group, index) => (
@@ -133,14 +133,25 @@ export default function GeneratorDisplay() {
         return (
             <div className="generated-container">
                 <Generator groups={groupSelected} count={groupCount} minute={minutes}/>
+                <span className="generated-button-container">
+                    <button 
+                    className="visibility-button"
+                    onClick={ ()=> {
+                        handleVisibilityToggle("selecting")
+                        setGroupSelected([]);
+                        setGroupCount(0);
+                    }}><i class="fas fa-undo"></i> Reselect</button>
 
-                <button 
-                className="visibility-button"
-                onClick={ ()=> {
-                    handleVisibilityToggle("selecting")
-                    setGroupSelected([]);
-                    setGroupCount(0);
-                }}>Reselect</button>
+                    <button
+                    className="visibility-button"
+                    onClick={ ()=> {
+                        setGroupSelected([...groupSelected]); //Set to a copy, causes a re-render
+                    }}><i class="fas fa-random"></i> Shuffle</button>
+
+                    <button
+                    className="visibility-button"
+                    ><i class="fas fa-database"></i> Store</button>
+                </span>
             </div>
         );
     } else { //If user toggles see more/see less

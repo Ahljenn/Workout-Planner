@@ -81,10 +81,12 @@ export default function Generator(props) {
     console.log(tempData);
     return (
         <>
+            <h2 className="today">[Today's workout]</h2>
             {
             tempData.map((item) => {
                 return(
                     <div className="set-container">
+                
                         <h2 className={item.reps === undefined ? "set-title-text-none" : "set-title-text"}>
                             {item.title}
                         </h2>
