@@ -1,6 +1,7 @@
 /*Header*/
 button.my-workouts {
     white-space: nowrap;
+    font-size: 20px;
 }
 
 
@@ -125,5 +126,5 @@ input[type=number] {
 }
 
 input[type=number]:focus {
-    border: 3px solid var(--acid);
+    border: 5px solid var(--acid);
 }

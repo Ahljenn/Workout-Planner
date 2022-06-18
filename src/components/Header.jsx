@@ -10,18 +10,23 @@ export default function Header() {
         </div>
 
         <div className="nav-container">
+
             <button 
                 className="my-workouts">
-                <i class="fas fa-sign-in-alt"></i> Sign-in
+                <i class="fas fa-book"></i> Plan
             </button>
 
             <button 
                 className="my-workouts">
-                <i class="fas fa-book"></i> My plan
+                <i class="fas fa-sign-in-alt"></i> Login
+            </button>
+
+            <button 
+                className="my-workouts">
+                <i class="fas fa-user-plus"></i> Sign Up
             </button>
 
         </div>
-
       </header>
     </>
   )
