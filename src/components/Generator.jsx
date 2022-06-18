@@ -1,6 +1,10 @@
 import React from 'react'
 import * as data from '../data/workout-data';
 
+function getTimeShort() { 
+    return new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles", timeZoneName: "short"});
+}
+
 function durstenfeldShuffle(arr) {
     for(let i = 0; i < arr.length; ++i){
         let j = Math.floor(Math.random() * (i+1));
@@ -45,12 +49,15 @@ function builder(data, time, count) {
         data.splice(0, data.length - 12 - count + 1);
     } 
 
-    //Build reps
+    //Build reps and sets
     data.forEach((item, index) => {
-        let weighted = item.split("/")[1][1];
-        data[index] = {title: item.split("/")[0]}; 
+        let weighted = item.split("/")[1][1]; //Get string if it is weighted or not - single char
+        data[index] = {title: item.split("/")[0]}; //Get name of workout
         if (weighted === 'w'){
-            data[index] = {...data[index], reps: "12 reps x 4 sets"};
+            const reps = [8, 10, 12, 14];
+            let randReps = reps[Math.floor(Math.random() * reps.length)];
+            let randSets = Math.floor(Math.random() * (5 - 2) + 2);
+            data[index] = {...data[index], reps: `${randReps} reps x ${randSets} sets`}; //Add object to same index with title
         }
     });
 
@@ -95,6 +102,7 @@ export default function Generator(props) {
                 })
                 }
             </div>
+            <p className="date">{getTimeShort()}</p>
         </div>
     )
 }

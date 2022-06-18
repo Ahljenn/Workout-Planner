@@ -17,12 +17,6 @@ h1.rolling-text-odd {
 }
 
 /*Generator Display + Generator*/
-
-svg.fa-info-circle {
-    color: var(--green);
-    font-size: 28px;
-}
-
 label.split-selection-text {
     font-size: 20px;
 }
@@ -70,6 +64,13 @@ p.set-text {
     color: var(--steel);
     margin-top: 0px;
     font-size: 18px;
+}
+
+p.date {
+    font-size: 14px;
+    text-align: center;
+    color: var(--steel);
+    font-weight: 700;
 }
 
 /*Jim Wendler*/
