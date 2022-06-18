@@ -83,10 +83,12 @@ export default function Generator(props) {
         <>
             {
             tempData.map((item) => {
-                return <div>
-                <p>{item.title}</p>
-                <p>{item.reps}</p>
-                </div>
+                return(
+                    <div className="set-container">
+                    <h2 className="set-title-text">{item.title}</h2>
+                    <p className="set-text">{item.reps}</p>
+                    </div>
+                )
             })
             }
         </>

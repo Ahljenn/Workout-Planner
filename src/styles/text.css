@@ -6,7 +6,6 @@ h1.title {
     width: 100%;
 }
 
-
 /*SplitDisplay Component*/
 h1.rolling-text, h1.rolling-text-odd {
     font-size: 32px;
@@ -44,6 +43,18 @@ p.minute-text {
     font-size: 24px;
     font-weight: 700;
     font-style: italic;
+}
+
+h2.set-title-text {
+    font-size: 20px;
+    margin-bottom: 0px;
+    color: var(--acid);
+}
+
+p.set-text {
+    color: var(--steel);
+    margin-top: 0px;
+    font-size: 18px;
 }
 
 /*Jim Wendler*/
