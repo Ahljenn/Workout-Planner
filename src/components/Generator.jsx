@@ -1,3 +1,4 @@
+import te from 'date-fns/esm/locale/te/index.js';
 import React from 'react'
 import * as data from '../data/workout-data';
 
@@ -31,6 +32,7 @@ function builder(data, time, count) {
     180-240 minutes: 12 workouts, added reps x2
     */
 
+    //Trim array depending on user selection
     if (inRange(time, 20, 30)) {
         data.splice(0, data.length - 3 - count + 1);
     } else if (inRange(time, 31, 40)) {
@@ -55,9 +57,11 @@ function builder(data, time, count) {
         data[index] = {title: item.split("/")[0]}; //Get name of workout
         if (type === 'w'){ //Weighted
             const reps = [8, 10, 12, 14];
+            const difficulty = ["Light", "Medium", "Heavy"];
+            let randDiff = difficulty[Math.floor(Math.random() * difficulty.length)];
             let randReps = reps[Math.floor(Math.random() * reps.length)];
             let randSets = Math.floor(Math.random() * (5 - 2) + 2);
-            data[index] = {...data[index], reps: `${randReps} reps x ${randSets} sets`}; //Add object to same index with title
+            data[index] = {...data[index], reps: `${randReps} reps x ${randSets} sets - ${randDiff}`}; //Add object to same index with title
         } else if (type === 'n') { //Nonweighted
             const reps = [10, 30, 60];
             let randReps = reps[Math.floor(Math.random() * reps.length)];
@@ -69,7 +73,6 @@ function builder(data, time, count) {
             data[index] = {...data[index], reps: `${randMin} minutes`};
         }
     });
-
     return data;
 }
 
@@ -88,7 +91,13 @@ export default function Generator(props) {
                     }) 
                 })
         } else {
-            //Add logic for random later
+            let keys = Object.keys(data.workouts);
+            let randomWorkout = keys[keys.length * Math.random() << 0];
+            for(const key in data.workouts[randomWorkout]){
+                for(const i in data.workouts[randomWorkout][key]){
+                    tempData.push(`${data.workouts[randomWorkout][key][i]} / ${key}`);
+                }
+            }
         }
     });
     builder(tempData, props.minute, props.count);
