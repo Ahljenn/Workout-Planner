@@ -1,4 +1,5 @@
 import './styles/App.css';
+import React from 'react';
 import SplitDisplay from './components/SplitDisplay';
 import GeneratorDisplay from './components/GeneratorDisplay';
 import JimWendler from './components/JimWendler';
