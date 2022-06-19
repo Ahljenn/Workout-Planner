@@ -55,22 +55,27 @@ function builder(data, time, count) {
     data.forEach((item, index) => {
         let type = item.split("/")[1][1]; //Get string if it is weighted or not - single char
         data[index] = {title: item.split("/")[0]}; //Get name of workout
-        if (type === 'w'){ //Weighted
-            const reps = [8, 10, 12, 14];
-            const difficulty = ["Light", "Medium", "Heavy"];
-            let randDiff = difficulty[Math.floor(Math.random() * difficulty.length)];
-            let randReps = reps[Math.floor(Math.random() * reps.length)];
-            let randSets = Math.floor(Math.random() * (5 - 2) + 2);
-            data[index] = {...data[index], reps: `${randReps} reps x ${randSets} sets - ${randDiff}`}; //Add object to same index with title
-        } else if (type === 'n') { //Nonweighted
-            const reps = [10, 30, 60];
-            let randReps = reps[Math.floor(Math.random() * reps.length)];
-            let randSets = Math.floor(Math.random() * (4 - 2) + 2);
-            data[index] = {...data[index], reps: `${randReps} reps x ${randSets} sets`};
-        } else if (type === 'c') { //Cardio
-            const minutes = [10, 15, 20, 30]; //Should add up to provided user minutes
-            let randMin = minutes[Math.floor(Math.random() * minutes.length)];
-            data[index] = {...data[index], minutes: `${randMin} minutes`};
+        let reps, difficulty, randDiff, randReps, randSets, randMin, minutes;
+        switch(type){
+            case 'w':
+                reps = [8, 10, 12, 14];
+                difficulty = ["Light", "Medium", "Heavy"];
+                randDiff = difficulty[Math.floor(Math.random() * difficulty.length)];
+                randReps = reps[Math.floor(Math.random() * reps.length)];
+                randSets = Math.floor(Math.random() * (5 - 2) + 2);
+                data[index] = {...data[index], reps: `${randReps} reps x ${randSets} sets - ${randDiff}`}; //Add object to same index with title
+                break;
+            case 'n':
+                reps = [10, 30, 60];
+                randReps = reps[Math.floor(Math.random() * reps.length)];
+                randSets = Math.floor(Math.random() * (4 - 2) + 2);
+                data[index] = {...data[index], reps: `${randReps} reps x ${randSets} sets`};
+                break;
+            case 'c':
+                minutes = [10, 15, 20, 30]; //Should add up to provided user minutes
+                randMin = minutes[Math.floor(Math.random() * minutes.length)];
+                data[index] = {...data[index], minutes: `${randMin} minutes`};
+                break;
         }
     });
     return data;
