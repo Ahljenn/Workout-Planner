@@ -34,10 +34,8 @@ span.generated-button-container {
     gap: 30px;
 }
 
-div.generate-container {
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
+div.generated-container {
+    margin-top: 20px;
 }
 
 div.main-display-container {
@@ -126,7 +124,7 @@ div.display-card, div.display-card-selected {
     margin: 0 10px;
     cursor: pointer;
     text-align: center;
-    transition-duration: 2.5s;
+    /* transition-duration: 2.5s; */
 }
 
 div.display-card-selected {
