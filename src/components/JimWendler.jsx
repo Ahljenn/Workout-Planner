@@ -55,7 +55,8 @@ export default function JimWendler() {
                         value={weightState}
                         placeholder="Weight (in lbs)"
                         onChange={(e) => {
-                            if(e.target.value <= 10000) setWeightState(e.target.value);
+                            if (e.target.value <= 0) setWeightState("");
+                            else if(e.target.value <= 10000) setWeightState(e.target.value);
                             else setWeightState(10000);
                         }}
                         />
@@ -67,7 +68,8 @@ export default function JimWendler() {
                         value={repState}
                         placeholder="Reps (amount)"
                         onChange={(e) => {
-                            if(e.target.value <= 1000) setRepState(e.target.value);
+                            if (e.target.value <= 0) setRepState("");
+                            else if(e.target.value <= 1000 && e.target.value >= 0) setRepState(e.target.value);
                             else setRepState(1000);
                         }}/>
                     </div>
@@ -89,6 +91,8 @@ export default function JimWendler() {
                             output={out}
                             />
                             )
+                    } else {
+                        return (<></>) //Return nothing if user has not selected any options
                     }
                 })} 
             </ScrollMenu>
