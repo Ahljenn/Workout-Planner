@@ -9,7 +9,7 @@ function Card(props){
     return (
         <div className="display-card-calc">
         <div>
-          <h2 className="group-text-calc">{index == 0 ? `${index + 1} Repitition` : `${index + 1} Repititions`}</h2>
+          <h2 className="group-text-calc">{index === 0 ? `${index + 1} Repitition` : `${index + 1} Repititions`}</h2>
         </div>
 
         <div className="group-card-calc">

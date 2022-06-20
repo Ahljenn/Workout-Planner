@@ -1,4 +1,3 @@
-import te from 'date-fns/esm/locale/te/index.js';
 import React from 'react'
 import * as data from '../data/workout-data';
 
@@ -76,6 +75,8 @@ function builder(data, time, count) {
                 randMin = minutes[Math.floor(Math.random() * minutes.length)];
                 data[index] = {...data[index], minutes: `${randMin} minutes`};
                 break;
+            default:
+                console.error("Unexpected parsing failure");
         }
     });
     return data;
