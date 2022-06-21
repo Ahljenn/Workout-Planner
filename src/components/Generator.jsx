@@ -176,7 +176,7 @@ export default function Generator(props) {
                             .catch((err) => {
                                 alert.error(err);
                             });
-                        props.setDisplayState('storing'); //Rerenders display in other component
+                        props.setDisplayState('selecting'); //Rerenders display in other component
                     }}
                 >
                     <i class="fas fa-database"></i> Store

@@ -53,20 +53,6 @@ export default function GeneratorDisplay() {
                 setGroupSelected={setGroupSelected}
             />
         );
-    } else if (displayState === 'storing') {
-        return (
-            <div className="acknowledged">
-                <p>Information stored</p>
-            </div>
-
-            // <div className="test">
-            //     {ReactSession.get("MostRecentWorkout").map((item) => {
-            //         return(
-            //             <div>{item.title}</div>
-            //         );
-            //     })}
-            // </div>
-        );
     } else {
         //If user toggles see more/see less
         return (

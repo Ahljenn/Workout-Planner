@@ -9,7 +9,7 @@ import { positions, Provider } from 'react-alert';
 import AlertMUITemplate from 'react-alert-template-mui';
 
 const options = {
-    timeout: 20000,
+    timeout: 10000,
     position: positions.MIDDLE,
 };
 
