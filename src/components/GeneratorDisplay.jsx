@@ -1,11 +1,7 @@
 import React, { useState } from 'react'
+import { ReactSession } from 'react-client-session';
 import WorkoutSelector from './WorkoutSelector';
 import GeneratedWorkout from './GeneratedWorkout';
-
-//Scrolling right feature, let user pick which day (chest, leg, shoulder, back, more specific)
-//Ask user for split
-// https://www.npmjs.com/package/react-horizontal-scrolling-menu
-
 
 export default function GeneratorDisplay() {
 
@@ -49,7 +45,7 @@ export default function GeneratorDisplay() {
             />
         );
     } else if (displayState === "storing"){
-        return <>Storing state</>
+        return <>{console.log(ReactSession.get("user1"))}</>
     } else { //If user toggles see more/see less
         return (
             <>

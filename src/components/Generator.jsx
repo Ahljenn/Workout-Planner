@@ -1,5 +1,8 @@
 import React from 'react'
+import { ReactSession } from 'react-client-session';
 import * as data from '../data/workout-data';
+
+ReactSession.setStoreType("localStorage");
 
 function getTimeShort() { 
     return new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles", timeZoneName: "short"});
@@ -86,6 +89,7 @@ export default function Generator(props) {
 
     let tempData = [];
     let minutes = props.minute;
+    
 
     //Go through each workout, accessing them based on their key, then push them to temp data
     //Info is pushed with their workout and if its weighted or nonweighted
@@ -128,12 +132,27 @@ export default function Generator(props) {
                 })
                 }
             </div>
-            <p className="date">{getTimeShort()}</p>
-            <p className="minute-text-estimate">
-                <span>Estimated time of completion: </span>
-                {minutes >= 60 ? Math.floor(minutes / 60) : minutes}
-                {minutes >= 60 ? ` hours and ${minutes % 60} minutes` : " minutes"}
-            </p>
+
+            <div>
+                <p className="date">{getTimeShort()}</p>
+                <p className="minute-text-estimate">
+                    <span>Estimated time of completion: </span>
+                    {minutes >= 60 ? Math.floor(minutes / 60) : minutes}
+                    {minutes >= 60 ? ` hours and ${minutes % 60} minutes` : " minutes"}
+                </p>
+            </div>
+
+            <div className="store-container">
+                <button
+                    className="store-button"
+                    onClick={ ()=> {
+                        ReactSession.set("user1", tempData);
+                        //Send post request
+                        
+                        props.setDisplayState("storing"); //Rerenders display in other component
+                    }}><i class="fas fa-database"></i> Store</button>
+            </div>
+            
         </div>
     )
 }

@@ -98,6 +98,11 @@ div.card {
     margin: 0 30px;
 }
 
+div.store-container {
+    display: flex;
+    justify-content: center;
+}
+
 @keyframes animateMovement {
 
     0%,

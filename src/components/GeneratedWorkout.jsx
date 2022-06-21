@@ -17,7 +17,7 @@ export default function GeneratedWorkout(props){
 
     return (
         <div className="generated-container">
-            <Generator groups={groupSelected} count={groupCount} minute={minutes}/>
+            <Generator groups={groupSelected} count={groupCount} minute={minutes} setDisplayState={setDisplayState}/>
             <span className="generated-button-container">
                 <button 
                 className="visibility-button"
@@ -33,12 +33,6 @@ export default function GeneratedWorkout(props){
                 onClick={ ()=> {
                     setGroupSelected([...groupSelected]); //Set to a copy, causes a re-render
                 }}><i class="fas fa-random"></i> Shuffle</button>
-
-                <button
-                className="visibility-button"
-                onClick={ ()=> {
-                    setDisplayState("storing");
-                }}><i class="fas fa-database"></i> Store</button>
             </span>
         </div>
     );

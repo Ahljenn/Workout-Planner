@@ -3,7 +3,6 @@ import { ScrollMenu } from "react-horizontal-scrolling-menu";
 import * as data from '../data/workout-data';
 
 function WorkoutCard(props){
-    //https://codesandbox.io/s/vdr0d?file=/src/index.tsx:193-223
 
     const groupName = props.title;
     const groupImg = props.img;
