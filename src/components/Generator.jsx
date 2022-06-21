@@ -1,27 +1,29 @@
-import React from 'react'
+import React from 'react';
 import { ReactSession } from 'react-client-session';
 import * as data from '../data/workout-data';
 import * as ajax from '../helpers/ajax';
 
-ReactSession.setStoreType("localStorage");
+ReactSession.setStoreType('localStorage');
 
-function getTimeShort() { 
-    return new Date().toLocaleString("en-US", {timeZone: "America/Los_Angeles", timeZoneName: "short"});
+function getTimeShort() {
+    return new Date().toLocaleString('en-US', {
+        timeZone: 'America/Los_Angeles',
+        timeZoneName: 'short',
+    });
 }
 
 function durstenfeldShuffle(arr) {
-    for(let i = 0; i < arr.length; ++i){
-        let j = Math.floor(Math.random() * (i+1));
+    for (let i = 0; i < arr.length; ++i) {
+        let j = Math.floor(Math.random() * (i + 1));
         [arr[i], arr[j]] = [arr[j], arr[i]];
     }
 }
 
-function inRange (val, left, right) {
+function inRange(val, left, right) {
     return val >= left && val <= right;
 }
 
 function builder(data, time, count) {
-
     durstenfeldShuffle(data); //Shuffle the data
 
     /* Remove elements depending on the count
@@ -52,62 +54,71 @@ function builder(data, time, count) {
         data.splice(0, data.length - 12 - count + 1);
     } else if (inRange(time, 181, 240)) {
         data.splice(0, data.length - 12 - count + 1);
-    } 
+    }
 
     //Build reps and sets
     data.forEach((item, index) => {
-        let type = item.split("/")[1][1]; //Get string if it is weighted or not - single char
-        data[index] = {title: item.split("/")[0]}; //Get name of workout
+        let type = item.split('/')[1][1]; //Get string if it is weighted or not - single char
+        data[index] = { title: item.split('/')[0] }; //Get name of workout
         let reps, difficulty, randDiff, randReps, randSets, randMin, minutes;
-        switch(type){
+        switch (type) {
             case 'w':
                 reps = [8, 10, 12, 14];
-                difficulty = ["Light", "Medium", "Heavy"];
-                randDiff = difficulty[Math.floor(Math.random() * difficulty.length)];
+                difficulty = ['Light', 'Medium', 'Heavy'];
+                randDiff =
+                    difficulty[Math.floor(Math.random() * difficulty.length)];
                 randReps = reps[Math.floor(Math.random() * reps.length)];
                 randSets = Math.floor(Math.random() * (5 - 2) + 2);
-                data[index] = {...data[index], reps: `${randReps} reps x ${randSets} sets - ${randDiff}`}; //Add object to same index with title
+                data[index] = {
+                    ...data[index],
+                    reps: `${randReps} reps x ${randSets} sets - ${randDiff}`,
+                }; //Add object to same index with title
                 break;
             case 'n':
                 reps = [10, 30, 60];
                 randReps = reps[Math.floor(Math.random() * reps.length)];
                 randSets = Math.floor(Math.random() * (4 - 2) + 2);
-                data[index] = {...data[index], reps: `${randReps} reps x ${randSets} sets`};
+                data[index] = {
+                    ...data[index],
+                    reps: `${randReps} reps x ${randSets} sets`,
+                };
                 break;
             case 'c':
                 minutes = [10, 15, 20, 30]; //Should add up to provided user minutes
                 randMin = minutes[Math.floor(Math.random() * minutes.length)];
-                data[index] = {...data[index], minutes: `${randMin} minutes`};
+                data[index] = { ...data[index], minutes: `${randMin} minutes` };
                 break;
             default:
-                console.error("Unexpected parsing failure");
+                console.error('Unexpected parsing failure');
         }
     });
     return data;
 }
 
 export default function Generator(props) {
-
     let tempData = [];
     let minutes = props.minute;
-    
 
     //Go through each workout, accessing them based on their key, then push them to temp data
     //Info is pushed with their workout and if its weighted or nonweighted
     props.groups.forEach((item, index) => {
-        if (item !== "Random"){
-            Object.entries(data.workouts[item.toLowerCase()]).forEach((wkoutObj) => {
-                // console.log(wkoutObj[0]);
-                wkoutObj[1].forEach((wkoutItem) => {
-                    tempData.push(`${wkoutItem} / ${wkoutObj[0]}`);
-                    }) 
-                })
+        if (item !== 'Random') {
+            Object.entries(data.workouts[item.toLowerCase()]).forEach(
+                (wkoutObj) => {
+                    // console.log(wkoutObj[0]);
+                    wkoutObj[1].forEach((wkoutItem) => {
+                        tempData.push(`${wkoutItem} / ${wkoutObj[0]}`);
+                    });
+                }
+            );
         } else {
             let keys = Object.keys(data.workouts);
-            let randomWorkout = keys[keys.length * Math.random() << 0];
-            for(const key in data.workouts[randomWorkout]){
-                for(const i in data.workouts[randomWorkout][key]){
-                    tempData.push(`${data.workouts[randomWorkout][key][i]} / ${key}`);
+            let randomWorkout = keys[(keys.length * Math.random()) << 0];
+            for (const key in data.workouts[randomWorkout]) {
+                for (const i in data.workouts[randomWorkout][key]) {
+                    tempData.push(
+                        `${data.workouts[randomWorkout][key][i]} / ${key}`
+                    );
                 }
             }
         }
@@ -117,22 +128,25 @@ export default function Generator(props) {
     // console.log(tempData);
     return (
         <div className="main-generator-display">
-
             <div className="todays-workout-container">
                 <h2 className="today">Today's workout</h2>
-                {
-                tempData.map((item) => {
-                    return(
+                {tempData.map((item) => {
+                    return (
                         <div className="set-container">
-                            <h2 className={item.reps === undefined ? "set-title-text-none" : "set-title-text"}>
+                            <h2
+                                className={
+                                    item.reps === undefined
+                                        ? 'set-title-text-none'
+                                        : 'set-title-text'
+                                }
+                            >
                                 {item.title}
                             </h2>
                             <p className="set-text">{item.reps}</p>
                             <p className="set-text-minutes">{item.minutes}</p>
                         </div>
-                    )
-                })
-                }
+                    );
+                })}
             </div>
 
             <div>
@@ -140,25 +154,30 @@ export default function Generator(props) {
                 <p className="minute-text-estimate">
                     <span>Estimated time of completion: </span>
                     {minutes >= 60 ? Math.floor(minutes / 60) : minutes}
-                    {minutes >= 60 ? ` hours and ${minutes % 60} minutes` : " minutes"}
+                    {minutes >= 60
+                        ? ` hours and ${minutes % 60} minutes`
+                        : ' minutes'}
                 </p>
             </div>
 
             <div className="store-container">
                 <button
                     className="store-button"
-                    onClick={()=> {
-                        ReactSession.set("MostRecentWorkout", tempData); //Store recent workout in session
-                        ajax.sendPostRequest("/query/insertWorkout", tempData)
-                        .then((result) => {
-                            console.log(result);
-                        })
-                        .catch((err) => {
-                            console.error(err);
-                        });
-                        props.setDisplayState("storing"); //Rerenders display in other component
-                    }}><i class="fas fa-database"></i> Store</button>
+                    onClick={() => {
+                        ReactSession.set('MostRecentWorkout', tempData); //Store recent workout in session
+                        ajax.sendPostRequest('/query/insertWorkout', tempData)
+                            .then((result) => {
+                                console.log(result);
+                            })
+                            .catch((err) => {
+                                console.error(err);
+                            });
+                        props.setDisplayState('storing'); //Rerenders display in other component
+                    }}
+                >
+                    <i class="fas fa-database"></i> Store
+                </button>
             </div>
         </div>
-    )
+    );
 }

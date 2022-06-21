@@ -7,7 +7,8 @@ h1.title {
 }
 
 /*SplitDisplay Component*/
-h1.rolling-text, h1.rolling-text-odd {
+h1.rolling-text,
+h1.rolling-text-odd {
     font-size: 32px;
     white-space: nowrap;
 }
@@ -40,7 +41,8 @@ p.minute-text {
     font-style: italic;
 }
 
-h2.set-title-text, h2.set-title-text-none {
+h2.set-title-text,
+h2.set-title-text-none {
     font-size: 20px;
     margin-bottom: 0px;
     color: var(--acid);
@@ -60,7 +62,8 @@ h2.today {
     animation: 1.5s ease-out 0s 1 fadeInAnimation;
 }
 
-p.set-text, p.set-text-minutes {
+p.set-text,
+p.set-text-minutes {
     color: var(--steel);
     margin-top: 0px;
     font-size: 18px;
@@ -85,12 +88,12 @@ p.minute-text-estimate {
 }
 
 /*Jim Wendler*/
-@keyframes fadeInAnimation{
+@keyframes fadeInAnimation {
     0% {
-      opacity: 0;
+        opacity: 0;
     }
     100% {
-      opacity: 1;
+        opacity: 1;
     }
 }
 
@@ -100,7 +103,7 @@ p.rep-text {
     font-size: 24px;
 }
 
-h2.calc-title-text{
+h2.calc-title-text {
     font-size: 32px;
     color: var(--green);
 }

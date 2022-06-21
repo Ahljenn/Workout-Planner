@@ -17,7 +17,7 @@ header > div {
     width: 50%;
 }
 
-hr {             
+hr {
     background-color: var(--acid);
     opacity: 0.1;
     position: absolute;
@@ -104,7 +104,6 @@ div.store-container {
 }
 
 @keyframes animateMovement {
-
     0%,
     100% {
         transform: rotate3d(1, 1, 0, 30deg);
@@ -123,7 +122,8 @@ div.store-container {
     }
 }
 
-div.display-card, div.display-card-selected {
+div.display-card,
+div.display-card-selected {
     border: 10px solid var(--sapphire);
     display: inline-block;
     margin: 0 10px;
@@ -145,21 +145,22 @@ div.group-card {
     height: 300px;
 }
 
-div.display-card, div.group-card {
+div.display-card,
+div.group-card {
     width: 300px;
 }
 
-img.inner-card-img{
+img.inner-card-img {
     margin-top: 30px;
 }
 
 /* Jim Wendler */
-@keyframes fadeIn{
+@keyframes fadeIn {
     0% {
-      opacity: 0;
+        opacity: 0;
     }
     100% {
-      opacity: 1;
+        opacity: 1;
     }
 }
 

@@ -1,32 +1,30 @@
 @import url('text.css');
 @import url('containers.css');
 @import url('interactions.css');
-@import url('misc.css');
-
 
 /* Icons: https://fontawesome.com/v5/search */
 
-:root{
-  /*Light Mode*/
-  --sapphire : #05668d;
-  --steel : #427aa1;
-  --alice : #ebf2fa;
-  --green : #679436;
-  --acid : #a5be00;
+:root {
+    /*Light Mode*/
+    --sapphire: #05668d;
+    --steel: #427aa1;
+    --alice: #ebf2fa;
+    --green: #679436;
+    --acid: #a5be00;
 }
 
 body {
-  animation: fadeIn ease 3s;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-  overflow: scroll;
+    animation: fadeIn ease 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    overflow: scroll;
 }
 
 @keyframes fadeIn {
-  0% {
-      opacity: 0;
-  }
-  100% {
-      opacity: 1;
-   }
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }

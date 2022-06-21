@@ -4,7 +4,6 @@ button.my-workouts {
     font-size: 20px;
 }
 
-
 /*Generator Display*/
 div.visibility-button-container {
     margin-top: 50px;
@@ -56,42 +55,42 @@ button.visibility-button:hover {
 
 /********** Range Input Styles **********/
 /*Range Reset*/
-input[type="range"] {
+input[type='range'] {
     -webkit-appearance: none;
-     appearance: none;
-     background-image: linear-gradient(-100deg, var(--acid), var(--green));
-     border-radius: 0.5rem;
-     height: 0.5rem; 
-     cursor: pointer;
-     width: 15rem;
- }
- 
- /* Removes default focus */
- input[type="range"]:focus {
-   outline: none;
- }
- 
- /***** Chrome, Safari, Opera and Edge Chromium styles *****/
- /* slider track */
- input[type="range"]::-webkit-slider-runnable-track {
+    appearance: none;
     background-image: linear-gradient(-100deg, var(--acid), var(--green));
     border-radius: 0.5rem;
-    height: 0.5rem;  
- }
- 
- /* slider thumb */
- input[type="range"]::-webkit-slider-thumb {
-   -webkit-appearance: none; /* Override default look */
+    height: 0.5rem;
+    cursor: pointer;
+    width: 15rem;
+}
+
+/* Removes default focus */
+input[type='range']:focus {
+    outline: none;
+}
+
+/***** Chrome, Safari, Opera and Edge Chromium styles *****/
+/* slider track */
+input[type='range']::-webkit-slider-runnable-track {
+    background-image: linear-gradient(-100deg, var(--acid), var(--green));
+    border-radius: 0.5rem;
+    height: 0.5rem;
+}
+
+/* slider thumb */
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
     appearance: none;
     margin-top: -12px; /* Centers thumb on the track */
- 
+
     /*custom styles*/
     background-color: var(--green);
     height: 2rem;
     width: 1rem;
     border-radius: 0.5rem;
- }
-  
+}
+
 input.input-minute {
     width: 20%;
     color: var(--acid);
@@ -107,7 +106,7 @@ button.reset-button:hover {
     background-image: linear-gradient(-100deg, var(--sapphire), var(--steel));
 }
 
-input[type=number] {
+input[type='number'] {
     box-sizing: border-box;
     width: 400px;
     font-weight: 700;
@@ -118,11 +117,11 @@ input[type=number] {
     outline: none;
     height: 50px;
     font-size: 24px;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+        'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+        'Helvetica Neue', sans-serif;
 }
 
-input[type=number]:focus {
+input[type='number']:focus {
     border: 5px solid var(--acid);
 }
