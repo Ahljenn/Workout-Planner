@@ -85,6 +85,7 @@ function builder(data, time, count) {
 export default function Generator(props) {
 
     let tempData = [];
+    let minutes = props.minute;
 
     //Go through each workout, accessing them based on their key, then push them to temp data
     //Info is pushed with their workout and if its weighted or nonweighted
@@ -106,7 +107,7 @@ export default function Generator(props) {
             }
         }
     });
-    builder(tempData, props.minute, props.count);
+    builder(tempData, minutes, props.count);
 
     // console.log(tempData);
     return (
@@ -128,6 +129,11 @@ export default function Generator(props) {
                 }
             </div>
             <p className="date">{getTimeShort()}</p>
+            <p className="minute-text-estimate">
+                <span>Estimated time of completion: </span>
+                {minutes >= 60 ? Math.floor(minutes / 60) : minutes}
+                {minutes >= 60 ? ` hours and ${minutes % 60} minutes` : " minutes"}
+            </p>
         </div>
     )
 }

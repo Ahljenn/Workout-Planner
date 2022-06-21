@@ -48,7 +48,7 @@ function Card(props){
         </div>
       </div>
     );
-  }
+}
 
 
 export default function GeneratorDisplay() {
@@ -137,7 +137,7 @@ export default function GeneratorDisplay() {
                     <button 
                     className="visibility-button"
                     onClick={ ()=> {
-                        handleVisibilityToggle("selecting")
+                        handleVisibilityToggle()
                         setGroupSelected([]);
                         setMinutes(60);
                         setGroupCount(0);
@@ -151,10 +151,14 @@ export default function GeneratorDisplay() {
 
                     <button
                     className="visibility-button"
-                    ><i class="fas fa-database"></i> Store</button>
+                    onClick={ ()=> {
+                        setDisplayState("storing");
+                    }}><i class="fas fa-database"></i> Store</button>
                 </span>
             </div>
         );
+    } else if (displayState === "storing"){
+        return <>Storing state</>
     } else { //If user toggles see more/see less
         return (
             <>

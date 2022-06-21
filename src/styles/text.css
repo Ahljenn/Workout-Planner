@@ -77,6 +77,13 @@ p.date {
     font-weight: 700;
 }
 
+p.minute-text-estimate {
+    color: var(--sapphire);
+    font-size: 14px;
+    font-weight: 700;
+    text-align: center;
+}
+
 /*Jim Wendler*/
 @keyframes fadeInAnimation{
     0% {
