@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { ScrollMenu } from "react-horizontal-scrolling-menu";
 
-function Card(props){
+function EstimateCard(props){
     
     let index = props.i;
     let out = props.output;
@@ -86,7 +86,7 @@ export default function JimWendler() {
                 {estimate.map((out, index) => {
                     if( repState > 0 && weightState > 0){
                         return(
-                            <Card
+                            <EstimateCard
                             i={index}
                             output={out}
                             />
