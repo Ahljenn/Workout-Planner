@@ -147,11 +147,15 @@ export default function Generator(props) {
             <div className="store-container">
                 <button
                     className="store-button"
-                    onClick={async()=> {
-                        ReactSession.set("MostRecentWorkout", tempData);
-                        ajax.sendGetRequest("/query/test");
-                        //Send post request
-
+                    onClick={()=> {
+                        ReactSession.set("MostRecentWorkout", tempData); //Store recent workout in session
+                        ajax.sendPostRequest("/query/insertWorkout", tempData)
+                        .then((result) => {
+                            console.log(result);
+                        })
+                        .catch((err) => {
+                            console.error(err);
+                        });
                         props.setDisplayState("storing"); //Rerenders display in other component
                     }}><i class="fas fa-database"></i> Store</button>
             </div>
