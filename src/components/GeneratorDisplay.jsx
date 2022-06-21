@@ -50,6 +50,79 @@ function Card(props){
     );
 }
 
+function WorkoutSelector(props) {
+
+    let minutes = props.minutes;
+    let setMinutes = props.setMinutes;
+
+    let handleGenerateClick = props.handleGenerateClick;
+    let handleVisibilityToggle = props.handleVisibilityToggle;
+
+    let groupCount = props.groupCount;
+    let setGroupCount = props.setGroupCount;
+
+    let groupSelected = props.groupSelected;
+    let setGroupSelected = props.setGroupSelected;
+
+
+    return (
+        <>
+            <div className="continue-container">
+
+                <h2 className="select-text">Select a workout group </h2>
+
+                <div>
+                    <button
+                    title="Adding 3 or more workouts may not generate a complete workout if there is not enough time allocated"
+                    className={groupCount > 0 ? "selected" : "not-selected"}
+                    onClick={handleGenerateClick}>
+                    <i className="fas fa-bolt"></i> Generate</button>
+                </div>
+            </div>
+
+            <ScrollMenu
+            >
+            {data.workoutGroups.map((group, index) => (
+                <Card
+                title={group.name}
+                itemId={index}
+                img={group.img}
+                updateCount={setGroupCount}
+                count={groupCount}
+                updateGroup={setGroupSelected}
+                group={groupSelected}
+                />
+            ))}
+            </ScrollMenu>
+
+            <div className="minute-container">
+                <input 
+                onChange={(e) => {setMinutes(e.target.value)}}
+                type="range" 
+                value={minutes}
+                min="20" 
+                max="240"
+                step="10"
+                className="input-minute"
+                />
+                <div className="minute-text-container">
+                    <p className="minute-text">
+                        {minutes >= 60 ? Math.floor(minutes / 60) : minutes}
+                        {minutes >= 60 ? ` hours and ${minutes % 60} minutes` : " minutes"}
+                    </p>
+                </div>
+            </div>
+
+            <div className="visibility-button-container">
+                    <button className="visibility-button"
+                    onClick={handleVisibilityToggle}>
+                        <i className="fas fa-eye"></i> See Less
+                    </button>
+            </div>
+        </>
+    );
+}
+
 
 export default function GeneratorDisplay() {
 
@@ -75,58 +148,13 @@ export default function GeneratorDisplay() {
     if (displayState === "selecting") { //While using is selecting groups
         return (
             <>
-                <div className="continue-container">
-
-                    <h2 className="select-text">Select a workout group </h2>
-
-                    <div>
-                        <button
-                        title="Adding 3 or more workouts may not generate a complete workout if there is not enough time allocated"
-                        className={groupCount > 0 ? "selected" : "not-selected"}
-                        onClick={handleGenerateClick}>
-                        <i className="fas fa-bolt"></i> Generate</button>
-                    </div>
-                </div>
-
-                <ScrollMenu
-                >
-                {data.workoutGroups.map((group, index) => (
-                    <Card
-                    title={group.name}
-                    itemId={index}
-                    img={group.img}
-                    updateCount={setGroupCount}
-                    count={groupCount}
-                    updateGroup={setGroupSelected}
-                    group={groupSelected}
-                    />
-                ))}
-                </ScrollMenu>
-
-                <div className="minute-container">
-                    <input 
-                    onChange={(e) => {setMinutes(e.target.value)}}
-                    type="range" 
-                    value={minutes}
-                    min="20" 
-                    max="240"
-                    step="10"
-                    className="input-minute"
-                    />
-                    <div className="minute-text-container">
-                        <p className="minute-text">
-                            {minutes >= 60 ? Math.floor(minutes / 60) : minutes}
-                            {minutes >= 60 ? ` hours and ${minutes % 60} minutes` : " minutes"}
-                        </p>
-                    </div>
-                </div>
-
-                <div className="visibility-button-container">
-                        <button className="visibility-button"
-                        onClick={handleVisibilityToggle}>
-                            <i className="fas fa-eye"></i> See Less
-                        </button>
-                </div>
+                <WorkoutSelector 
+                minutes={minutes} setMinutes={setMinutes} 
+                handleGenerateClick={handleGenerateClick} 
+                handleVisibilityToggle={handleVisibilityToggle} 
+                groupCount={groupCount} setGroupCount={setGroupCount} 
+                groupSelected={groupSelected} setGroupSelected={setGroupSelected} 
+                />
             </>
         );
     } else if (displayState === "generated") { //After user has selected all groups, and generates
