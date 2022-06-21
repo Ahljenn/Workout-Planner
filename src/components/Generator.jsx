@@ -168,10 +168,10 @@ export default function Generator(props) {
                     className="store-button"
                     onClick={() => {
                         ReactSession.set('MostRecentWorkout', tempData); //Store recent workout in session
+                        alert.success('Stored workout!');
                         ajax.sendPostRequest('/query/insertWorkout', tempData)
                             .then((result) => {
-                                alert.success('Successfully stored workout!');
-                                console.log(result);
+                                console.log('Stored into database', result);
                             })
                             .catch((err) => {
                                 alert.error(err);
