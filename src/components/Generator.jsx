@@ -2,6 +2,7 @@ import React from 'react';
 import { ReactSession } from 'react-client-session';
 import * as data from '../data/workout-data';
 import * as ajax from '../helpers/ajax';
+import { useAlert } from 'react-alert';
 
 ReactSession.setStoreType('localStorage');
 
@@ -96,6 +97,8 @@ function builder(data, time, count) {
 }
 
 export default function Generator(props) {
+    const alert = useAlert();
+
     let tempData = [];
     let minutes = props.minute;
 
@@ -167,10 +170,11 @@ export default function Generator(props) {
                         ReactSession.set('MostRecentWorkout', tempData); //Store recent workout in session
                         ajax.sendPostRequest('/query/insertWorkout', tempData)
                             .then((result) => {
+                                alert.success('Successfully stored workout!');
                                 console.log(result);
                             })
                             .catch((err) => {
-                                console.error(err);
+                                alert.error(err);
                             });
                         props.setDisplayState('storing'); //Rerenders display in other component
                     }}
