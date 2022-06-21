@@ -1,6 +1,7 @@
 import React from 'react'
 import { ReactSession } from 'react-client-session';
 import * as data from '../data/workout-data';
+import * as ajax from '../helpers/ajax';
 
 ReactSession.setStoreType("localStorage");
 
@@ -116,6 +117,7 @@ export default function Generator(props) {
     // console.log(tempData);
     return (
         <div className="main-generator-display">
+
             <div className="todays-workout-container">
                 <h2 className="today">Today's workout</h2>
                 {
@@ -145,14 +147,14 @@ export default function Generator(props) {
             <div className="store-container">
                 <button
                     className="store-button"
-                    onClick={ ()=> {
-                        ReactSession.set("user1", tempData);
+                    onClick={async()=> {
+                        ReactSession.set("MostRecentWorkout", tempData);
+                        ajax.sendGetRequest("/query/test");
                         //Send post request
-                        
+
                         props.setDisplayState("storing"); //Rerenders display in other component
                     }}><i class="fas fa-database"></i> Store</button>
             </div>
-            
         </div>
     )
 }

@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { ScrollMenu } from "react-horizontal-scrolling-menu";
 import * as data from '../data/workout-data';
 
-function WorkoutCard(props){
+function WorkoutCard(props) {
 
     const groupName = props.title;
     const groupImg = props.img;

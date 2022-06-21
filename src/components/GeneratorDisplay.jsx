@@ -45,7 +45,15 @@ export default function GeneratorDisplay() {
             />
         );
     } else if (displayState === "storing"){
-        return <>{console.log(ReactSession.get("user1"))}</>
+        return (
+            <div className="test">
+                {ReactSession.get("MostRecentWorkout").map((item) => {
+                    return(
+                        <div>{item.title}</div>
+                    );
+                })}
+            </div>
+        );
     } else { //If user toggles see more/see less
         return (
             <>

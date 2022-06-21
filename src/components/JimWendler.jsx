@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { ScrollMenu } from "react-horizontal-scrolling-menu";
 
-function EstimateCard(props){
+function EstimateCard(props) {
     
     let index = props.i;
     let out = props.output;

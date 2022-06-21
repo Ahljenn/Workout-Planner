@@ -54,10 +54,6 @@ button.visibility-button:hover {
     background-image: linear-gradient(-150deg, var(--sapphire), var(--steel));
 }
 
-/* button.not-selected:hover {
-    background-image: linear-gradient(-100deg, var(--sapphire), var(--steel));
-} */
-
 /********** Range Input Styles **********/
 /*Range Reset*/
 input[type="range"] {

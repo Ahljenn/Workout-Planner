@@ -1,7 +1,7 @@
 import React from 'react'
 import Generator from './Generator';
 
-export default function GeneratedWorkout(props){
+export default function GeneratedWorkout(props) { 
 
     let minutes = props.minutes;
     let setMinutes = props.setMinutes;
