@@ -87,7 +87,7 @@ export default function Generator(props) {
 
     //Go through each workout, accessing them based on their key, then push them to temp data
     //Info is pushed with their workout and if its weighted or nonweighted
-    props.groups.forEach((item, index) => {
+    props.groups.forEach((item) => {
         if (item !== 'Random') {
             Object.entries(data.workouts[item.toLowerCase()]).forEach(
                 (wkoutObj) => {

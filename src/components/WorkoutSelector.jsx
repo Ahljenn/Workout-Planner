@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { ScrollMenu } from 'react-horizontal-scrolling-menu';
+import { ReactSession } from 'react-client-session';
 import * as data from '../data/workout-data';
 
 function WorkoutCard(props) {
@@ -59,6 +60,9 @@ export default function WorkoutSelector(props) {
     let groupSelected = props.groupSelected;
     let setGroupSelected = props.setGroupSelected;
 
+    let recent = props.recent;
+    let setRecent = props.setRecent;
+
     return (
         <>
             <div className="continue-container">
@@ -75,11 +79,13 @@ export default function WorkoutSelector(props) {
 
                     <button
                         title="Access recent workout"
-                        className={
-                            props.recent.length === 0 ? 'no-recent' : 'recent'
-                        }
+                        className={recent.length === 0 ? 'no-recent' : 'recent'}
                         onClick={() => {
-                            console.log('xxxxxxxxx', props.recent);
+                            setRecent(ReactSession.get('MostRecentWorkout'));
+                            console.log(
+                                '1:',
+                                ReactSession.get('MostRecentWorkout')
+                            );
                         }}
                     >
                         Recent workout
