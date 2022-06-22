@@ -2,30 +2,13 @@ import React from 'react';
 import { ReactSession } from 'react-client-session';
 import * as data from '../data/workout-data';
 import * as ajax from '../helpers/ajax';
+import * as util from '../helpers/util';
 import { useAlert } from 'react-alert';
 
 ReactSession.setStoreType('localStorage');
 
-function getTimeShort() {
-    return new Date().toLocaleString('en-US', {
-        timeZone: 'America/Los_Angeles',
-        timeZoneName: 'short',
-    });
-}
-
-function durstenfeldShuffle(arr) {
-    for (let i = 0; i < arr.length; ++i) {
-        let j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-    }
-}
-
-function inRange(val, left, right) {
-    return val >= left && val <= right;
-}
-
 function builder(data, time, count) {
-    durstenfeldShuffle(data); //Shuffle the data
+    util.durstenfeldShuffle(data); //Shuffle the data
 
     /* Remove elements depending on the count
     10-30 minutes: 3 workouts
@@ -39,21 +22,21 @@ function builder(data, time, count) {
     */
 
     //Trim array depending on user selection
-    if (inRange(time, 20, 30)) {
+    if (util.inRange(time, 20, 30)) {
         data.splice(0, data.length - 3 - count + 1);
-    } else if (inRange(time, 31, 40)) {
+    } else if (util.inRange(time, 31, 40)) {
         data.splice(0, data.length - 4 - count + 1);
-    } else if (inRange(time, 41, 60)) {
+    } else if (util.inRange(time, 41, 60)) {
         data.splice(0, data.length - 6 - count + 1);
-    } else if (inRange(time, 61, 90)) {
+    } else if (util.inRange(time, 61, 90)) {
         data.splice(0, data.length - 7 - count + 1);
-    } else if (inRange(time, 91, 120)) {
+    } else if (util.inRange(time, 91, 120)) {
         data.splice(0, data.length - 9 - count + 1);
-    } else if (inRange(time, 121, 160)) {
+    } else if (util.inRange(time, 121, 160)) {
         data.splice(0, data.length - 12 - count + 1);
-    } else if (inRange(time, 161, 180)) {
+    } else if (util.inRange(time, 161, 180)) {
         data.splice(0, data.length - 12 - count + 1);
-    } else if (inRange(time, 181, 240)) {
+    } else if (util.inRange(time, 181, 240)) {
         data.splice(0, data.length - 12 - count + 1);
     }
 
@@ -153,7 +136,7 @@ export default function Generator(props) {
             </div>
 
             <div>
-                <p className="date">{getTimeShort()}</p>
+                <p className="date">{util.getTimeShort()}</p>
                 <p className="minute-text-estimate">
                     <span>Estimated time of completion: </span>
                     {minutes >= 60 ? Math.floor(minutes / 60) : minutes}

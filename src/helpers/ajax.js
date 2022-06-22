@@ -15,7 +15,6 @@ async function sendGetRequest(url) {
     }
 }
 
-// send a POST request
 async function sendPostRequest(url, data) {
     let params = {
         method: 'POST',
