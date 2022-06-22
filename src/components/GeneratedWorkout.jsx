@@ -21,6 +21,8 @@ export default function GeneratedWorkout(props) {
                 count={groupCount}
                 minute={minutes}
                 setDisplayState={setDisplayState}
+                setGroupSelected={setGroupSelected}
+                setMinutes={setMinutes}
             />
             <span className="generated-button-container">
                 <button

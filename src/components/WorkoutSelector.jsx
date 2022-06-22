@@ -64,13 +64,25 @@ export default function WorkoutSelector(props) {
             <div className="continue-container">
                 <h2 className="select-text">Select a workout group </h2>
 
-                <div>
+                <div className="select-button-container">
                     <button
                         title="Adding 3 or more workouts may not generate a complete workout if there is not enough time allocated"
                         className={groupCount > 0 ? 'selected' : 'not-selected'}
                         onClick={handleGenerateClick}
                     >
                         <i className="fas fa-bolt"></i> Generate
+                    </button>
+
+                    <button
+                        title="Access recent workout"
+                        className={
+                            props.recent.length === 0 ? 'no-recent' : 'recent'
+                        }
+                        onClick={() => {
+                            console.log('xxxxxxxxx', props.recent);
+                        }}
+                    >
+                        Recent workout
                     </button>
                 </div>
             </div>

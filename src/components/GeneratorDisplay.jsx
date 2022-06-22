@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-// import { ReactSession } from 'react-client-session';
+import React, { useState, useEffect } from 'react';
+import { ReactSession } from 'react-client-session';
 import WorkoutSelector from './WorkoutSelector';
 import GeneratedWorkout from './GeneratedWorkout';
 
@@ -8,6 +8,11 @@ export default function GeneratorDisplay() {
     const [groupCount, setGroupCount] = useState(0);
     const [groupSelected, setGroupSelected] = useState([]);
     const [minutes, setMinutes] = useState(60);
+    const [recent, setRecent] = useState([]);
+
+    useEffect(() => {
+        setRecent(ReactSession.get('MostRecentWorkout'));
+    }, []);
 
     function handleVisibilityToggle() {
         setDisplayState(
@@ -37,6 +42,8 @@ export default function GeneratorDisplay() {
                 setGroupCount={setGroupCount}
                 groupSelected={groupSelected}
                 setGroupSelected={setGroupSelected}
+                recent={recent}
+                setRecent={setRecent}
             />
         );
     } else if (displayState === 'generated') {
