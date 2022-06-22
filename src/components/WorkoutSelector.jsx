@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { ScrollMenu } from 'react-horizontal-scrolling-menu';
 import { ReactSession } from 'react-client-session';
 import * as data from '../data/workout-data';
@@ -63,6 +63,10 @@ export default function WorkoutSelector(props) {
     let recent = props.recent;
     let setRecent = props.setRecent;
 
+    useEffect(() => {
+        setRecent(ReactSession.get('MostRecentWorkout'));
+    }, []);
+
     return (
         <>
             <div className="continue-container">
@@ -79,13 +83,13 @@ export default function WorkoutSelector(props) {
 
                     <button
                         title="Access recent workout"
-                        className={recent.length === 0 ? 'no-recent' : 'recent'}
+                        className={
+                            recent === undefined ? 'no-recent' : 'recent'
+                        }
                         onClick={() => {
-                            setRecent(ReactSession.get('MostRecentWorkout'));
-                            console.log(
-                                '1:',
-                                ReactSession.get('MostRecentWorkout')
-                            );
+                            if (recent) {
+                                console.log(recent);
+                            }
                         }}
                     >
                         Recent workout

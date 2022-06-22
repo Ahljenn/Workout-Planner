@@ -159,6 +159,7 @@ export default function Generator(props) {
                                 alert.error(err);
                             });
                         alert.success('Stored workout!');
+
                         //reset the parameters
                         props.setGroupSelected([]);
                         props.setMinutes(60);
