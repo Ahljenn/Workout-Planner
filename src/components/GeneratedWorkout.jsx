@@ -21,6 +21,7 @@ export default function GeneratedWorkout(props) {
                 count={groupCount}
                 minute={minutes}
                 setDisplayState={setDisplayState}
+                setGroupCount={setGroupCount}
                 setGroupSelected={setGroupSelected}
                 setMinutes={setMinutes}
             />
