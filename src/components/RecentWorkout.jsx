@@ -30,7 +30,7 @@ export default function RecentWorkout(props) {
                     props.setDisplayState('selecting');
                 }}
             >
-                <i class="fas fa-undo"></i> Back
+                <i className="fas fa-undo"></i> Back
             </button>
         </div>
     );

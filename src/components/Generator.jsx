@@ -119,7 +119,7 @@ export default function Generator(props) {
                 <h2 className="today">Today's workout</h2>
                 {isPending ? (
                     <div className="loading-container">
-                        <i class="fas fa-spinner fa-spin"></i>
+                        <i className="fas fa-spinner fa-spin"></i>
                     </div>
                 ) : (
                     tempData.map((item) => {
@@ -183,7 +183,7 @@ export default function Generator(props) {
                             });
                     }}
                 >
-                    <i class="fas fa-database"></i> Store
+                    <i className="fas fa-database"></i> Store
                 </button>
             </div>
         </div>
