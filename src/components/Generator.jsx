@@ -151,17 +151,18 @@ export default function Generator(props) {
                     className="store-button"
                     onClick={() => {
                         ReactSession.set('MostRecentWorkout', tempData); //Store recent workout in session
-                        alert.info('Storing workout...');
+
                         ajax.sendPostRequest('/query/insertWorkout', tempData)
                             .then((result) => {
                                 console.log('Stored into database', result);
-                                alert.success('Stored workout success!');
 
                                 //reset the parameters
                                 props.setGroupSelected([]);
                                 props.setGroupCount(0);
                                 props.setMinutes(60);
                                 props.setDisplayState('selecting'); //Rerenders display in other component
+
+                                alert.success('Stored workout success!'); //Show only after the re-render
                             })
                             .catch((err) => {
                                 alert.error(err);
