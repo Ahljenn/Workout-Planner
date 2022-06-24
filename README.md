@@ -18,7 +18,7 @@ Updated version of workout generator as well as functionalities for planning and
 ### Packages
 
 -   [React Session](https://github.com/grizzthedj/react-session)
--   [React Scrolling Menu](https://www.npmjs.com/package/react-horizontal-scrolling-menu)
--   [React Fast Marquee](https://www.npmjs.com/package/react-fast-marquee)
--   [React Alert](https://www.npmjs.com/package/react-alert)
--   [React Google Login](https://www.npmjs.com/package/react-google-login)
+-   [React Scrolling Menu](https://github.com/asmyshlyaev177/react-horizontal-scrolling-menu)
+-   [React Fast Marquee](https://github.com/justin-chu/react-fast-marquee)
+-   [React Alert](https://github.com/schiehll/react-alert)
+-   [React Google Login](https://github.com/anthonyjgrove/react-google-login)
