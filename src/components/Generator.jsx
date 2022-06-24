@@ -84,7 +84,6 @@ export default function Generator(props) {
     const alert = useAlert();
 
     let tempData = [];
-    let minutes = props.minute;
 
     //Go through each workout, accessing them based on their key, then push them to temp data
     //Info is pushed with their workout and if its weighted or nonweighted
@@ -110,7 +109,7 @@ export default function Generator(props) {
             }
         }
     });
-    builder(tempData, minutes, props.count);
+    builder(tempData, props.minute, props.count);
 
     // console.log(tempData);
     return (
@@ -124,7 +123,10 @@ export default function Generator(props) {
                 ) : (
                     tempData.map((item) => {
                         return (
-                            <div className="set-container">
+                            <div
+                                className="set-container"
+                                key={item.reps + item.title + util.getTimeShort}
+                            >
                                 <h2
                                     className={
                                         item.reps === undefined
@@ -148,9 +150,11 @@ export default function Generator(props) {
                 <p className="date">{util.getTimeShort()}</p>
                 <p className="minute-text-estimate">
                     <span>Estimated time of completion: </span>
-                    {minutes >= 60 ? Math.floor(minutes / 60) : minutes}
-                    {minutes >= 60
-                        ? ` hours and ${minutes % 60} minutes`
+                    {props.minute >= 60
+                        ? Math.floor(props.minute / 60)
+                        : props.minute}
+                    {props.minute >= 60
+                        ? ` hours and ${props.minute % 60} minutes`
                         : ' minutes'}
                 </p>
             </div>

@@ -35,7 +35,7 @@ export default function GeneratedWorkout(props) {
                         setGroupCount(0);
                     }}
                 >
-                    <i class="fas fa-undo"></i> Reselect
+                    <i className="fas fa-undo"></i> Reselect
                 </button>
 
                 <button
@@ -44,7 +44,7 @@ export default function GeneratedWorkout(props) {
                         setGroupSelected([...groupSelected]); //Set to a copy, causes a re-render
                     }}
                 >
-                    <i class="fas fa-random"></i> Shuffle
+                    <i className="fas fa-random"></i> Shuffle
                 </button>
             </span>
         </div>

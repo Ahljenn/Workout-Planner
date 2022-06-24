@@ -93,6 +93,7 @@ export default function WorkoutSelector(props) {
                         count={props.groupCount}
                         updateGroup={props.setGroupSelected}
                         group={props.groupSelected}
+                        key={group.name + index}
                     />
                 ))}
             </ScrollMenu>

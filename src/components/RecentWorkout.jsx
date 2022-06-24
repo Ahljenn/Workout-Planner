@@ -9,7 +9,7 @@ export default function RecentWorkout(props) {
             <h1 className="recent-text">Recent Stored Workout</h1>
             {recent.map((item) => {
                 return (
-                    <div className="set-container">
+                    <div className="set-container" key={item.title + item.reps}>
                         <h2
                             className={
                                 item.reps === undefined

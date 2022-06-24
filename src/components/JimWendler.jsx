@@ -3,7 +3,6 @@ import { ScrollMenu } from 'react-horizontal-scrolling-menu';
 
 function EstimateCard(props) {
     let index = props.i;
-    let out = props.output;
 
     return (
         <div className="display-card-calc">
@@ -18,7 +17,7 @@ function EstimateCard(props) {
             <div className="group-card-calc">
                 <p className="rep-text">
                     {100 - 3 * index} % of 1 rep max: {index + 1} rep(s):{' '}
-                    <b className="weight">{out} lbs</b>
+                    <b className="weight">{props.out} lbs</b>
                 </p>
             </div>
         </div>
@@ -98,9 +97,15 @@ export default function JimWendler() {
             <ScrollMenu>
                 {estimate.map((out, index) => {
                     if (repState > 0 && weightState > 0) {
-                        return <EstimateCard i={index} output={out} />;
+                        return (
+                            <EstimateCard
+                                out={out}
+                                i={index}
+                                key={out + index}
+                            />
+                        );
                     } else {
-                        return <></>; //Return nothing if user has not selected any options
+                        return <li key={out}></li>; //Return nothing if user has not selected any options
                     }
                 })}
             </ScrollMenu>

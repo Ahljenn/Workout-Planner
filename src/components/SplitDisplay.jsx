@@ -8,7 +8,7 @@ export default function SplitDisplay() {
             <Marquee pauseOnHover={true}>
                 {splitsInfo.map((split, index) => {
                     return (
-                        <div className="card">
+                        <div className="card" key={split + index}>
                             <h1
                                 className={
                                     index % 2 === 0
