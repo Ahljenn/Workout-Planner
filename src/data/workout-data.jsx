@@ -156,7 +156,6 @@ const shoulders = {
     ],
 };
 
-//Ab work out logic is different
 const abs = {
     nonWeighted: [
         'Track holds',
