@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ScrollMenu } from 'react-horizontal-scrolling-menu';
 import { ReactSession } from 'react-client-session';
-// import { useAlert } from 'react-alert';
 import * as data from '../data/workout-data';
 
 function WorkoutCard(props) {
@@ -49,12 +48,11 @@ function WorkoutCard(props) {
 }
 
 export default function WorkoutSelector(props) {
-    // const alert = useAlert();
-
     let minutes = props.minutes;
     let setMinutes = props.setMinutes;
 
     let handleGenerateClick = props.handleGenerateClick;
+    let handleRecentClick = props.handleRecentClick;
     let handleVisibilityToggle = props.handleVisibilityToggle;
 
     let groupCount = props.groupCount;
@@ -91,7 +89,7 @@ export default function WorkoutSelector(props) {
                         }
                         onClick={() => {
                             if (recent) {
-                                console.log(recent);
+                                handleRecentClick();
                             }
                         }}
                     >

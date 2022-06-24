@@ -117,3 +117,8 @@ h2.group-text-calc {
     color: var(--steel);
     font-size: 28px;
 }
+
+/* Recent workout */
+h1.recent-text {
+    color: var(--steel);
+}

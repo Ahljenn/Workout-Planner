@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import WorkoutSelector from './WorkoutSelector';
 import GeneratedWorkout from './GeneratedWorkout';
+import RecentWorkout from './RecentWorkout';
 
 export default function GeneratorDisplay() {
     const [displayState, setDisplayState] = useState('selecting');
@@ -25,6 +26,10 @@ export default function GeneratorDisplay() {
         }
     }
 
+    function handleRecentClick() {
+        setDisplayState('recent');
+    }
+
     if (displayState === 'selecting') {
         //While using is selecting groups
         return (
@@ -32,6 +37,7 @@ export default function GeneratorDisplay() {
                 minutes={minutes}
                 setMinutes={setMinutes}
                 handleGenerateClick={handleGenerateClick}
+                handleRecentClick={handleRecentClick}
                 handleVisibilityToggle={handleVisibilityToggle}
                 groupCount={groupCount}
                 setGroupCount={setGroupCount}
@@ -55,6 +61,8 @@ export default function GeneratorDisplay() {
                 setGroupSelected={setGroupSelected}
             />
         );
+    } else if (displayState === 'recent') {
+        return <RecentWorkout />;
     } else {
         //If user toggles see more/see less
         return (

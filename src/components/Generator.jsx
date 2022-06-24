@@ -46,7 +46,7 @@ function builder(data, time, count) {
         data[index] = { title: item.split('/')[0] }; //Get name of workout
         let reps, difficulty, randDiff, randReps, randSets, randMin, minutes;
         switch (type) {
-            case 'w':
+            case 'w': //weighted
                 reps = [8, 10, 12, 14];
                 difficulty = ['Light', 'Medium', 'Heavy'];
                 randDiff =
@@ -58,7 +58,7 @@ function builder(data, time, count) {
                     reps: `${randReps} reps x ${randSets} sets - ${randDiff}`,
                 }; //Add object to same index with title
                 break;
-            case 'n':
+            case 'n': //nonweighted
                 reps = [10, 30, 60];
                 randReps = reps[Math.floor(Math.random() * reps.length)];
                 randSets = Math.floor(Math.random() * (4 - 2) + 2);
@@ -67,7 +67,7 @@ function builder(data, time, count) {
                     reps: `${randReps} reps x ${randSets} sets`,
                 };
                 break;
-            case 'c':
+            case 'c': //cardio
                 minutes = [10, 15, 20, 30]; //Should add up to provided user minutes
                 randMin = minutes[Math.floor(Math.random() * minutes.length)];
                 data[index] = { ...data[index], minutes: `${randMin} minutes` };
