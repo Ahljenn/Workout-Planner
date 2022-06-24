@@ -1,6 +1,6 @@
 # Workout Planner
 
-(Development repository) - Updated version of workout generator as well as functionalities for planning and storing user workouts.
+Updated version of workout generator as well as functionalities for planning and storing user workouts. Utilizing a **SERN** (SQL, Express, React, Node) tech stack.
 
 ## Current functionalities working:
 

@@ -136,7 +136,7 @@ export default function WorkoutSelector(props) {
 
             <div className="visibility-button-container">
                 <button
-                    className="visibility-button"
+                    className="secondary-button"
                     onClick={handleVisibilityToggle}
                 >
                     <i className="fas fa-eye"></i> See Less

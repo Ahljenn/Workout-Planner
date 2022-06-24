@@ -27,7 +27,7 @@ export default function GeneratedWorkout(props) {
             />
             <span className="generated-button-container">
                 <button
-                    className="visibility-button"
+                    className="secondary-button"
                     onClick={() => {
                         handleVisibilityToggle();
                         setGroupSelected([]);
@@ -39,7 +39,7 @@ export default function GeneratedWorkout(props) {
                 </button>
 
                 <button
-                    className="visibility-button"
+                    className="secondary-button"
                     onClick={() => {
                         setGroupSelected([...groupSelected]); //Set to a copy, causes a re-render
                     }}

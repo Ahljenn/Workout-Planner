@@ -1,7 +1,7 @@
 import React from 'react';
 import { ReactSession } from 'react-client-session';
 
-export default function RecentWorkout() {
+export default function RecentWorkout(props) {
     const recent = ReactSession.get('MostRecentWorkout');
 
     return (
@@ -24,6 +24,14 @@ export default function RecentWorkout() {
                     </div>
                 );
             })}
+            <button
+                className="secondary-button"
+                onClick={() => {
+                    props.setDisplayState('selecting');
+                }}
+            >
+                <i class="fas fa-undo"></i> Back
+            </button>
         </div>
     );
 }

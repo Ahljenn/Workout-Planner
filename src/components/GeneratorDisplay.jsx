@@ -62,14 +62,14 @@ export default function GeneratorDisplay() {
             />
         );
     } else if (displayState === 'recent') {
-        return <RecentWorkout />;
+        return <RecentWorkout setDisplayState={setDisplayState} />;
     } else {
         //If user toggles see more/see less
         return (
             <>
                 <div className="visibility-button-container">
                     <button
-                        className="visibility-button"
+                        className="secondary-button"
                         onClick={handleVisibilityToggle}
                     >
                         <i className="far fa-eye"></i> See More
