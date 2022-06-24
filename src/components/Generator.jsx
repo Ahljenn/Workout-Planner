@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useTransition } from 'react';
 import { ReactSession } from 'react-client-session';
 import * as data from '../data/workout-data';
 import * as ajax from '../helpers/ajax';
@@ -80,6 +80,7 @@ function builder(data, time, count) {
 }
 
 export default function Generator(props) {
+    const [isPending, startTransition] = useTransition();
     const alert = useAlert();
 
     let tempData = [];
@@ -116,23 +117,31 @@ export default function Generator(props) {
         <div className="main-generator-display">
             <div className="todays-workout-container">
                 <h2 className="today">Today's workout</h2>
-                {tempData.map((item) => {
-                    return (
-                        <div className="set-container">
-                            <h2
-                                className={
-                                    item.reps === undefined
-                                        ? 'set-title-text-none'
-                                        : 'set-title-text'
-                                }
-                            >
-                                {item.title}
-                            </h2>
-                            <p className="set-text">{item.reps}</p>
-                            <p className="set-text-minutes">{item.minutes}</p>
-                        </div>
-                    );
-                })}
+                {isPending ? (
+                    <div className="loading-container">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </div>
+                ) : (
+                    tempData.map((item) => {
+                        return (
+                            <div className="set-container">
+                                <h2
+                                    className={
+                                        item.reps === undefined
+                                            ? 'set-title-text-none'
+                                            : 'set-title-text'
+                                    }
+                                >
+                                    {item.title}
+                                </h2>
+                                <p className="set-text">{item.reps}</p>
+                                <p className="set-text-minutes">
+                                    {item.minutes}
+                                </p>
+                            </div>
+                        );
+                    })
+                )}
             </div>
 
             <div>
@@ -154,15 +163,20 @@ export default function Generator(props) {
 
                         ajax.sendPostRequest('/query/insertWorkout', tempData)
                             .then((result) => {
-                                console.log('Stored into database', result);
+                                startTransition(() => {
+                                    console.log(
+                                        'Stored into database...',
+                                        result
+                                    );
 
-                                //reset the parameters
-                                props.setGroupSelected([]);
-                                props.setGroupCount(0);
-                                props.setMinutes(60);
-                                props.setDisplayState('selecting'); //Rerenders display in other component
+                                    //reset the parameters
+                                    props.setGroupSelected([]);
+                                    props.setGroupCount(0);
+                                    props.setMinutes(60);
+                                    props.setDisplayState('selecting'); //Rerenders display in other component
 
-                                alert.success('Stored workout success!'); //Show only after the re-render
+                                    alert.success('Stored workout success!'); //Show only after the re-render
+                                });
                             })
                             .catch((err) => {
                                 alert.error(err);

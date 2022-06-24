@@ -159,6 +159,14 @@ img.inner-card-img {
     margin-top: 30px;
 }
 
+div.loading-container {
+    display: flex;
+    justify-content: center;
+    font-size: 200px;
+    color: var(--sapphire);
+    margin-top: 30px;
+}
+
 /* Jim Wendler */
 @keyframes fadeIn {
     0% {
