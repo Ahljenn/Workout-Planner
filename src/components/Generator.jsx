@@ -82,7 +82,6 @@ function builder(data, time, count) {
 export default function Generator(props) {
     const [isPending, startTransition] = useTransition();
     const alert = useAlert();
-
     let tempData = [];
 
     //Go through each workout, accessing them based on their key, then push them to temp data

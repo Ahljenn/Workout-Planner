@@ -2,37 +2,25 @@ import React from 'react';
 import Generator from './Generator';
 
 export default function GeneratedWorkout(props) {
-    let minutes = props.minutes;
-    let setMinutes = props.setMinutes;
-    let setDisplayState = props.setDisplayState;
-
-    let handleVisibilityToggle = props.handleVisibilityToggle;
-
-    let groupCount = props.groupCount;
-    let setGroupCount = props.setGroupCount;
-
-    let groupSelected = props.groupSelected;
-    let setGroupSelected = props.setGroupSelected;
-
     return (
         <div className="generated-container">
             <Generator
-                groups={groupSelected}
-                count={groupCount}
-                minute={minutes}
-                setDisplayState={setDisplayState}
-                setGroupCount={setGroupCount}
-                setGroupSelected={setGroupSelected}
-                setMinutes={setMinutes}
+                groups={props.groupSelected}
+                count={props.groupCount}
+                minute={props.minutes}
+                setDisplayState={props.setDisplayState}
+                setGroupCount={props.setGroupCount}
+                setGroupSelected={props.setGroupSelected}
+                setMinutes={props.setMinutes}
             />
             <span className="generated-button-container">
                 <button
                     className="secondary-button"
                     onClick={() => {
-                        handleVisibilityToggle();
-                        setGroupSelected([]);
-                        setMinutes(60);
-                        setGroupCount(0);
+                        props.handleVisibilityToggle();
+                        props.setGroupSelected([]);
+                        props.setMinutes(60);
+                        props.setGroupCount(0);
                     }}
                 >
                     <i className="fas fa-undo"></i> Reselect
@@ -41,7 +29,7 @@ export default function GeneratedWorkout(props) {
                 <button
                     className="secondary-button"
                     onClick={() => {
-                        setGroupSelected([...groupSelected]); //Set to a copy, causes a re-render
+                        props.setGroupSelected([...props.groupSelected]); //Set to a copy, causes a re-render
                     }}
                 >
                     <i className="fas fa-random"></i> Shuffle

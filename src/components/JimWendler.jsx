@@ -2,21 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { ScrollMenu } from 'react-horizontal-scrolling-menu';
 
 function EstimateCard(props) {
-    let index = props.i;
-
     return (
         <div className="display-card-calc">
             <div>
                 <h2 className="group-text-calc">
-                    {index === 0
-                        ? `${index + 1} Repitition`
-                        : `${index + 1} Repititions`}
+                    {props.i === 0
+                        ? `${props.i + 1} Repitition`
+                        : `${props.i + 1} Repititions`}
                 </h2>
             </div>
 
             <div className="group-card-calc">
                 <p className="rep-text">
-                    {100 - 3 * index} % of 1 rep max: {index + 1} rep(s):{' '}
+                    {100 - 3 * props.i} % of 1 rep max: {props.i + 1} rep(s):{' '}
                     <b className="weight">{props.out} lbs</b>
                 </p>
             </div>
@@ -25,8 +23,6 @@ function EstimateCard(props) {
 }
 
 export default function JimWendler() {
-    //Component to handle the 5/3/1 one rep max calculator
-
     const [weightState, setWeightState] = useState('');
     const [repState, setRepState] = useState('');
     const [estimate, setEstimate] = useState([]);
@@ -97,15 +93,9 @@ export default function JimWendler() {
             <ScrollMenu>
                 {estimate.map((out, index) => {
                     if (repState > 0 && weightState > 0) {
-                        return (
-                            <EstimateCard
-                                out={out}
-                                i={index}
-                                key={out + index}
-                            />
-                        );
+                        return <EstimateCard out={out} i={index} key={index} />;
                     } else {
-                        return <li key={out}></li>; //Return nothing if user has not selected any options
+                        return <p key={out}></p>; //Return nothing if user has not selected any options
                     }
                 })}
             </ScrollMenu>
