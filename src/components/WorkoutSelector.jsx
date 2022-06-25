@@ -116,7 +116,7 @@ export default function WorkoutSelector(props) {
                             ? Math.floor(props.minutes / 60)
                             : props.minutes}
                         {props.minutes >= 60
-                            ? ` hours and ${props.minutes % 60} minutes`
+                            ? ` hour(s) and ${props.minutes % 60} minute(s)`
                             : ' minutes'}
                     </p>
                 </div>

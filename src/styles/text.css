@@ -123,3 +123,37 @@ h1.recent-text {
     color: var(--steel);
     font-style: italic;
 }
+
+/***************** DIFFERENT VIEW PORTS *****************/
+
+/* Tablet */
+@media screen and (max-width: 900px) {
+    h1.title {
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    h2.select-text {
+        margin-bottom: 0px;
+    }
+
+    h2.group-text,
+    h2.calc-title-text {
+        font-size: 28px;
+    }
+
+    p.minute-text {
+        text-align: center;
+        font-size: 22px;
+    }
+
+    h2.group-text-calc,
+    p.rep-text,
+    b.weight {
+        font-size: 22px;
+    }
+}
+
+/* Phone */
+@media screen and (max-width: 480px) {
+}

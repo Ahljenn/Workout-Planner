@@ -22,6 +22,12 @@ function EstimateCard(props) {
     );
 }
 
+// Add these different calculation types:
+// 1. Brzycki formula: Weight × (36 / (37 – number of reps))
+// 2. Epley formula: Weight × (1 + (0.0333 × number of reps))
+// 3. Lombardi formula: Weight × (number of reps ^ 0.1)
+// 4. O’Conner formula: Weight × (1 + (0.025 × number of reps))
+
 export default function JimWendler() {
     const [weightState, setWeightState] = useState('');
     const [repState, setRepState] = useState('');
