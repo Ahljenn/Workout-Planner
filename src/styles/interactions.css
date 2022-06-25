@@ -156,4 +156,7 @@ button.MuiButton-root {
 
 /* Phone */
 @media screen and (max-width: 480px) {
+    input[type='number'] {
+        width: 230px;
+    }
 }

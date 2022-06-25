@@ -221,8 +221,6 @@ div.display-card-calc {
 }
 
 div.group-card-calc {
-    /* background-color: var(--steel);
-    opacity: 0.6; */
     background-color: var(--alice);
     height: 150px;
     width: 320px;
@@ -265,8 +263,19 @@ div.recent-workout-container {
         flex-direction: column;
         width: 100%;
     }
+
     div.minute-text-container {
         width: 100%;
+    }
+
+    div.display-card,
+    div.group-card-calc,
+    div.group-card {
+        width: 220px;
+    }
+
+    div.group-card {
+        height: 220px;
     }
 }
 
@@ -274,5 +283,33 @@ div.recent-workout-container {
 @media screen and (max-width: 480px) {
     div.calculator-interaction {
         flex-direction: column;
+    }
+
+    hr {
+        margin-top: 205px;
+    }
+
+    div.continue-container {
+        margin-top: 50px;
+    }
+
+    div.display-card,
+    div.group-card-calc,
+    div.group-card {
+        width: 190px;
+    }
+
+    div.group-card,
+    div.group-card-calc {
+        height: 120px;
+    }
+
+    img {
+        width: 30%;
+    }
+
+    div.select-button-container {
+        flex-direction: column;
+        gap: 0px;
     }
 }
