@@ -39,7 +39,7 @@ export default function Calculator() {
         let temp = []; //Used to store the estimation calculations
         if (calculationTypeList[calcType] === 'avg') {
             //Can be optimized in the future by having a set value pair for 'Average All' in the future
-            Object.keys(calculationTypeList).map((key) => {
+            Object.keys(calculationTypeList).forEach((key) => {
                 if (key !== 'Average All') {
                     //Parse with current formula
                     let orm = Math.round(eval(calculationTypeList[key]));
@@ -51,12 +51,13 @@ export default function Calculator() {
             //Get averages
             for (let i = 0; i < 10; ++i) {
                 temp[i] =
-                    (temp[i] +
-                        temp[i + 10] +
-                        temp[i + 20] +
-                        temp[i + 30] +
-                        temp[i + 40]) /
-                    5;
+                    Math.round(
+                        temp[i] +
+                            temp[i + 10] +
+                            temp[i + 20] +
+                            temp[i + 30] +
+                            temp[i + 40]
+                    ) / 5;
             }
             temp.splice(10, 40);
         } else {

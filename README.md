@@ -2,6 +2,8 @@
 
 Updated version of workout generator as well as functionalities for planning and storing user workouts. Utilizing a **SERN** (SQL, Express, React, Node) tech stack.
 
+[Access Demo Here](https://workoutplannerdemo.ahljennetics.repl.co/)
+
 ## Current functionalities working:
 
 -   Generate/Shuffle/Create workouts
