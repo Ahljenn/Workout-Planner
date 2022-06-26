@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ScrollMenu } from 'react-horizontal-scrolling-menu';
+import { calculationTypeList } from '../data/workout-data';
 
 function EstimateCard(props) {
     return (
@@ -28,15 +29,6 @@ function EstimateCard(props) {
 // 3. Lombardi formula: Weight × (number of reps ^ 0.1)
 // 4. O’Conner formula: Weight × (1 + (0.025 × number of reps))
 
-const calculationTypeList = {
-    'Jim Wendler Formula': 'weightState * repState * 0.0333 + weightState',
-    'Brzycki Formula': 'weightState * (36 / (37 - repState))',
-    'Epley Formula': 'weightState * (1 + (0.0333 * repState))',
-    'Lombardi Formula': 'weightState * Math.pow(repState,0.1)',
-    "O'Conner Formula": 'weightState * (1 + (0.025 * repState));',
-    'Average All': 'avg',
-};
-
 export default function Calculator() {
     const [weightState, setWeightState] = useState('');
     const [repState, setRepState] = useState('');
@@ -52,6 +44,7 @@ export default function Calculator() {
     useEffect(() => {
         let temp = []; //Used to store the estimation calculations
         if (calculationTypeList[calcType] === 'avg') {
+            //Can be optimized in the future by having a set value pair for 'Average All' in the future
             Object.keys(calculationTypeList).map((key) => {
                 if (key !== 'Average All') {
                     //Parse with current formula

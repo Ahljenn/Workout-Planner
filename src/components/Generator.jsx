@@ -1,7 +1,7 @@
 import React, { useTransition } from 'react';
 import { ReactSession } from 'react-client-session';
 import builder from './Builder';
-import * as data from '../data/workout-data';
+import { workouts } from '../data/workout-data';
 import * as ajax from '../helpers/ajax';
 import * as util from '../helpers/util';
 import { useAlert } from 'react-alert';
@@ -17,21 +17,19 @@ export default function Generator(props) {
     //Info is pushed with their workout and if its weighted or nonweighted
     props.groups.forEach((item) => {
         if (item !== 'Random') {
-            Object.entries(data.workouts[item.toLowerCase()]).forEach(
-                (wkoutObj) => {
-                    // console.log(wkoutObj[0]);
-                    wkoutObj[1].forEach((wkoutItem) => {
-                        tempData.push(`${wkoutItem} / ${wkoutObj[0]}`);
-                    });
-                }
-            );
+            Object.entries(workouts[item.toLowerCase()]).forEach((wkoutObj) => {
+                // console.log(wkoutObj[0]);
+                wkoutObj[1].forEach((wkoutItem) => {
+                    tempData.push(`${wkoutItem} / ${wkoutObj[0]}`);
+                });
+            });
         } else {
-            let keys = Object.keys(data.workouts);
+            let keys = Object.keys(workouts);
             let randomWorkout = keys[(keys.length * Math.random()) << 0];
-            for (const key in data.workouts[randomWorkout]) {
-                for (const i in data.workouts[randomWorkout][key]) {
+            for (const key in workouts[randomWorkout]) {
+                for (const i in workouts[randomWorkout][key]) {
                     tempData.push(
-                        `${data.workouts[randomWorkout][key][i]} / ${key}`
+                        `${workouts[randomWorkout][key][i]} / ${key}`
                     );
                 }
             }
