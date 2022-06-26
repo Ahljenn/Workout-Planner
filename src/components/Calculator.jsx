@@ -28,20 +28,20 @@ function EstimateCard(props) {
 // 3. Lombardi formula: Weight × (number of reps ^ 0.1)
 // 4. O’Conner formula: Weight × (1 + (0.025 × number of reps))
 
-const calculationTypeList = [
-    'Jim Wendler Formula',
-    'Brzycki Formula',
-    'Epley Formula',
-    'Lombardi Formula',
-    "O'Conner Formula",
-    'Average All',
-];
+const calculationTypeList = {
+    'Jim Wendler Formula': 'weightState * repState * 0.0333 + weightState',
+    'Brzycki Formula': 'weightState * (36 / (37 - repState))',
+    'Epley Formula': 'weightState * (1 + (0.0333 * repState))',
+    'Lombardi Formula': 'weightState * Math.pow(repState,0.1)',
+    "O'Conner Formula": 'weightState * (1 + (0.025 * repState));',
+    'Average All': 'a',
+};
 
 export default function Calculator() {
     const [weightState, setWeightState] = useState('');
     const [repState, setRepState] = useState('');
     const [estimate, setEstimate] = useState([]);
-    const [calcType, setCalcType] = useState(calculationTypeList[0]);
+    const [calcType, setCalcType] = useState('Jim Wendler Formula');
 
     function resetFields() {
         setEstimate([]);
@@ -50,16 +50,15 @@ export default function Calculator() {
     }
 
     useEffect(() => {
-        let orm = Math.round(
-            Number(weightState) * Number(repState) * 0.0333 +
-                Number(weightState)
-        );
+        let orm = Math.round(eval(calculationTypeList[calcType]));
+
         let temp = []; //Used to store the estimation calculations
         for (let i = 0; i < 10; ++i) {
             temp.push((orm * (100 - 3 * i)) / 100);
         }
+
         setEstimate(temp);
-    }, [weightState, repState]);
+    }, [weightState, repState, calcType]);
 
     return (
         <>
@@ -75,7 +74,7 @@ export default function Calculator() {
                                 onChange={(e) => {
                                     if (e.target.value <= 0) setWeightState('');
                                     else if (e.target.value <= 10000)
-                                        setWeightState(e.target.value);
+                                        setWeightState(Number(e.target.value));
                                     else setWeightState(10000);
                                 }}
                             />
@@ -92,7 +91,7 @@ export default function Calculator() {
                                         e.target.value <= 1000 &&
                                         e.target.value >= 0
                                     )
-                                        setRepState(e.target.value);
+                                        setRepState(Number(e.target.value));
                                     else setRepState(1000);
                                 }}
                             />
@@ -100,8 +99,13 @@ export default function Calculator() {
                     </div>
 
                     <div className="calculation-type-container">
-                        Debug: {calcType}
                         <h2 className="calculation-type-text">
+                            <i
+                                className="fas fa-question-circle"
+                                title="Different calculation types may yield varying results. 
+                                If you are unsure what to use, 'Average All' is a recommended option.
+                                However, the computation may take slightly longer."
+                            ></i>{' '}
                             Calculation type:
                         </h2>
                         <select
@@ -110,7 +114,7 @@ export default function Calculator() {
                                 setCalcType(e.target.value);
                             }}
                         >
-                            {calculationTypeList.map((item) => {
+                            {Object.keys(calculationTypeList).map((item) => {
                                 return <option value={item}> {item}</option>;
                             })}
                         </select>
@@ -123,6 +127,7 @@ export default function Calculator() {
                     </div>
                 </div>
             </div>
+
             <ScrollMenu>
                 {estimate.map((out, index) => {
                     if (repState > 0 && weightState > 0) {
