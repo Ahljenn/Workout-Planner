@@ -1,19 +1,19 @@
 export const splitsInfo = [
     {
         name: 'Push-Pull-Legs Split',
-        info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        info: 'The Push-Pull-Legs routine is a simple, yet effective training method that concentrates on three major muscle groups. For example, push workouts incorporate chest, triceps, shoulders whereas pull trains back, biceps, etc.',
     },
     {
         name: 'Bro Splits',
-        info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        info: 'The "Bro Split" workout routine is an intuitive training method that aims to train a different body part on each day. For example, chest one day, back the next, arms after, etc. It is a popular and effective routine for muscle building.',
     },
     {
         name: "Jim Wendler's 5-3-1",
-        info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        info: 'The 5/3/1 workout is specifically a powerlifting program designed by powerlifter Jim Wendler. The key principle of the routine is to slowly build strength in the four barbell lifts: squat, bench press, deadlift, and shoulder press.',
     },
     {
-        name: '5-Day Split',
-        info: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+        name: 'Power Hypertrophy...',
+        info: 'The Power Hypertrophy Adaptive Training routine, also known as (PHAT), is designed to incorporate both a bodybuilding and powerlifting routine. The central aim for PHAT is to gain both muscle and strength by training each muscle group twice a week.',
     },
 ];
 
