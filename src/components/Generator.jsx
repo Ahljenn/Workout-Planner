@@ -1,9 +1,9 @@
 import React, { useTransition } from 'react';
 import { ReactSession } from 'react-client-session';
-import builder from './Builder';
 import { workouts } from '../data/workout-data';
 import * as ajax from '../helpers/ajax';
 import * as util from '../helpers/util';
+import builder from '../helpers/builder';
 import { useAlert } from 'react-alert';
 
 ReactSession.setStoreType('localStorage');
