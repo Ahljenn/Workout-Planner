@@ -34,7 +34,7 @@ const calculationTypeList = {
     'Epley Formula': 'weightState * (1 + (0.0333 * repState))',
     'Lombardi Formula': 'weightState * Math.pow(repState,0.1)',
     "O'Conner Formula": 'weightState * (1 + (0.025 * repState));',
-    'Average All': 'a',
+    'Average All': 'avg',
 };
 
 export default function Calculator() {
@@ -50,13 +50,34 @@ export default function Calculator() {
     }
 
     useEffect(() => {
-        let orm = Math.round(eval(calculationTypeList[calcType]));
-
         let temp = []; //Used to store the estimation calculations
-        for (let i = 0; i < 10; ++i) {
-            temp.push((orm * (100 - 3 * i)) / 100);
+        if (calculationTypeList[calcType] === 'avg') {
+            Object.keys(calculationTypeList).map((key) => {
+                if (key !== 'Average All') {
+                    //Parse with current formula
+                    let orm = Math.round(eval(calculationTypeList[key]));
+                    for (let i = 0; i < 10; ++i) {
+                        temp.push((orm * (100 - 3 * i)) / 100);
+                    }
+                }
+            });
+            //Get averages
+            for (let i = 0; i < 10; ++i) {
+                temp[i] =
+                    (temp[i] +
+                        temp[i + 10] +
+                        temp[i + 20] +
+                        temp[i + 30] +
+                        temp[i + 40]) /
+                    5;
+            }
+            temp.splice(10, 40);
+        } else {
+            let orm = Math.round(eval(calculationTypeList[calcType]));
+            for (let i = 0; i < 10; ++i) {
+                temp.push((orm * (100 - 3 * i)) / 100);
+            }
         }
-
         setEstimate(temp);
     }, [weightState, repState, calcType]);
 
@@ -103,8 +124,7 @@ export default function Calculator() {
                             <i
                                 className="fas fa-question-circle"
                                 title="Different calculation types may yield varying results. 
-                                If you are unsure what to use, 'Average All' is a recommended option.
-                                However, the computation may take slightly longer."
+                                If you are unsure what to use, the Jim Wendler formula is a recommended option."
                             ></i>{' '}
                             Calculation type:
                         </h2>
