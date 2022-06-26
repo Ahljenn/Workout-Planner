@@ -3,7 +3,7 @@ import { ReactSession } from 'react-client-session';
 
 export default function RecentWorkout(props) {
     const recent = ReactSession.get('MostRecentWorkout');
-    const minutes = recent[recent.length - 2].minutes;
+    const time = recent[recent.length - 2].minutes;
 
     return (
         <div className="recent-workout-container">
@@ -11,11 +11,9 @@ export default function RecentWorkout(props) {
             <div>
                 <p className="date">From: {recent[recent.length - 1].date}</p>
                 <p className="minute-text-estimate">
-                    <span>Estimated minutes of completion: </span>
-                    {minutes >= 60 ? Math.floor(minutes / 60) : minutes}
-                    {minutes >= 60
-                        ? ` hours and ${minutes % 60} minutes`
-                        : ' minutes'}
+                    <span>Estimated time of completion: </span>
+                    {time >= 60 ? Math.floor(time / 60) : time}
+                    {time >= 60 ? ` hours and ${time % 60} time` : ' time'}
                 </p>
             </div>
             {recent.map((item, index) => {
@@ -35,6 +33,7 @@ export default function RecentWorkout(props) {
                                 {item.title}
                             </h2>
                             <p className="set-text">{item.reps}</p>
+                            <p className="set-text-minutes">{item.minutes}</p>
                         </div>
                     );
                 }

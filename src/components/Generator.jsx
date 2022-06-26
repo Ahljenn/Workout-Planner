@@ -91,7 +91,6 @@ export default function Generator(props) {
                     onClick={() => {
                         tempData.push({ minutes: props.minute });
                         tempData.push({ date: util.getTimeShort() });
-
                         ReactSession.set('MostRecentWorkout', tempData); //Store recent workout in session
 
                         ajax.sendPostRequest('/query/insertWorkout', tempData)
