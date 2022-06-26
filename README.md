@@ -6,12 +6,13 @@ Updated version of workout generator as well as functionalities for planning and
 
 -   Generate/Shuffle/Create workouts
 -   One rep max calculator
+-   Different calculation types for one rep max
 -   Store user workout
 -   Access recently stored workout
+-   Mobile/tablet viewports
 
 ## In progress:
 
--   Mobile/tablet viewports
 -   Login system
 -   Plan view page
 

@@ -23,12 +23,6 @@ function EstimateCard(props) {
     );
 }
 
-// Add these different calculation types:
-// 1. Brzycki formula: Weight × (36 / (37 – number of reps))
-// 2. Epley formula: Weight × (1 + (0.0333 × number of reps))
-// 3. Lombardi formula: Weight × (number of reps ^ 0.1)
-// 4. O’Conner formula: Weight × (1 + (0.025 × number of reps))
-
 export default function Calculator() {
     const [weightState, setWeightState] = useState('');
     const [repState, setRepState] = useState('');
@@ -112,6 +106,12 @@ export default function Calculator() {
                         </div>
                     </div>
 
+                    <div className="reset-container">
+                        <button className="reset-button" onClick={resetFields}>
+                            <i className="fas fa-sync"></i> Reset
+                        </button>
+                    </div>
+
                     <div className="calculation-type-container">
                         <h2 className="calculation-type-text">
                             <i
@@ -131,12 +131,6 @@ export default function Calculator() {
                                 return <option value={item}> {item}</option>;
                             })}
                         </select>
-                    </div>
-
-                    <div className="reset-container">
-                        <button className="reset-button" onClick={resetFields}>
-                            <i className="fas fa-sync"></i> Reset
-                        </button>
                     </div>
                 </div>
             </div>
