@@ -167,7 +167,7 @@ div.loading-container {
     margin-top: 30px;
 }
 
-/* Jim Wendler */
+/* Calculator */
 @keyframes fadeIn {
     0% {
         opacity: 0;
@@ -207,9 +207,13 @@ div.input-container {
 
 div.calculator-interaction {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     align-items: center;
     gap: 20px;
+}
+
+div.calculation-type-container {
+    text-align: center;
 }
 
 div.display-card-calc {

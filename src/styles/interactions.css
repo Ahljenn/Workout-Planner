@@ -97,7 +97,7 @@ input.input-minute {
     color: var(--acid);
 }
 
-/* Jim Wendler */
+/* Calculator */
 button.reset-button {
     background-image: linear-gradient(50deg, var(--sapphire), var(--steel));
     margin-top: 0px;
@@ -107,7 +107,8 @@ button.reset-button:hover {
     background-image: linear-gradient(-100deg, var(--sapphire), var(--steel));
 }
 
-input[type='number'] {
+input[type='number'],
+select {
     box-sizing: border-box;
     width: 400px;
     font-weight: 700;
@@ -123,7 +124,8 @@ input[type='number'] {
         'Helvetica Neue', sans-serif;
 }
 
-input[type='number']:focus {
+input[type='number']:focus,
+select {
     border: 5px solid var(--acid);
 }
 
@@ -146,17 +148,20 @@ button.MuiButton-root {
         width: 40%;
     }
 
-    input[type='number'] {
+    input[type='number'],
+    select {
         font-size: 18px;
     }
-    input[type='number'] {
+    input[type='number'],
+    select {
         width: 330px;
     }
 }
 
 /* Phone */
 @media screen and (max-width: 480px) {
-    input[type='number'] {
+    input[type='number'],
+    select {
         width: 230px;
     }
 }

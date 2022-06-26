@@ -2,7 +2,7 @@ import './styles/App.css';
 import React from 'react';
 import SplitDisplay from './components/SplitDisplay';
 import GeneratorDisplay from './components/GeneratorDisplay';
-import JimWendler from './components/JimWendler';
+import Calculator from './components/Calculator';
 import Header from './components/Header';
 
 import { positions, Provider } from 'react-alert';
@@ -19,7 +19,7 @@ export default function App() {
             <Header />
             <SplitDisplay />
             <GeneratorDisplay />
-            <JimWendler />
+            <Calculator />
         </Provider>
     );
 }

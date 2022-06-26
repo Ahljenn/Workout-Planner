@@ -28,10 +28,20 @@ function EstimateCard(props) {
 // 3. Lombardi formula: Weight × (number of reps ^ 0.1)
 // 4. O’Conner formula: Weight × (1 + (0.025 × number of reps))
 
-export default function JimWendler() {
+const calculationTypeList = [
+    'Jim Wendler Formula',
+    'Brzycki Formula',
+    'Epley Formula',
+    'Lombardi Formula',
+    "O'Conner Formula",
+    'Average All',
+];
+
+export default function Calculator() {
     const [weightState, setWeightState] = useState('');
     const [repState, setRepState] = useState('');
     const [estimate, setEstimate] = useState([]);
+    const [calcType, setCalcType] = useState(calculationTypeList[0]);
 
     function resetFields() {
         setEstimate([]);
@@ -89,6 +99,23 @@ export default function JimWendler() {
                         </div>
                     </div>
 
+                    <div className="calculation-type-container">
+                        Debug: {calcType}
+                        <h2 className="calculation-type-text">
+                            Calculation type:
+                        </h2>
+                        <select
+                            value={calcType}
+                            onChange={(e) => {
+                                setCalcType(e.target.value);
+                            }}
+                        >
+                            {calculationTypeList.map((item) => {
+                                return <option value={item}> {item}</option>;
+                            })}
+                        </select>
+                    </div>
+
                     <div className="reset-container">
                         <button className="reset-button" onClick={resetFields}>
                             <i className="fas fa-sync"></i> Reset
@@ -99,7 +126,14 @@ export default function JimWendler() {
             <ScrollMenu>
                 {estimate.map((out, index) => {
                     if (repState > 0 && weightState > 0) {
-                        return <EstimateCard out={out} i={index} key={index} />;
+                        return (
+                            <EstimateCard
+                                out={out}
+                                i={index}
+                                key={index}
+                                calcType={calcType}
+                            />
+                        );
                     } else {
                         return <p key={out}></p>; //Return nothing if user has not selected any options
                     }

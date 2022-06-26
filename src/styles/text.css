@@ -87,7 +87,7 @@ p.minute-text-estimate {
     text-align: center;
 }
 
-/*Jim Wendler*/
+/* Calculator */
 @keyframes fadeInAnimation {
     0% {
         opacity: 0;
@@ -116,6 +116,11 @@ b.weight {
 h2.group-text-calc {
     color: var(--steel);
     font-size: 28px;
+}
+
+h2.calculation-type-text {
+    color: var(--steel);
+    font-size: 24px;
 }
 
 /* Recent workout */
@@ -149,6 +154,7 @@ h1.recent-text {
 
     h2.group-text-calc,
     p.rep-text,
+    h2.calculation-type-text,
     b.weight {
         font-size: 22px;
     }
@@ -167,7 +173,8 @@ h1.recent-text {
 
     h2.group-text-calc,
     p.rep-text,
-    b.weight {
+    b.weight,
+    h2.calculation-type-text {
         font-size: 18px;
     }
 }
