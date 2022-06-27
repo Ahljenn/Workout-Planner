@@ -24,4 +24,5 @@ Updated version of workout generator as well as functionalities for planning and
 -   [React Scrolling Menu](https://github.com/asmyshlyaev177/react-horizontal-scrolling-menu)
 -   [React Fast Marquee](https://github.com/justin-chu/react-fast-marquee)
 -   [React Alert](https://github.com/schiehll/react-alert)
--   [React Google Login](https://github.com/anthonyjgrove/react-google-login)
+-   [React Router Dom](https://github.com/remix-run/react-router)
+<!-- -   [React Google Login](https://github.com/anthonyjgrove/react-google-login) -->

@@ -1,3 +1,4 @@
+import Nav from './Nav';
 import React from 'react';
 
 export default function Header() {
@@ -8,20 +9,7 @@ export default function Header() {
                 <div>
                     <h1 className="title">Workout Planner</h1>
                 </div>
-
-                <div className="nav-container">
-                    <button className="not-selected">
-                        <i className="fas fa-book"></i> Plan
-                    </button>
-
-                    <button className="not-selected">
-                        <i className="fas fa-sign-in-alt"></i> Login
-                    </button>
-
-                    <button className="not-selected">
-                        <i className="fas fa-user-plus"></i> Sign Up
-                    </button>
-                </div>
+                <Nav />
             </header>
         </>
     );

@@ -1,25 +1,21 @@
 import './styles/App.css';
 import React from 'react';
-import SplitDisplay from './components/SplitDisplay';
-import GeneratorDisplay from './components/GeneratorDisplay';
-import Calculator from './components/Calculator';
-import Header from './components/Header';
-
-import { positions, Provider } from 'react-alert';
+import Home from './routes/Home';
+import MyPrs from './routes/MyPrs';
+import { options } from './data/alert-options';
+import { Provider } from 'react-alert';
 import AlertMUITemplate from 'react-alert-template-mui';
-
-const options = {
-    timeout: 10000,
-    position: positions.MIDDLE,
-};
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 export default function App() {
     return (
         <Provider template={AlertMUITemplate} {...options}>
-            <Header />
-            <SplitDisplay />
-            <GeneratorDisplay />
-            <Calculator />
+            <Router>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/my-prs" element={<MyPrs />} />
+                </Routes>
+            </Router>
         </Provider>
     );
 }

@@ -106,7 +106,6 @@ export default function Generator(props) {
                                     props.setGroupCount(0);
                                     props.setMinutes(60);
                                     props.setDisplayState('selecting'); //Rerenders display in other component
-
                                     alert.success('Stored workout success!'); //Show only after the re-render
                                 });
                             })
