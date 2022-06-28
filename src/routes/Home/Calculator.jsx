@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ScrollMenu } from 'react-horizontal-scrolling-menu';
-import { calculationTypeList } from '../data/workout-data';
+import { calculationTypeList } from '../../data/workout-data';
 
 function EstimateCard(props) {
     return (

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ScrollMenu } from 'react-horizontal-scrolling-menu';
 import { ReactSession } from 'react-client-session';
 import { Selector } from './Selector';
-import * as data from '../data/workout-data';
+import * as data from '../../data/workout-data';
 
 function WorkoutCard(props) {
     const [cardStyle, setStyle] = useState('display-card');
