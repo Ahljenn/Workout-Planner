@@ -15,8 +15,12 @@ Updated version of workout generator as well as functionalities for planning and
 
 ## In progress:
 
--   Login system
+-   Personal Records page
 -   Plan view page
+
+## Future ideas:
+
+-   Login system
 
 ### Packages
 
@@ -25,4 +29,5 @@ Updated version of workout generator as well as functionalities for planning and
 -   [React Fast Marquee](https://github.com/justin-chu/react-fast-marquee)
 -   [React Alert](https://github.com/schiehll/react-alert)
 -   [React Router Dom](https://github.com/remix-run/react-router)
+-   [React Date Picker](https://www.npmjs.com/package/react-datepicker)
 <!-- -   [React Google Login](https://github.com/anthonyjgrove/react-google-login) -->

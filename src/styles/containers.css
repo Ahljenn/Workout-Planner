@@ -8,7 +8,7 @@ header {
 
 div.nav-container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     margin-right: 10px;
     gap: 8px;
 }
@@ -238,7 +238,6 @@ div.recent-workout-container {
 
     div.nav-container {
         margin-right: 0px;
-        justify-content: center;
         margin-bottom: 20px;
     }
 
@@ -297,4 +296,26 @@ div.recent-workout-container {
         flex-direction: column;
         gap: 0px;
     }
+}
+
+/***************** Records Page *****************/
+/* Records */
+div.records-container {
+    text-align: center;
+}
+
+/* New Record*/
+div.new-pr-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px;
+    margin-bottom: 100px;
+}
+
+div.pr-info-container {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
