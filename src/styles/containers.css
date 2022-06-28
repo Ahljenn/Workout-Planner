@@ -308,9 +308,14 @@ div.records-container {
 div.new-pr-container {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     gap: 100px;
-    margin-bottom: 100px;
+    margin-bottom: 70px;
+
+    background-color: var(--alice);
+    border-top: 0.4rem solid var(--acid);
+    border-bottom: 0.4rem solid var(--acid);
+    height: 380px;
 }
 
 div.pr-info-container {
