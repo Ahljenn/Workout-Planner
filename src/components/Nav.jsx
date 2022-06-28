@@ -7,7 +7,7 @@ export default function Nav() {
     return (
         <div className="nav-container">
             <button className="selected" onClick={() => navigate('/my-prs')}>
-                <i className="fas fa-book-medical"></i> My PRs
+                <i className="fas fa-book-medical"></i> Records
             </button>
 
             <button className="not-selected">

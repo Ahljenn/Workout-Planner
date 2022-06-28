@@ -46,6 +46,7 @@ function WorkoutCard(props) {
 
 export default function WorkoutSelector(props) {
     useEffect(() => {
+        //Reset the parameters of selector on reload only
         props.setRecent(ReactSession.get('MostRecentWorkout'));
         props.setGroupSelected([]);
         props.setGroupCount(0);

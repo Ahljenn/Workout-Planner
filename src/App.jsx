@@ -1,7 +1,7 @@
 import './styles/App.css';
 import React from 'react';
 import Home from './routes/Home';
-import MyPrs from './routes/MyPrs';
+import Records from './routes/Records';
 import { options } from './data/alert-options';
 import { Provider } from 'react-alert';
 import AlertMUITemplate from 'react-alert-template-mui';
@@ -13,7 +13,7 @@ export default function App() {
             <Router>
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/my-prs" element={<MyPrs />} />
+                    <Route path="/my-prs" element={<Records />} />
                 </Routes>
             </Router>
         </Provider>

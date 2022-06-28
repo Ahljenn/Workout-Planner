@@ -37,6 +37,7 @@ export default function RecentWorkout(props) {
                         </div>
                     );
                 }
+                return <></>;
             })}
             <button
                 className="secondary-button"

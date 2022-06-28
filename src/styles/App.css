@@ -2,8 +2,6 @@
 @import url('containers.css');
 @import url('interactions.css');
 
-/* Icons: https://fontawesome.com/v5/search */
-
 :root {
     /*Light Mode*/
     --sapphire: #05668d;
