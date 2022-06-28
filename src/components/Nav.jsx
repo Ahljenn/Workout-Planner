@@ -11,25 +11,25 @@ export default function Nav() {
         <div className="nav-container">
             <button
                 className={
+                    location.pathname !== '/' ? 'selected' : 'selected-page'
+                }
+                onClick={() => navigate('/')}
+            >
+                <i className="fas fa-home"></i> Home
+            </button>
+
+            <button
+                className={
                     location.pathname !== '/my-prs'
                         ? 'selected'
-                        : ' not-selected'
+                        : 'selected-page'
                 }
                 onClick={() => navigate('/my-prs')}
             >
                 <i className="fas fa-book-medical"></i> Records
             </button>
 
-            <button
-                className={
-                    location.pathname !== '/' ? 'selected' : ' not-selected'
-                }
-                onClick={() => navigate('/')}
-            >
-                <i className="fas fa-book"></i> Home
-            </button>
-
-            <button className="not-selected">
+            <button className="disabled">
                 <i className="fas fa-sign-in-alt"></i> Login
             </button>
         </div>
