@@ -17,14 +17,10 @@ header > div {
     width: 50%;
 }
 
-hr {
-    background-color: var(--acid);
-    opacity: 0.1;
-    position: absolute;
-    margin-top: 165px;
-    width: 100%;
-    height: 175px;
-    z-index: -1;
+div.marquee {
+    background-color: var(--alice);
+    border-top: 0.2rem solid var(--steel);
+    border-bottom: 0.2rem solid var(--steel);
 }
 
 /*Generator Display + Generator*/
@@ -40,12 +36,6 @@ div.generated-container {
 
 div.main-display-container {
     margin-top: 30px;
-}
-
-hr.display-hr {
-    background-color: var(--steel);
-    height: 375px;
-    margin-top: 0px;
 }
 
 img {
@@ -83,9 +73,6 @@ div.set-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* background-color: var(--alice);
-    border-left: 10px solid var(--steel);
-    border-right: 10px solid var(--steel); */
     animation: 1.5s ease-out 0s 1 fadeInAnimation;
 }
 
@@ -253,9 +240,6 @@ div.recent-workout-container {
         justify-content: center;
         margin-bottom: 20px;
     }
-    hr {
-        margin-top: 235px;
-    }
 
     div.continue-container {
         flex-direction: column;
@@ -287,10 +271,6 @@ div.recent-workout-container {
 @media screen and (max-width: 480px) {
     div.calculator-interaction {
         flex-direction: column;
-    }
-
-    hr {
-        margin-top: 205px;
     }
 
     div.continue-container {

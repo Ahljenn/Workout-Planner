@@ -4,7 +4,6 @@ import React from 'react';
 export default function Header() {
     return (
         <>
-            <hr />
             <header>
                 <div>
                     <h1 className="title">Workout Planner</h1>

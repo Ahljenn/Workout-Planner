@@ -1,7 +1,8 @@
 import './styles/App.css';
 import React from 'react';
-import Home from './routes/Home';
-import Records from './routes/Records';
+import Home from './routes/Home/Home';
+import Records from './routes/Records/Records';
+import Header from './components/Header';
 import { options } from './data/alert-options';
 import { Provider } from 'react-alert';
 import AlertMUITemplate from 'react-alert-template-mui';
@@ -11,6 +12,7 @@ export default function App() {
     return (
         <Provider template={AlertMUITemplate} {...options}>
             <Router>
+                <Header />
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route path="/my-prs" element={<Records />} />
