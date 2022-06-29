@@ -1,4 +1,7 @@
+import { CardioInput } from './CardioInput';
+import { LiftInput } from './LiftInput';
 import React, { useState, useEffect } from 'react';
+import { useAlert } from 'react-alert';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -13,14 +16,40 @@ function initializeRecord() {
 }
 
 export default function NewRecord() {
+    const alert = useAlert();
     const [date, changeDate] = useState(new Date());
     const [prType, setPrType] = useState('Lift');
-
     const [record, setRecord] = useState(initializeRecord());
+    const [filled, setFill] = useState(false);
 
+    //Whenever user switches between PR types
     useEffect(() => {
         setRecord(initializeRecord());
+        setFill(false);
     }, [prType]);
+
+    //Whenever new data is filled
+    useEffect(() => {
+        let valid = true;
+
+        if (prType === 'Lift') {
+            if (
+                record.name.length < 1 ||
+                record.weight.length < 1 ||
+                record.reps.length < 1
+            ) {
+                valid = false;
+            }
+        }
+
+        if (prType === 'Cardio') {
+            if (record.name.length < 1 || record.time.length < 1) {
+                valid = false;
+            }
+        }
+
+        setFill(valid);
+    }, [record]);
 
     return (
         <>
@@ -37,88 +66,9 @@ export default function NewRecord() {
                         <option value="Cardio">Cardio</option>
                     </select>
                     {prType === 'Lift' ? (
-                        <div className="pr-info-container">
-                            <input
-                                type="text"
-                                value={record.name}
-                                onChange={(e) => {
-                                    setRecord({
-                                        ...record,
-                                        name: e.target.value,
-                                    });
-                                }}
-                                placeholder="Lift Name"
-                            ></input>
-                            <input
-                                type="number"
-                                value={record.weight}
-                                onChange={(e) => {
-                                    setRecord({
-                                        ...record,
-                                        weight: e.target.value,
-                                    });
-                                }}
-                                placeholder="Weight"
-                            ></input>
-                            <input
-                                type="number"
-                                value={record.reps}
-                                onChange={(e) => {
-                                    setRecord({
-                                        ...record,
-                                        reps: e.target.value,
-                                    });
-                                }}
-                                placeholder="Reps"
-                            ></input>
-                            <input
-                                type="text"
-                                value={record.notes}
-                                onChange={(e) => {
-                                    setRecord({
-                                        ...record,
-                                        notes: e.target.value,
-                                    });
-                                }}
-                                placeholder="Notes (optional)"
-                            ></input>
-                        </div>
+                        <LiftInput setRecord={setRecord} record={record} />
                     ) : (
-                        <div className="pr-info-container">
-                            <input
-                                type="text"
-                                value={record.name}
-                                onChange={(e) => {
-                                    setRecord({
-                                        ...record,
-                                        name: e.target.value,
-                                    });
-                                }}
-                                placeholder="Workout Name"
-                            ></input>
-                            <input
-                                type="number"
-                                value={record.time}
-                                onChange={(e) => {
-                                    setRecord({
-                                        ...record,
-                                        time: e.target.value,
-                                    });
-                                }}
-                                placeholder="Time"
-                            ></input>
-                            <input
-                                type="text"
-                                value={record.notes}
-                                onChange={(e) => {
-                                    setRecord({
-                                        ...record,
-                                        notes: e.target.value,
-                                    });
-                                }}
-                                placeholder="Notes (optional)"
-                            ></input>
-                        </div>
+                        <CardioInput setRecord={setRecord} record={record} />
                     )}
                 </div>
 
@@ -131,27 +81,15 @@ export default function NewRecord() {
                 </div>
             </div>
             <button
-                className="not-selected"
+                className={filled ? 'selected' : 'not-selected'}
                 onClick={() => {
-                    let valid = true;
-
-                    if (prType === 'Lift') {
-                        if (
-                            record.name.length < 1 ||
-                            record.weight.length < 1 ||
-                            record.reps.length < 1
-                        ) {
-                            valid = false;
-                        }
+                    if (filled) {
+                        alert.success('Storing new personal record!');
+                    } else {
+                        alert.error(
+                            'Fill out the required fields to add new records'
+                        );
                     }
-
-                    if (prType === 'Cardio') {
-                        if (record.name.length < 1 || record.time.length < 1) {
-                            valid = false;
-                        }
-                    }
-
-                    console.log(valid ? 'good' : 'bad');
                 }}
             >
                 <i className="fas fa-pencil-alt" /> Save
