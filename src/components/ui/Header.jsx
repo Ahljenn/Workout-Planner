@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Nav from './Nav';
-import randQuote from '../helpers/randQuote';
+import randQuote from '../../helpers/randQuote';
 
 export default function Header() {
     const [quote, setQuote] = useState('Placeholder - John Doe');
