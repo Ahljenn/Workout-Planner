@@ -7,6 +7,7 @@ export default function Records() {
     return (
         <div className="records-container">
             <h2 className="record-h">My Personal Records</h2>
+
             <div>
                 {prButtonClicked === 'unclicked' ? (
                     <button onClick={() => setPrButtonState('clicked')}>
@@ -16,6 +17,7 @@ export default function Records() {
                     <NewRecord setPrButtonState={setPrButtonState} />
                 )}
             </div>
+            <p>No records found</p>
         </div>
     );
 }

@@ -16,10 +16,10 @@ body {
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     overflow: scroll;
-    max-width: 2000px;
+    max-width: 2550px;
 }
-/*Center screen pass 2000px*/
-@media screen and (min-width: 2000px) {
+/*Center screen pass 3000px*/
+@media screen and (min-width: 2550px) {
     html,
     body {
         height: 100%;
