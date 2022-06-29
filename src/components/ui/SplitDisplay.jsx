@@ -5,7 +5,7 @@ import { splitsInfo } from '../../data/workout-data';
 export default function SplitDisplay() {
     return (
         <>
-            <Marquee pauseOnHover={true}>
+            <Marquee pauseOnHover={true} gradient={false}>
                 {splitsInfo.map((split, index) => {
                     return (
                         <div className="card" key={split + index}>

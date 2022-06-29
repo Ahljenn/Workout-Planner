@@ -152,6 +152,8 @@ h1.quote {
     }
 
     h2.group-text,
+    h1.rolling-text,
+    h1.rolling-text-odd,
     h2.calc-title-text {
         font-size: 28px;
     }
@@ -177,6 +179,8 @@ h1.quote {
     }
 
     h2.group-text,
+    h1.rolling-text,
+    h1.rolling-text-odd,
     h2.calc-title-text {
         font-size: 24px;
     }

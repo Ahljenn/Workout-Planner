@@ -22,7 +22,7 @@ Updated version of workout generator as well as functionalities for planning and
 
 -   Login system
 
-### Packages
+### Packages and Libraries
 
 -   [React Session](https://github.com/grizzthedj/react-session)
 -   [React Scrolling Menu](https://github.com/asmyshlyaev177/react-horizontal-scrolling-menu)
@@ -30,6 +30,7 @@ Updated version of workout generator as well as functionalities for planning and
 -   [React Alert](https://github.com/schiehll/react-alert)
 -   [React Router Dom](https://github.com/remix-run/react-router)
 -   [React Date Picker](https://www.npmjs.com/package/react-datepicker)
+-   [Framer](https://www.framer.com/motion/)
 <!-- -   [React Google Login](https://github.com/anthonyjgrove/react-google-login) -->
 
 ### Credit
