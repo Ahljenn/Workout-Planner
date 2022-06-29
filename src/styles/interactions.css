@@ -42,7 +42,7 @@ button.selected:hover {
 
 button.selected-page {
     background-image: linear-gradient(50deg, var(--sapphire), var(--steel));
-    color: black;
+    color: rgb(200, 200, 200);
 }
 
 button.not-selected {
