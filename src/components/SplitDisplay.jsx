@@ -1,6 +1,6 @@
 import React from 'react';
 import Marquee from 'react-fast-marquee';
-import { splitsInfo } from '../../data/workout-data';
+import { splitsInfo } from '../data/workout-data';
 
 export default function SplitDisplay() {
     return (

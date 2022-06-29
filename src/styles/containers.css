@@ -259,6 +259,8 @@ div.pr-info-container {
         flex-direction: column;
         align-items: center;
         height: 680px;
+        gap: 0px;
+        margin-top: 0px;
     }
 
     header > div {

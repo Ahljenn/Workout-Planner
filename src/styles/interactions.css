@@ -41,6 +41,7 @@ button.selected:hover {
 }
 
 button.selected-page {
+    background-image: linear-gradient(50deg, var(--sapphire), var(--steel));
     color: black;
 }
 
@@ -50,11 +51,13 @@ button.not-selected {
     opacity: 0.5;
 }
 
-button.secondary-button {
+button.secondary-button,
+button.nav-button {
     background-image: linear-gradient(50deg, var(--sapphire), var(--steel));
 }
 
-button.secondary-button:hover {
+button.secondary-button:hover,
+button.nav-button:hover {
     background-image: linear-gradient(-150deg, var(--sapphire), var(--steel));
 }
 

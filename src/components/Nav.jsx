@@ -11,7 +11,7 @@ export default function Nav() {
         <div className="nav-container">
             <button
                 className={
-                    location.pathname !== '/' ? 'selected' : 'selected-page'
+                    location.pathname !== '/' ? 'nav-button' : 'selected-page'
                 }
                 onClick={() => navigate('/')}
             >
@@ -21,7 +21,7 @@ export default function Nav() {
             <button
                 className={
                     location.pathname !== '/my-prs'
-                        ? 'selected'
+                        ? 'nav-button'
                         : 'selected-page'
                 }
                 onClick={() => navigate('/my-prs')}
