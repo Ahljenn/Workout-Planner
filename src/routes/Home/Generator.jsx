@@ -92,25 +92,25 @@ export default function Generator(props) {
                         tempData.push({ date: util.getTimeShort() });
                         ReactSession.set('MostRecentWorkout', tempData); //Store recent workout in session
 
-                        ajax.sendPostRequest('/query/insertWorkout', tempData)
-                            .then((result) => {
-                                startTransition(() => {
-                                    console.log(
-                                        'Stored into database...',
-                                        result
-                                    );
+                        //reset the parameters
+                        props.setGroupSelected([]);
+                        props.setGroupCount(0);
+                        props.setMinutes(60);
+                        props.setDisplayState('selecting'); //Rerenders display in other component
+                        alert.success('Stored workout success!'); //Show only after the re-render
 
-                                    //reset the parameters
-                                    props.setGroupSelected([]);
-                                    props.setGroupCount(0);
-                                    props.setMinutes(60);
-                                    props.setDisplayState('selecting'); //Rerenders display in other component
-                                    alert.success('Stored workout success!'); //Show only after the re-render
-                                });
-                            })
-                            .catch((err) => {
-                                alert.error(err);
-                            });
+                        // ajax.sendPostRequest('/query/insertWorkout', tempData)
+                        //     .then((result) => {
+                        //         startTransition(() => {
+                        //             console.log(
+                        //                 'Stored into database...',
+                        //                 result
+                        //             );
+                        //         });
+                        //     })
+                        //     .catch((err) => {
+                        //         alert.error(err);
+                        //     });
                     }}
                 >
                     <i className="fas fa-database"></i> Store

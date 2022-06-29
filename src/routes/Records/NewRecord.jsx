@@ -8,7 +8,7 @@ export default function NewRecord() {
         <>
             <div className="new-pr-container">
                 <div>
-                    <h3>Type of PR:</h3>
+                    <h2 className="record-h">Type of PR:</h2>
                     <select
                         value={prType}
                         onChange={(e) => {
@@ -23,6 +23,10 @@ export default function NewRecord() {
                             <input type="text" placeholder="Lift Name"></input>
                             <input type="number" placeholder="Weight"></input>
                             <input type="number" placeholder="Reps"></input>
+                            <input
+                                type="text"
+                                placeholder="Notes (optional)"
+                            ></input>
                         </div>
                     ) : (
                         <div className="pr-info-container">
@@ -31,18 +35,22 @@ export default function NewRecord() {
                                 placeholder="Workout Name"
                             ></input>
                             <input type="number" placeholder="Time"></input>
+                            <input
+                                type="text"
+                                placeholder="Notes (optional)"
+                            ></input>
                         </div>
                     )}
                 </div>
                 <div>
-                    <h3>Date:</h3>
+                    <h2 className="record-h">Date:</h2>
                     <DatePicker
                         selected={date}
                         onChange={(e) => changeDate(e)}
                     />
                 </div>
             </div>
-            <button>
+            <button className="not-selected">
                 <i className="fas fa-pencil-alt" /> Save
             </button>
         </>

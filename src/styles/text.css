@@ -118,7 +118,8 @@ h2.group-text-calc {
     font-size: 28px;
 }
 
-h2.calculation-type-text {
+h2.calculation-type-text,
+h2.record-h {
     color: var(--steel);
     font-size: 24px;
 }
@@ -155,6 +156,7 @@ h1.recent-text {
     h2.group-text-calc,
     p.rep-text,
     h2.calculation-type-text,
+    h2.record-h,
     b.weight {
         font-size: 22px;
     }
@@ -174,7 +176,13 @@ h1.recent-text {
     h2.group-text-calc,
     p.rep-text,
     b.weight,
-    h2.calculation-type-text {
+    h2.calculation-type-text,
+    h2.record-h {
         font-size: 18px;
     }
 }
+
+/***************** Records Page *****************/
+/* Records */
+
+/* New Record*/

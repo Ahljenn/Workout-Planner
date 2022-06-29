@@ -5,7 +5,7 @@ export default function Records() {
 
     return (
         <div className="records-container">
-            <h2>My Personal Records</h2>
+            <h2 className="record-h">My Personal Records</h2>
             <div>
                 {prButtonClicked === 'unclicked' ? (
                     <button onClick={() => setPrButtonState('clicked')}>

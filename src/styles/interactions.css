@@ -19,7 +19,7 @@ button {
 
 button.disabled {
     background-image: linear-gradient(0, gray, gray);
-    opacity: 0.3;
+    opacity: 0.2;
     cursor: not-allowed;
 }
 
@@ -154,6 +154,16 @@ button.MuiButton-root {
     background-image: linear-gradient(50deg, var(--alice), var(--alice));
 }
 
+/* Records Page */
+/* NewRecord */
+button.react-datepicker__navigation:hover {
+    background-image: none;
+}
+
+div.pr-info-container > input {
+    width: 100%;
+}
+
 /***************** DIFFERENT VIEW PORTS *****************/
 
 /* Tablet */
@@ -173,7 +183,10 @@ button.MuiButton-root {
     select {
         font-size: 18px;
     }
+
+    input[type='text'],
     input[type='number'],
+    div.pr-info-container > input,
     select {
         width: 330px;
     }
@@ -183,17 +196,8 @@ button.MuiButton-root {
 @media screen and (max-width: 480px) {
     input[type='number'],
     input[type='text'],
+    div.pr-info-container > input,
     select {
         width: 230px;
     }
-}
-
-/* Records Page */
-/* NewRecord */
-button.react-datepicker__navigation:hover {
-    background-image: none;
-}
-
-div.pr-info-container > input {
-    width: 100%;
 }
