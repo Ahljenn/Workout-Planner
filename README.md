@@ -31,3 +31,7 @@ Updated version of workout generator as well as functionalities for planning and
 -   [React Router Dom](https://github.com/remix-run/react-router)
 -   [React Date Picker](https://www.npmjs.com/package/react-datepicker)
 <!-- -   [React Google Login](https://github.com/anthonyjgrove/react-google-login) -->
+
+### Credit
+
+-   [Type fit](https://type.fit) for the quotes provided in the app

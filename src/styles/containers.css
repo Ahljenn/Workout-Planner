@@ -1,9 +1,20 @@
 /*Header*/
-header {
+div.title-nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+div.quote-container {
+    padding-left: 5%;
+    padding-right: 5%;
 }
 
 div.nav-container {
@@ -13,7 +24,7 @@ div.nav-container {
     gap: 8px;
 }
 
-header > div {
+div.title-nav-container > div {
     width: 50%;
 }
 
@@ -230,6 +241,9 @@ div.records-container {
     text-align: center;
 }
 
+div.quote-container {
+}
+
 /* New Record*/
 div.new-pr-container {
     display: flex;
@@ -251,6 +265,13 @@ div.pr-info-container {
     gap: 20px;
 }
 
+div.record-button-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    gap: 20px;
+}
+
 /***************** DIFFERENT VIEW PORTS *****************/
 
 /* Tablet */
@@ -263,11 +284,11 @@ div.pr-info-container {
         margin-top: 0px;
     }
 
-    header > div {
+    div.title-nav-container > div {
         width: 100%;
     }
 
-    header {
+    div.title-nav-container {
         flex-direction: column;
     }
 
@@ -330,5 +351,15 @@ div.pr-info-container {
     div.select-button-container {
         flex-direction: column;
         gap: 0px;
+    }
+
+    div.record-button-container {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    div.nav-container {
+        flex-direction: column;
     }
 }

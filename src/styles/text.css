@@ -130,6 +130,14 @@ h1.recent-text {
     font-style: italic;
 }
 
+h1.quote {
+    color: var(--green);
+    font-style: italic;
+    font-size: 24px;
+    margin-top: 0px;
+    text-align: center;
+}
+
 /***************** DIFFERENT VIEW PORTS *****************/
 
 /* Tablet */

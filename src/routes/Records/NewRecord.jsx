@@ -15,7 +15,7 @@ function initializeRecord() {
     };
 }
 
-export default function NewRecord() {
+export default function NewRecord({ setPrButtonState }) {
     const alert = useAlert();
     const [date, changeDate] = useState(new Date());
     const [prType, setPrType] = useState('Lift');
@@ -80,20 +80,37 @@ export default function NewRecord() {
                     />
                 </div>
             </div>
-            <button
-                className={filled ? 'selected' : 'not-selected'}
-                onClick={() => {
-                    if (filled) {
-                        alert.success('Storing new personal record!');
-                    } else {
-                        alert.error(
-                            'Fill out the required fields to add new records'
-                        );
-                    }
-                }}
-            >
-                <i className="fas fa-pencil-alt" /> Save
-            </button>
+
+            <div className="record-button-container">
+                <div>
+                    <button
+                        className="secondary-button"
+                        onClick={() => {
+                            setPrButtonState('unclicked');
+                        }}
+                    >
+                        <i className="fas fa-undo"></i> Back
+                    </button>
+                </div>
+
+                <div>
+                    <button
+                        className={filled ? 'selected' : 'not-selected'}
+                        onClick={() => {
+                            if (filled) {
+                                alert.success('Storing new personal record!');
+                                setPrButtonState('unclicked'); //Reset state to allow user to log more records
+                            } else {
+                                alert.error(
+                                    'Fill out the required fields to add new records'
+                                );
+                            }
+                        }}
+                    >
+                        <i className="fas fa-pencil-alt" /> Save
+                    </button>
+                </div>
+            </div>
         </>
     );
 }

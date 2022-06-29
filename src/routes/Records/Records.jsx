@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NewRecord from './NewRecord';
+
 export default function Records() {
     const [prButtonClicked, setPrButtonState] = useState('unclicked');
 
@@ -12,7 +13,7 @@ export default function Records() {
                         <i className="fas fa-plus" /> New PR
                     </button>
                 ) : (
-                    <NewRecord />
+                    <NewRecord setPrButtonState={setPrButtonState} />
                 )}
             </div>
         </div>
