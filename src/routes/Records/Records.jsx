@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import NewRecord from './NewRecord';
+import { motion } from 'framer-motion';
 
 export default function Records() {
     const [prButtonClicked, setPrButtonState] = useState('unclicked');
 
     return (
-        <div className="records-container">
+        <motion.div
+            className="records-container"
+            initial={{ width: 0 }}
+            animate={{ width: '100%' }}
+            exit={{ x: window.innerWidth, transition: { duration: 0.05 } }}
+        >
             <h2 className="record-h">My Personal Records</h2>
 
             <div>
@@ -18,6 +24,6 @@ export default function Records() {
                 )}
             </div>
             <p>No records found</p>
-        </div>
+        </motion.div>
     );
 }

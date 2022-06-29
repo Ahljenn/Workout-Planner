@@ -1,7 +1,7 @@
+import { AnimatedRoutes } from './routes/AnimatedRoutes';
 import './styles/App.css';
 import React from 'react';
-import Home from './routes/Home/Home';
-import Records from './routes/Records/Records';
+
 import Header from './components/ui/Header';
 import SplitDisplay from './components/ui/SplitDisplay';
 import { options } from './data/alert-options';
@@ -15,10 +15,7 @@ export default function App() {
             <Router>
                 <Header />
                 <SplitDisplay />
-                <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/my-prs" element={<Records />} />
-                </Routes>
+                <AnimatedRoutes />
             </Router>
         </Provider>
     );
