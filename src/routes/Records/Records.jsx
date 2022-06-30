@@ -29,7 +29,12 @@ export default function Records() {
                 <p>No records found</p>
             ) : (
                 Object.values(userRecord).map((key) => {
-                    console.log(key); //Continue here
+                    return (
+                        <div className="record">
+                            <h2>{key.name + ' ' + key.prType}</h2>
+                            <p>{key.weight || key.time}</p>
+                        </div>
+                    );
                 })
             )}
         </motion.div>

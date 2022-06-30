@@ -103,12 +103,23 @@ export default function NewRecord({ setPrButtonState }) {
                             if (filled) {
                                 console.log('Sending', record);
                                 let prevRecords = ReactSession.get('Record'); //Get previous records, if any
+
                                 if (prevRecords === undefined) {
-                                    ReactSession.set('Record', [record]); //Set first element
+                                    ReactSession.set('Record', [
+                                        {
+                                            ...record,
+                                            prType: prType,
+                                            date: date,
+                                        },
+                                    ]); //Set first element
                                 } else {
                                     ReactSession.set('Record', [
                                         ...prevRecords,
-                                        record,
+                                        {
+                                            ...record,
+                                            prType: prType,
+                                            date: date,
+                                        },
                                     ]);
                                 }
 

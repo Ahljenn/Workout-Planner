@@ -11,7 +11,7 @@ export function CardioInput({ setRecord, record }) {
                 placeholder="Workout Name"
             ></input>
             <input
-                type="number"
+                type="text"
                 value={record.time}
                 onChange={(e) => {
                     setRecord({ ...record, time: e.target.value });
