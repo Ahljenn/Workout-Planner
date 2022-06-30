@@ -32,19 +32,23 @@ export default function Records() {
                 Object.values(userRecord).map((key) => {
                     return (
                         <div className="record" key={key.date}>
-                            <h2>{`${key.prType}: ${key.name}`}</h2>
-                            <h3>{key.date}</h3>
-                            <p>
+                            <h2 className="record-title-text">
+                                <i className="fas fa-times-circle"></i>{' '}
+                                {`${key.prType}: ${key.name}`}
+                            </h2>
+
+                            <p className="date">{key.date}</p>
+                            <h2 className="record-info-text">
                                 {key.time === ''
                                     ? `Weight: ${key.weight}`
                                     : `Time: ${key.time}`}
-                            </p>
-                            <p>
+                            </h2>
+                            <h2 className="record-info-text">
                                 {key.reps === '' ? '' : `Rep(s): ${key.reps}`}
-                            </p>
-                            <p>
+                            </h2>
+                            <h2 className="record-info-text">
                                 {key.notes === '' ? '' : `Notes: ${key.notes}`}
-                            </p>
+                            </h2>
                         </div>
                     );
                 })

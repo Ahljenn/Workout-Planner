@@ -41,6 +41,7 @@ p.minute-text {
     font-style: italic;
 }
 
+h2.record-info-text,
 h2.set-title-text,
 h2.set-title-text-none {
     font-size: 20px;
@@ -52,7 +53,8 @@ h2.set-title-text-none {
     color: var(--green);
 }
 
-h2.today {
+h2.today,
+h2.record-title-text {
     font-size: 28px;
     color: var(--steel);
     font-weight: 700;
@@ -190,6 +192,12 @@ h1.quote {
     b.weight,
     h2.calculation-type-text,
     h2.record-h {
+        font-size: 18px;
+    }
+
+    h2.record-info-text,
+    h2.set-title-text,
+    h2.set-title-text-none {
         font-size: 18px;
     }
 }
