@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ReactSession } from 'react-client-session';
 
 export default function Records() {
+    ReactSession.setStoreType('localStorage');
     const userRecord = ReactSession.get('Record');
     const [prButtonClicked, setPrButtonState] = useState('unclicked');
 
@@ -30,9 +31,20 @@ export default function Records() {
             ) : (
                 Object.values(userRecord).map((key) => {
                     return (
-                        <div className="record">
-                            <h2>{key.name + ' ' + key.prType}</h2>
-                            <p>{key.weight || key.time}</p>
+                        <div className="record" key={key.date}>
+                            <h2>{`${key.prType}: ${key.name}`}</h2>
+                            <h3>{key.date}</h3>
+                            <p>
+                                {key.time === ''
+                                    ? `Weight: ${key.weight}`
+                                    : `Time: ${key.time}`}
+                            </p>
+                            <p>
+                                {key.reps === '' ? '' : `Rep(s): ${key.reps}`}
+                            </p>
+                            <p>
+                                {key.notes === '' ? '' : `Notes: ${key.notes}`}
+                            </p>
                         </div>
                     );
                 })
