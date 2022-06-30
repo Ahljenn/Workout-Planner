@@ -1,8 +1,10 @@
+import React, { useState, useEffect } from 'react';
 import { CardioInput } from './CardioInput';
 import { LiftInput } from './LiftInput';
-import React, { useState, useEffect } from 'react';
 import { useAlert } from 'react-alert';
 import DatePicker from 'react-datepicker';
+import * as ajax from '../../helpers/ajax';
+import { ReactSession } from 'react-client-session';
 import 'react-datepicker/dist/react-datepicker.css';
 
 function initializeRecord() {
@@ -16,6 +18,7 @@ function initializeRecord() {
 }
 
 export default function NewRecord({ setPrButtonState }) {
+    ReactSession.setStoreType('localStorage');
     const alert = useAlert();
     const [date, changeDate] = useState(new Date());
     const [prType, setPrType] = useState('Lift');
@@ -96,9 +99,24 @@ export default function NewRecord({ setPrButtonState }) {
                 <div>
                     <button
                         className={filled ? 'selected' : 'not-selected'}
-                        onClick={() => {
+                        onClick={async () => {
                             if (filled) {
-                                alert.success('Storing new personal record!');
+                                console.log('Sending', record);
+                                let prevRecords = ReactSession.get('Record'); //Get previous records, if any
+                                if (prevRecords === undefined) {
+                                    ReactSession.set('Record', [record]); //Set first element
+                                } else {
+                                    ReactSession.set('Record', [
+                                        ...prevRecords,
+                                        record,
+                                    ]);
+                                }
+
+                                // await ajax.sendPostRequest(
+                                //     '/query/insertNewRecord',
+                                //     { ...record, prType: prType }
+                                // );
+                                alert.success('Stored new personal record!');
                                 setPrButtonState('unclicked'); //Reset state to allow user to log more records
                             } else {
                                 alert.error(

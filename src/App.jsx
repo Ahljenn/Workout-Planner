@@ -7,7 +7,7 @@ import SplitDisplay from './components/ui/SplitDisplay';
 import { options } from './data/alert-options';
 import { Provider } from 'react-alert';
 import AlertMUITemplate from 'react-alert-template-mui';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router } from 'react-router-dom';
 
 export default function App() {
     return (

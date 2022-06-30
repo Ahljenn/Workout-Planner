@@ -129,7 +129,12 @@ export default function Calculator() {
                             }}
                         >
                             {Object.keys(calculationTypeList).map((item) => {
-                                return <option value={item}> {item}</option>;
+                                return (
+                                    <option value={item} key={item}>
+                                        {' '}
+                                        {item}
+                                    </option>
+                                );
                             })}
                         </select>
                     </div>

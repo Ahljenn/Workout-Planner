@@ -5,9 +5,9 @@ import * as ajax from '../../helpers/ajax';
 import * as util from '../../helpers/util';
 import builder from '../../helpers/builder';
 import { useAlert } from 'react-alert';
-ReactSession.setStoreType('localStorage');
 
 export default function Generator(props) {
+    ReactSession.setStoreType('localStorage');
     const [isPending, startTransition] = useTransition();
     const alert = useAlert();
     let tempData = [];

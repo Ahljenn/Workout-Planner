@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import NewRecord from './NewRecord';
 import { motion } from 'framer-motion';
+import { ReactSession } from 'react-client-session';
 
 export default function Records() {
+    const userRecord = ReactSession.get('Record');
     const [prButtonClicked, setPrButtonState] = useState('unclicked');
 
     return (
@@ -23,7 +25,13 @@ export default function Records() {
                     <NewRecord setPrButtonState={setPrButtonState} />
                 )}
             </div>
-            <p>No records found</p>
+            {userRecord === undefined ? (
+                <p>No records found</p>
+            ) : (
+                Object.values(userRecord).map((key) => {
+                    console.log(key); //Continue here
+                })
+            )}
         </motion.div>
     );
 }
