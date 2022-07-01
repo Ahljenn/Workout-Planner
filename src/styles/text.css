@@ -132,6 +132,10 @@ h1.recent-text {
     font-style: italic;
 }
 
+h2#dark {
+    color: var(--green);
+}
+
 h1.quote {
     color: var(--green);
     font-style: italic;

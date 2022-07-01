@@ -29,29 +29,34 @@ export default function Records() {
             {userRecord === undefined ? (
                 <p>No records found</p>
             ) : (
-                Object.values(userRecord).map((key) => {
-                    return (
-                        <div className="record" key={key.date}>
-                            <h2 className="record-title-text">
-                                <i className="fas fa-times-circle"></i>{' '}
-                                {`${key.prType}: ${key.name}`}
-                            </h2>
+                <div className="main-record-container">
+                    {Object.values(userRecord).map((key) => {
+                        return (
+                            <div
+                                className="record"
+                                key={key.date}
+                                title={key.notes}
+                            >
+                                <h2 className="record-title-text">
+                                    <i className="fas fa-times-circle"></i>{' '}
+                                    {`${key.prType}: ${key.name}`}
+                                </h2>
 
-                            <p className="date">{key.date}</p>
-                            <h2 className="record-info-text">
-                                {key.time === ''
-                                    ? `Weight: ${key.weight}`
-                                    : `Time: ${key.time}`}
-                            </h2>
-                            <h2 className="record-info-text">
-                                {key.reps === '' ? '' : `Rep(s): ${key.reps}`}
-                            </h2>
-                            <h2 className="record-info-text">
-                                {key.notes === '' ? '' : `Notes: ${key.notes}`}
-                            </h2>
-                        </div>
-                    );
-                })
+                                <p className="date">{key.date}</p>
+                                <h2 className="record-info-text" id="dark">
+                                    {key.time === ''
+                                        ? `Weight: ${key.weight}`
+                                        : `Time: `}
+                                </h2>
+                                <h2 className="record-info-text">
+                                    {key.reps === ''
+                                        ? `${key.time}`
+                                        : `Rep(s): ${key.reps}`}
+                                </h2>
+                            </div>
+                        );
+                    })}
+                </div>
             )}
         </motion.div>
     );

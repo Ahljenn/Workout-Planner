@@ -242,7 +242,12 @@ div.records-container {
 }
 
 div.record {
-    margin-bottom: 70px;
+    margin-bottom: 20px;
+}
+
+div.main-record-container {
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 /* New Record*/
@@ -326,6 +331,10 @@ div.record-button-container {
 
 /* Phone */
 @media screen and (max-width: 480px) {
+    div.marquee {
+        display: none;
+    }
+
     div.calculator-interaction {
         flex-direction: column;
     }
