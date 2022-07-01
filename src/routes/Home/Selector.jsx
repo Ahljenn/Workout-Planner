@@ -1,6 +1,9 @@
 import React from 'react';
+import { ReactSession } from 'react-client-session';
 
 export function Selector({ props }) {
+    ReactSession.setStoreType('localStorage');
+
     return (
         <div className="continue-container">
             <h2 className="select-text">Select a workout group </h2>
